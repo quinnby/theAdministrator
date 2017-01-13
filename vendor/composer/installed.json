@@ -424,63 +424,6 @@
         "description": "implementation of xdg base directory specification for php"
     },
     {
-        "name": "thomaswelton/gravatarlib",
-        "version": "0.1.0",
-        "version_normalized": "0.1.0.0",
-        "target-dir": "thomaswelton/GravatarLib",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/thomaswelton/gravatarlib.git",
-            "reference": "8a4e829c53ca2abb51ef2e514f696938a9bdbd0c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/thomaswelton/gravatarlib/zipball/8a4e829c53ca2abb51ef2e514f696938a9bdbd0c",
-            "reference": "8a4e829c53ca2abb51ef2e514f696938a9bdbd0c",
-            "shasum": ""
-        },
-        "require": {
-            "php": ">=5.3.0"
-        },
-        "suggest": {
-            "twig/twig": ">=1.4.0"
-        },
-        "time": "2014-03-02 18:29:18",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "thomaswelton\\GravatarLib\\": ""
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Sam Thompson",
-                "email": "sam@emberlabs.org"
-            },
-            {
-                "name": "Damian Bushong",
-                "email": "damian@emberlabs.org"
-            },
-            {
-                "name": "Thomas Welton",
-                "email": "thomaswelton@me.com",
-                "homepage": "https://github.com/thomaswelton",
-                "role": "Developer"
-            }
-        ],
-        "description": "A lightweight PHP 5.3 OOP library providing easy gravatar integration.",
-        "keywords": [
-            "gravatar",
-            "templating",
-            "twig"
-        ]
-    },
-    {
         "name": "vlucas/phpdotenv",
         "version": "v2.4.0",
         "version_normalized": "2.4.0.0",
@@ -530,63 +473,6 @@
             "dotenv",
             "env",
             "environment"
-        ]
-    },
-    {
-        "name": "thomaswelton/laravel-gravatar",
-        "version": "1.1.1",
-        "version_normalized": "1.1.1.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/thomaswelton/laravel-gravatar.git",
-            "reference": "b9eeb9c23123cc8547973e0ca33dc5898bb768b8"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/thomaswelton/laravel-gravatar/zipball/b9eeb9c23123cc8547973e0ca33dc5898bb768b8",
-            "reference": "b9eeb9c23123cc8547973e0ca33dc5898bb768b8",
-            "shasum": ""
-        },
-        "require": {
-            "illuminate/support": "~5.0",
-            "php": ">=5.4.0",
-            "thomaswelton/gravatarlib": "0.1.x"
-        },
-        "require-dev": {
-            "mockery/mockery": "0.9.*",
-            "phpunit/phpunit": "4.8.*"
-        },
-        "time": "2015-12-19 15:44:13",
-        "type": "library",
-        "installation-source": "dist",
-        "autoload": {
-            "psr-4": {
-                "Thomaswelton\\LaravelGravatar\\": "src/",
-                "Thomaswelton\\Tests\\LaravelGravatar\\": "tests/"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "ThomasWelton",
-                "email": "thomaswelton@me.com",
-                "role": "Developer"
-            },
-            {
-                "name": "Antoine Augusti",
-                "email": "antoine.augusti@gmail.com",
-                "role": "Developer"
-            }
-        ],
-        "description": "Laravel 5 Gravatar helper",
-        "homepage": "https://github.com/thomaswelton/laravel-gravatar",
-        "keywords": [
-            "gravatar",
-            "laravel",
-            "laravel5"
         ]
     },
     {
@@ -3468,5 +3354,119 @@
         ],
         "description": "Symfony DomCrawler Component",
         "homepage": "https://symfony.com"
+    },
+    {
+        "name": "thomaswelton/gravatarlib",
+        "version": "0.1.0",
+        "version_normalized": "0.1.0.0",
+        "target-dir": "thomaswelton/GravatarLib",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/thomaswelton/gravatarlib.git",
+            "reference": "8a4e829c53ca2abb51ef2e514f696938a9bdbd0c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/thomaswelton/gravatarlib/zipball/8a4e829c53ca2abb51ef2e514f696938a9bdbd0c",
+            "reference": "8a4e829c53ca2abb51ef2e514f696938a9bdbd0c",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "suggest": {
+            "twig/twig": ">=1.4.0"
+        },
+        "time": "2014-03-02 18:29:18",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "thomaswelton\\GravatarLib\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Sam Thompson",
+                "email": "sam@emberlabs.org"
+            },
+            {
+                "name": "Damian Bushong",
+                "email": "damian@emberlabs.org"
+            },
+            {
+                "name": "Thomas Welton",
+                "email": "thomaswelton@me.com",
+                "homepage": "https://github.com/thomaswelton",
+                "role": "Developer"
+            }
+        ],
+        "description": "A lightweight PHP 5.3 OOP library providing easy gravatar integration.",
+        "keywords": [
+            "gravatar",
+            "templating",
+            "twig"
+        ]
+    },
+    {
+        "name": "thomaswelton/laravel-gravatar",
+        "version": "1.1.1",
+        "version_normalized": "1.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/thomaswelton/laravel-gravatar.git",
+            "reference": "b9eeb9c23123cc8547973e0ca33dc5898bb768b8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/thomaswelton/laravel-gravatar/zipball/b9eeb9c23123cc8547973e0ca33dc5898bb768b8",
+            "reference": "b9eeb9c23123cc8547973e0ca33dc5898bb768b8",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "~5.0",
+            "php": ">=5.4.0",
+            "thomaswelton/gravatarlib": "0.1.x"
+        },
+        "require-dev": {
+            "mockery/mockery": "0.9.*",
+            "phpunit/phpunit": "4.8.*"
+        },
+        "time": "2015-12-19 15:44:13",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Thomaswelton\\LaravelGravatar\\": "src/",
+                "Thomaswelton\\Tests\\LaravelGravatar\\": "tests/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "ThomasWelton",
+                "email": "thomaswelton@me.com",
+                "role": "Developer"
+            },
+            {
+                "name": "Antoine Augusti",
+                "email": "antoine.augusti@gmail.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "Laravel 5 Gravatar helper",
+        "homepage": "https://github.com/thomaswelton/laravel-gravatar",
+        "keywords": [
+            "gravatar",
+            "laravel",
+            "laravel5"
+        ]
     }
 ]
