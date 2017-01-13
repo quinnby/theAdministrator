@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Gentellela Alela! | </title>
+    <title>Log in to The Administrator</title>
     
     <!-- Bootstrap -->
     <link href="{{ asset("css/bootstrap.min.css") }}" rel="stylesheet">
@@ -25,9 +25,11 @@
     <div class="login_wrapper">
         <div class="animate form login_form">
             <section class="login_content">
+				<div>
+					<img src="{{ asset('/images/administratorlogo.gif') }}" alt="administrator_logo" />
+				</div>
                 <form method="post" action="{{ url('/login') }}">
                     {!! csrf_field() !!}
-                    
                     <h1>Login Form</h1>
                     <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
                         <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email">
@@ -65,7 +67,6 @@
                         <br />
                         
                         <div>
-                            <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
                             <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
                         </div>
                     </div>
