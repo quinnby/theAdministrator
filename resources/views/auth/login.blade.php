@@ -26,11 +26,11 @@
         <div class="animate form login_form">
             <section class="login_content">
 				<div>
-					<img src="{{ asset('/images/administratorlogo.gif') }}" alt="administrator_logo" />
+					<img src="{{ asset('/images/administratorlogo.gif') }}" ""alt="administrator_logo" />
 				</div>
                 <form method="post" action="{{ url('/login') }}">
                     {!! csrf_field() !!}
-                    <h1>Login Form</h1>
+                    <h1>Please Sign In</h1>
                     <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
                         <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email">
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
