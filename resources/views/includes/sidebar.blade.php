@@ -33,10 +33,9 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0)">
+                        <a href="{{ url('/admin') }}">
                             <i class="fa fa-users"></i>
                             Administrator Settings
-                            <span class="label label-success pull-right">Flag</span>
                         </a>
                     </li>
                 </ul>
