@@ -301,7 +301,7 @@ class ComposerStaticInit3641ab4b2c1e20e2ae40a377b7186713
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
         'CreatePerformanceNote' => __DIR__ . '/../..' . '/database/migrations/2017_01_31_162110_create_performance_note.php',
         'CreateSchedule' => __DIR__ . '/../..' . '/database/migrations/2017_01_31_164451_create_schedule.php',
-        'CreateTasks' => __DIR__ . '/../..' . '/database/migrations/2017_01_31_164927_create_tasks.php',
+        'CreateTaskTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_01_174721_create_task_table.php',
         'CreateUserType' => __DIR__ . '/../..' . '/database/migrations/2017_01_31_160711_create_user_type.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',

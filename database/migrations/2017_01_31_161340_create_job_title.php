@@ -17,6 +17,15 @@ class CreateJobTitle extends Migration
             $table->increments('id');
             $table->string('title');
         });
+
+
+         DB::table('JobTitle')->insert([
+            [
+                'id'=>1,
+                'title'=>"Professional I.T Person"
+            ]
+
+        ]);
     }
 
     /**

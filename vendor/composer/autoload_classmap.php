@@ -14,7 +14,7 @@ return array(
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreatePerformanceNote' => $baseDir . '/database/migrations/2017_01_31_162110_create_performance_note.php',
     'CreateSchedule' => $baseDir . '/database/migrations/2017_01_31_164451_create_schedule.php',
-    'CreateTasks' => $baseDir . '/database/migrations/2017_01_31_164927_create_tasks.php',
+    'CreateTaskTable' => $baseDir . '/database/migrations/2017_02_01_174721_create_task_table.php',
     'CreateUserType' => $baseDir . '/database/migrations/2017_01_31_160711_create_user_type.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',

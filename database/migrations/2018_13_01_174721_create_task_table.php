@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDepartment extends Migration
+class CreateTaskTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,14 @@ class CreateDepartment extends Migration
      */
     public function up()
     {
-        Schema::create('Department', function (Blueprint $table) {
+        Schema::create('Tasks', function (Blueprint $table) {
             $table->increments('id');
-
             $table->integer('userId');
-
             $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
-
-            $table->string('department');
-            $table->string('description');
+            $table->string('taskName');
+            $table->string('taskDescription');
+            $table->date('date');
+            $table->boolean('completed');
         });
     }
 
@@ -32,6 +31,6 @@ class CreateDepartment extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Department');
+        Schema::dropIfExists('Tasks');
     }
 }

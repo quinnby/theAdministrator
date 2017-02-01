@@ -17,6 +17,12 @@ class CreateUserType extends Migration
             $table->increments('id');
             $table->string('userType');
         });
+
+        DB::table('UserType')->insert([
+            [
+                'userType'=>"Admin"
+            ]
+            ]);
     }
 
     /**
