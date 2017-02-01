@@ -34,8 +34,8 @@
                     </li>
                     <li>
                         <a href="javascript:void(0)">
-                            <i class="fa fa-laptop"></i>
-                            One link
+                            <i class="fa fa-users"></i>
+                            Administrator Settings
                             <span class="label label-success pull-right">Flag</span>
                         </a>
                     </li>
