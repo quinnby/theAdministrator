@@ -19,7 +19,7 @@ class CreatePerformanceNote extends Migration
             $table->date('noteDate');
             $table->string('note');
             $table->integer('userId');
-            $table->foreign('userId')->references('id')->on('users');
+            $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
     
         });
     }
