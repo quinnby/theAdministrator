@@ -14,7 +14,7 @@ class CreateEmployeePay extends Migration
     public function up()
     {
         Schema::create('EmployeePay', function (Blueprint $table) {
-            $table->integer('userId')->unsigned();
+            $table->integer('userId');
             $table->foreign('userId')->references('id')->on('users');
             $table->double('hourlyRate');
             $table->double('salary');

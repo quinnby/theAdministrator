@@ -20,9 +20,9 @@ class AddFieldsToUsersTable extends Migration
             $table->date('endDate');
             $table->string('primaryPhone');
             $table->string('secondaryPhone');
-            $table->integer('titleId')->unsigned();
+            $table->integer('titleId');
             $table->foreign('titleId')->references('id')->on('JobTitle');
-            $table->integer('departmentId')->unsigned();
+            $table->integer('departmentId');
             $table->foreign('departmentId')->references('id')->on('Department');
             $table->string('address');
             $table->string('city');
@@ -32,7 +32,6 @@ class AddFieldsToUsersTable extends Migration
             $table->foreign('userTypeId')->references('id')->on('UserType');
             $table->integer('noteId');
             $table->foreign('noteId')->references('id')->on('PerformanceNotes');
-
 
         });
     }

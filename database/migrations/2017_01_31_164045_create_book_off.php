@@ -14,7 +14,7 @@ class CreateBookOff extends Migration
     public function up()
     {
         Schema::create('BookOff', function (Blueprint $table) {
-            $table->integer('userId')->unsigned();
+            $table->integer('userId');
             $table->foreign('userId')->references('id')->on('users');
             $table->date('startDate');
             $table->date('endDate');
