@@ -32,12 +32,12 @@
                             <li><a href="#">Link 3</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="javascript:void(0)">
-                            <i class="fa fa-laptop"></i>
-                            One link
-                            <span class="label label-success pull-right">Flag</span>
-                        </a>
+                     <li><a><i class="fa fa-users"></i> Administrator <span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ url('/manage_users') }}">Manage Users</a></li>
+                            <li><a href="{{ url('/manage_departments') }}">Manage Departments</a></li>
+                            <li><a href="{{ url('/manage_security') }}">Manage Security</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
