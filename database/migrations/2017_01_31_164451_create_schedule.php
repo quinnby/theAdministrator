@@ -14,13 +14,13 @@ class CreateSchedule extends Migration
     public function up()
     {
         Schema::create('Schedule', function (Blueprint $table) {
-            $table->increments('id');
             $table->integer('userId')->unsigned();
             $table->foreign('userId')->references('id')->on('users');
             $table->date('scheduleStart');
             $table->date('scheduleEnd');
             $table->dateTime('timeStarted');
             $table->dateTime('timeFinished');
+            $table->primary(array('userId', 'scheduleStart'));
         });
     }
 

@@ -14,13 +14,12 @@ class CreateEmployeePay extends Migration
     public function up()
     {
         Schema::create('EmployeePay', function (Blueprint $table) {
-            $table->increments('id');
             $table->integer('userId')->unsigned();
             $table->foreign('userId')->references('id')->on('users');
             $table->double('hourlyRate');
             $table->double('salary');
             $table->date('date');
-            
+            $table->primary(array('date', 'userId'));
         });
     }
 

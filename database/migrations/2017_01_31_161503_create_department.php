@@ -18,7 +18,7 @@ class CreateDepartment extends Migration
             $table->integer('userId')->unsigned();
             $table->foreign('userId')->references('id')->on('users');
             $table->string('department');
-            $table->strign('description');
+            $table->string('description');
         });
     }
 
