@@ -13,7 +13,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Contacts Design</h3>
+                <h3>User Management</h3>
               </div>
 
               <div class="title_right">
@@ -29,7 +29,8 @@
             </div>
 
             <div class="clearfix"></div>
-
+              <button class="btn btn-round btn-success" type="button">Create Employee
+              <i class="fa fa-user"> </i></button>
             <div class="row">
               <div class="col-md-12">
                 <div class="x_panel">
@@ -400,6 +401,7 @@
             </div>
           </div>
         </div>
+    <!-- footer content -->
     <footer>
         <div class="pull-right">
             Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
