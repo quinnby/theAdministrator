@@ -9,6 +9,12 @@ class ManageUsersController extends Controller
 {
     public function index()
     {
-        return view('users');
+        return view('manage_users');
+    }
+    
+        public function create()
+    {
+        return view('create_user');
     }
 }
+?>

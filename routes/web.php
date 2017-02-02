@@ -18,3 +18,4 @@ Route::get('/userprofile', 'UserProfileController@index');
 Route::get('/manage_users','ManageUsersController@index');
 Route::get('/manage_security','ManageSecurityController@index');
 Route::get('/manage_departments','ManageDepartmentsController@index');
+Route::get('/create_user','ManageUsersController@create');
