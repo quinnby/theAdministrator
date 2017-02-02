@@ -33,6 +33,6 @@ class CreateBookOff extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('BookOff');
+        Schema::dropIfExists('book_off');
     }
 }

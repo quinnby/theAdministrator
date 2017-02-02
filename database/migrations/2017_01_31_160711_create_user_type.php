@@ -18,7 +18,7 @@ class CreateUserType extends Migration
             $table->string('userType');
         });
 
-        DB::table('UserType')->insert([
+        DB::table('user_type')->insert([
             [
                 'userType'=>"Admin"
             ]
@@ -32,6 +32,6 @@ class CreateUserType extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('UserType');
+        Schema::dropIfExists('user_type');
     }
 }

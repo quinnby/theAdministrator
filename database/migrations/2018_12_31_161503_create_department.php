@@ -23,7 +23,7 @@ class CreateDepartment extends Migration
             $table->string('description');
         });
 
-        DB::table('Department')->insert([
+        DB::table('department')->insert([
             [
                 
                 'department'=> "I.T department",
@@ -41,6 +41,6 @@ class CreateDepartment extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Department');
+        Schema::dropIfExists('department');
     }
 }

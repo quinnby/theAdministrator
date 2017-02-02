@@ -34,6 +34,6 @@ class CreateSchedule extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Schedule');
+        Schema::dropIfExists('schedule');
     }
 }

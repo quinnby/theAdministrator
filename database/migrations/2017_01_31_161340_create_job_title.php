@@ -19,7 +19,7 @@ class CreateJobTitle extends Migration
         });
 
 
-         DB::table('JobTitle')->insert([
+         DB::table('job_title')->insert([
             [
                 'id'=>1,
                 'title'=>"Professional I.T Person"
@@ -35,6 +35,6 @@ class CreateJobTitle extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('JobTitle');
+        Schema::dropIfExists('job_title');
     }
 }

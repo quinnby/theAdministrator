@@ -21,17 +21,17 @@ class AddFieldsToUsersTable extends Migration
             $table->string('primaryPhone')->nullable();
             $table->string('secondaryPhone')->nullable();
             $table->integer('titleId')->nullable();
-            $table->foreign('titleId')->references('id')->on('JobTitle')->nullable();
+            $table->foreign('titleId')->references('id')->on('job_title')->nullable();
             $table->integer('departmentId')->nullable();
-            $table->foreign('departmentId')->references('id')->on('Department')->nullable();
+            $table->foreign('departmentId')->references('id')->on('department')->nullable();
             $table->string('address')->nullable();
             $table->string('city')->nullable();
             $table->string('postalCode')->nullable();
             $table->string('sinNumber')->nullable();
             $table->integer('userTypeId')->nullable();
-            $table->foreign('userTypeId')->references('id')->on('UserType');
+            $table->foreign('userTypeId')->references('id')->on('user_type');
             $table->integer('noteId')->nullable();
-            $table->foreign('noteId')->references('id')->on('PerformanceNotes')->nullable();
+            $table->foreign('noteId')->references('id')->on('performance_notes')->nullable();
         });
 
         DB::table('users')->insert([

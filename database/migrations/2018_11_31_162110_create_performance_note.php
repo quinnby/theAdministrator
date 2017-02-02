@@ -32,6 +32,6 @@ class CreatePerformanceNote extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('PerformanceNotes');
+        Schema::dropIfExists('performance_notes');
     }
 }

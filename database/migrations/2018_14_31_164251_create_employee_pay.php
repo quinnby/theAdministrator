@@ -33,6 +33,6 @@ class CreateEmployeePay extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('EmployeePay');
+        Schema::dropIfExists('employee_pay');
     }
 }
