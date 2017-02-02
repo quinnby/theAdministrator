@@ -23,50 +23,14 @@
         <!-- sidebar menu -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
-
-                <h3>Group 1</h3>
                 <ul class="nav side-menu">
-                    <li><a><i class="fa fa-home"></i> Multiple link <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="#">Link 1</a></li>
-                            <li><a href="#">Link 2</a></li>
-                            <li><a href="#">Link 3</a></li>
-                        </ul>
+                    <li><a href="{{ url('/user_profile') }}"><i class="fa fa-home"></i> Main Page</a>
                     </li>
                      <li><a><i class="fa fa-users"></i> Administrator <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/manage_users') }}">Manage Users</a></li>
                             <li><a href="{{ url('/manage_departments') }}">Manage Departments</a></li>
                             <li><a href="{{ url('/manage_security') }}">Manage Security</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="menu_section">
-                <h3>Group 2</h3>
-                <ul class="nav side-menu">
-                    <li>
-                        <a><i class="fa fa-sitemap"></i> Multilevel Menu <span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li>
-                                <a href="#">Level One</a>
-                                <li>
-                                    <a>Level One<span class="fa fa-chevron-down"></span></a>
-                                    <ul class="nav child_menu">
-                                        <li class="sub_menu">
-                                            <a href="#">Level Two</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Level Two</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Level Two</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            <li>
-                                <a href="#">Level One</a>
-                            </li>
                         </ul>
                     </li>
                 </ul>
