@@ -13,7 +13,7 @@ class CreateDepartment extends Migration
      */
     public function up()
     {
-        Schema::create('department', function (Blueprint $table) {
+        Schema::create('departments', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('userId')->nullable();
 
@@ -23,7 +23,7 @@ class CreateDepartment extends Migration
             $table->string('description');
         });
 
-        DB::table('department')->insert([
+        DB::table('departments')->insert([
             [
                 
                 'department'=> "I.T department",
@@ -41,6 +41,6 @@ class CreateDepartment extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('department');
+        Schema::dropIfExists('departments');
     }
 }

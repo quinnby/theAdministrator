@@ -13,7 +13,7 @@ class CreateBookOff extends Migration
      */
     public function up()
     {
-        Schema::create('book_off', function (Blueprint $table) {
+        Schema::create('book_offs', function (Blueprint $table) {
 
             $table->integer('userId');
 
@@ -33,6 +33,6 @@ class CreateBookOff extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('book_off');
+        Schema::dropIfExists('book_offs');
     }
 }

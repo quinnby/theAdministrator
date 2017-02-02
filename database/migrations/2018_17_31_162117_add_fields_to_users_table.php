@@ -21,15 +21,15 @@ class AddFieldsToUsersTable extends Migration
             $table->string('primaryPhone')->nullable();
             $table->string('secondaryPhone')->nullable();
             $table->integer('titleId')->nullable();
-            $table->foreign('titleId')->references('id')->on('job_title')->nullable();
+            $table->foreign('titleId')->references('id')->on('job_titles')->nullable();
             $table->integer('departmentId')->nullable();
-            $table->foreign('departmentId')->references('id')->on('department')->nullable();
+            $table->foreign('departmentId')->references('id')->on('departments')->nullable();
             $table->string('address')->nullable();
             $table->string('city')->nullable();
             $table->string('postalCode')->nullable();
             $table->string('sinNumber')->nullable();
             $table->integer('userTypeId')->nullable();
-            $table->foreign('userTypeId')->references('id')->on('user_type');
+            $table->foreign('userTypeId')->references('id')->on('user_types');
             $table->integer('noteId')->nullable();
             $table->foreign('noteId')->references('id')->on('performance_notes')->nullable();
         });

@@ -13,7 +13,7 @@ class CreateEmployeePay extends Migration
      */
     public function up()
     {
-        Schema::create('employee_pay', function (Blueprint $table) {
+        Schema::create('employee_pays', function (Blueprint $table) {
 
             $table->integer('userId');
 
@@ -33,6 +33,6 @@ class CreateEmployeePay extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employee_pay');
+        Schema::dropIfExists('employee_pays');
     }
 }

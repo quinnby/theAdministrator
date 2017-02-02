@@ -13,13 +13,13 @@ class CreateJobTitle extends Migration
      */
     public function up()
     {
-        Schema::create('job_title', function (Blueprint $table) {
+        Schema::create('job_titles', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
         });
 
 
-         DB::table('job_title')->insert([
+         DB::table('job_titles')->insert([
             [
                 'id'=>1,
                 'title'=>"Professional I.T Person"
@@ -35,6 +35,6 @@ class CreateJobTitle extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('job_title');
+        Schema::dropIfExists('job_titles');
     }
 }
