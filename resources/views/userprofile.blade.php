@@ -3,46 +3,25 @@
 @push('stylesheets')
     <!-- Example -->
     <!--<link href=" <link href="{{ asset("css/myFile.min.css") }}" rel="stylesheet">" rel="stylesheet">-->
-    <!-- bootstrap-daterangepicker -->
-   <link href="{{ asset("js/bootstrap-daterangepicker/daterangepicker.css") }}" rel="stylesheet">
 @endpush
 
 @section('main_container')
 
-    
-<body class="nav-md">
-    <div class="container body">
-      <div class="main_container">
-     
-        <!-- page content -->
-        <div class="right_col" role="main">
+<!-- page content -->
+    <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
               <div class="title_left">
                 <h3>User Profile</h3>
               </div>
-            </div>
-
+     
+<div class="clearfix"></div>
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>User Report</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
+                    
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
@@ -116,9 +95,6 @@
                           </div>
                         </div>
                       </div>
-                      <!-- start of user-activity-graph -->
-                      <div id="graph_bar" style="width:100%; height:280px;"></div>
-                      <!-- end of user-activity-graph -->
 
                       <div class="" role="tabpanel" data-example-id="togglable-tabs">
                         <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
@@ -279,143 +255,12 @@
             </div>
           </div>
         </div>
-        <!-- /page content -->
-
-        
-      </div>
-    </div>
-
-    <!-- jQuery -->
-    <script src="{{ asset("js/dist/jquery.min.js") }}"></script>
-
-    <!-- Bootstrap -->
-    <script src="{{ asset("js/bootstrap.min.js") }}"></script>
-    <!-- FastClick -->
-    <script src="{{ asset("js/fastclick/lib/fastclick.js") }}"></script>
-    <!-- NProgress -->
-    <script src="{{ asset("js/nprogress/nprogress.js") }}"></script>
-    <!-- morris.js -->
-    <script src="{{ asset("js/raphael.min.js") }}"></script>
-    <script src="{{ asset("js/morris.js/morris.min.js") }}"></script>
-    <!-- bootstrap-progressbar -->
-    <script src="{{ asset("js/bootstrap-progressbar/bootstrap-progressbar.min.js") }}"></script>
-    <!-- bootstrap-daterangepicker -->
-    <script src="{{ asset("js/moment/min/moment.min.js") }}"></script>
-    <script src="{{ asset("js/bootstrap/bootstrap-daterangepicker/daterangepicker.js") }}"></script>
-    
-    <!-- Custom Theme Scripts -->
-
-
-    <script>
-      $(function() {
-        Morris.Bar({
-          element: 'graph_bar',
-          data: [
-            { "period": "Jan", "Hours worked": 80 }, 
-            { "period": "Feb", "Hours worked": 125 }, 
-            { "period": "Mar", "Hours worked": 176 }, 
-            { "period": "Apr", "Hours worked": 224 }, 
-            { "period": "May", "Hours worked": 265 }, 
-            { "period": "Jun", "Hours worked": 314 }, 
-            { "period": "Jul", "Hours worked": 347 }, 
-            { "period": "Aug", "Hours worked": 287 }, 
-            { "period": "Sep", "Hours worked": 240 }, 
-            { "period": "Oct", "Hours worked": 211 }
-          ],
-          xkey: 'period',
-          hideHover: 'auto',
-          barColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
-          ykeys: ['Hours worked', 'sorned'],
-          labels: ['Hours worked', 'SORN'],
-          xLabelAngle: 60,
-          resize: true
-        });
-
-        $MENU_TOGGLE.on('click', function() {
-          $(window).resize();
-        });
-      });
-    </script>
-
-    <!-- datepicker -->
-    <script type="text/javascript">
-      $(document).ready(function() {
-
-        var cb = function(start, end, label) {
-          console.log(start.toISOString(), end.toISOString(), label);
-          $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-          //alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
-        }
-
-        var optionSet1 = {
-          startDate: moment().subtract(29, 'days'),
-          endDate: moment(),
-          minDate: '01/01/2012',
-          maxDate: '12/31/2015',
-          dateLimit: {
-            days: 60
-          },
-          showDropdowns: true,
-          showWeekNumbers: true,
-          timePicker: false,
-          timePickerIncrement: 1,
-          timePicker12Hour: true,
-          ranges: {
-            'Today': [moment(), moment()],
-            'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-            'This Month': [moment().startOf('month'), moment().endOf('month')],
-            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-          },
-          opens: 'left',
-          buttonClasses: ['btn btn-default'],
-          applyClass: 'btn-small btn-primary',
-          cancelClass: 'btn-small',
-          format: 'MM/DD/YYYY',
-          separator: ' to ',
-          locale: {
-            applyLabel: 'Submit',
-            cancelLabel: 'Clear',
-            fromLabel: 'From',
-            toLabel: 'To',
-            customRangeLabel: 'Custom',
-            daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-            monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-            firstDay: 1
-          }
-        };
-        $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
-        $('#reportrange').daterangepicker(optionSet1, cb);
-        $('#reportrange').on('show.daterangepicker', function() {
-          console.log("show event fired");
-        });
-        $('#reportrange').on('hide.daterangepicker', function() {
-          console.log("hide event fired");
-        });
-        $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
-          console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
-        });
-        $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
-          console.log("cancel event fired");
-        });
-        $('#options1').click(function() {
-          $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
-        });
-        $('#options2').click(function() {
-          $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
-        });
-        $('#destroy').click(function() {
-          $('#reportrange').data('daterangepicker').remove();
-        });
-      });
-    </script>
-    <!-- /datepicker -->
-  </body>
-    
-            
   
-              
+
+    <!-- Custom Theme Scripts Go Here -->
+
+    <!-- /page content -->
+
     <!-- footer content -->
     <footer>
         <div class="pull-right">
