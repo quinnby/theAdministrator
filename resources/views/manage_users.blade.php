@@ -29,8 +29,8 @@
             </div>
 
             <div class="clearfix"></div>
-              <button class="btn btn-round btn-success" type="button">Create Employee
-              <i class="fa fa-user"> </i></button>
+              <a href="{{ url('/create_user') }}"><button class="btn btn-round btn-success" type="button"> Create Employee
+              <i class="fa fa-user"> </i></button></a>
             <div class="row">
               <div class="col-md-12">
                 <div class="x_panel">
