@@ -14,7 +14,7 @@ class AddFieldsToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            //
+
             $table->date('birthDate')->nullable();
             $table->date('hireDate')->nullable();
             $table->date('endDate')->nullable();
@@ -32,7 +32,6 @@ class AddFieldsToUsersTable extends Migration
             $table->foreign('userTypeId')->references('id')->on('UserType');
             $table->integer('noteId')->nullable();
             $table->foreign('noteId')->references('id')->on('PerformanceNotes')->nullable();
-
         });
 
         DB::table('users')->insert([
@@ -50,8 +49,75 @@ class AddFieldsToUsersTable extends Migration
                 'city'=>"Oshawa",
                 'postalCode'=>"L1R-4H2",
                 'sinNumber'=>"123-456-789",
-                'userTypeId'=>1,
-                
+                'userTypeId'=>1
+            ],
+
+            [
+                'name'=>"Will",
+                'email'=>"will@laravel.com",
+                'password'=>bcrypt("password"),
+                'birthDate'=>"1980-01-01",
+                'hireDate'=>"2000-01-01",
+                'primaryPhone'=>"(111)-111-1111",
+                'secondaryPhone'=>"(222)-222-2222",
+                'titleId'=>1,
+                'departmentId'=>1,
+                'address'=>"address 1",
+                'city'=>"Oshawa",
+                'postalCode'=>"L1R-4H2",
+                'sinNumber'=>"123-456-789",
+                'userTypeId'=>1
+            ],
+
+            [
+                'name'=>"Quinn",
+                'email'=>"quinn@laravel.com",
+                'password'=>bcrypt("password"),
+                'birthDate'=>"1980-01-01",
+                'hireDate'=>"2000-01-01",
+                'primaryPhone'=>"(111)-111-1111",
+                'secondaryPhone'=>"(222)-222-2222",
+                'titleId'=>1,
+                'departmentId'=>1,
+                'address'=>"address 1",
+                'city'=>"Oshawa",
+                'postalCode'=>"L1R-4H2",
+                'sinNumber'=>"123-456-789",
+                'userTypeId'=>1
+            ],
+
+            [
+                'name'=>"Ellen",
+                'email'=>"ellen@laravel.com",
+                'password'=>bcrypt("password"),
+                'birthDate'=>"1980-01-01",
+                'hireDate'=>"2000-01-01",
+                'primaryPhone'=>"(111)-111-1111",
+                'secondaryPhone'=>"(222)-222-2222",
+                'titleId'=>1,
+                'departmentId'=>1,
+                'address'=>"address 1",
+                'city'=>"Oshawa",
+                'postalCode'=>"L1R-4H2",
+                'sinNumber'=>"123-456-789",
+                'userTypeId'=>1
+            ],
+
+            [
+                'name'=>"Josh",
+                'email'=>"josh@laravel.com",
+                'password'=>bcrypt("password"),
+                'birthDate'=>"1980-01-01",
+                'hireDate'=>"2000-01-01",
+                'primaryPhone'=>"(111)-111-1111",
+                'secondaryPhone'=>"(222)-222-2222",
+                'titleId'=>1,
+                'departmentId'=>1,
+                'address'=>"address 1",
+                'city'=>"Oshawa",
+                'postalCode'=>"L1R-4H2",
+                'sinNumber'=>"123-456-789",
+                'userTypeId'=>1
             ]
 
             ]);
