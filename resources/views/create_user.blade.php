@@ -20,7 +20,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="firstName"> First Name <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="firstName" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" name="firstName" required="required" type="text">
+                          <input id="firstName" class="form-control col-md-7 col-xs-12" data-validate-length-range="15" name="firstName" required="required" type="text">
                         </div>
                       </div>
                         
@@ -28,11 +28,11 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="lastName"> Last Name <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="lastName" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" name="lastName" required="required" type="text">
+                          <input id="lastName" class="form-control col-md-7 col-xs-12" data-validate-length-range="15" name="lastName" required="required" type="text">
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="number">S.I.N Number <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="SINnumber">S.I.N Number <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="text" id="SINnumber" name="SINnumber" required="required" data-validate-minmax="9,9" class="form-control col-md-7 col-xs-12" placeholder="999-999-999">
@@ -45,11 +45,54 @@
                           <input type="tel" id="telephone" name="phone" required="required" data-validate-length-range="8,20" class="form-control col-md-7 col-xs-12" placeholder="(999) 999 9999">
                         </div>
                       </div>
-                      <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="website">Birth Date <span class="required">*</span>
+                         <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="address"> Address <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="url" id="birthDate" name="birthDate" required="required" placeholder="DD/MM/YYYY" class="form-control col-md-7 col-xs-12">
+                          <input id="address" class="form-control col-md-7 col-xs-12" data-validate-length-range="20" name="address" required="required" type="text">
+                        </div>
+                      </div>
+                     <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="city"> City <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="city" class="form-control col-md-7 col-xs-12" data-validate-length-range="10" name="city" required="required" type="text">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Province
+                          <span class="required">*</span>
+                          </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="form-control" name="province">
+                            <option>Choose Province</option>
+                            <option>ON</option>
+                            <option>BC</option>
+                            <option>NB</option>
+                            <option>AB</option>
+                            <option>MB</option>
+                            <option>NL</option>
+                            <option>NS</option>
+                            <option>NT</option>
+                            <option>NU</option>
+                            <option>PE</option>
+                            <option>QC</option>
+                            <option>YT</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="postal"> Postal Code <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input id="city" class="form-control col-md-7 col-xs-12" data-validate-length-range="6" name="postal" required="required" type="text" placeholder="X1X1X1">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="birthDate">Birth Date <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="birthDate" name="birthDate" required="required" placeholder="DD/MM/YYYY" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="item form-group">
@@ -68,7 +111,7 @@
                       </div>
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="website">Hire Date <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="hireDate">Hire Date <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="url" id="hireDate" name="hireDate" required="required" placeholder="DD/MM/YYYY" class="form-control col-md-7 col-xs-12">
