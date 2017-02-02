@@ -13,7 +13,7 @@ class CreateUserType extends Migration
      */
     public function up()
     {
-        Schema::create('UserType', function (Blueprint $table) {
+        Schema::create('user_type', function (Blueprint $table) {
             $table->increments('id');
             $table->string('userType');
         });

@@ -13,7 +13,7 @@ class CreateEmployeePay extends Migration
      */
     public function up()
     {
-        Schema::create('EmployeePay', function (Blueprint $table) {
+        Schema::create('employee_pay', function (Blueprint $table) {
 
             $table->integer('userId');
 

@@ -13,7 +13,7 @@ class CreateDepartment extends Migration
      */
     public function up()
     {
-        Schema::create('Department', function (Blueprint $table) {
+        Schema::create('department', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('userId')->nullable();
 

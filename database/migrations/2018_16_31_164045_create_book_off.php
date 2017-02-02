@@ -13,7 +13,7 @@ class CreateBookOff extends Migration
      */
     public function up()
     {
-        Schema::create('BookOff', function (Blueprint $table) {
+        Schema::create('book_off', function (Blueprint $table) {
 
             $table->integer('userId');
 

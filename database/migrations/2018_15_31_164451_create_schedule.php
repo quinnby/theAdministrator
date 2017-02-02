@@ -13,7 +13,7 @@ class CreateSchedule extends Migration
      */
     public function up()
     {
-        Schema::create('Schedule', function (Blueprint $table) {
+        Schema::create('schedule', function (Blueprint $table) {
 
             $table->integer('userId');
 

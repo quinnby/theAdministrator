@@ -13,7 +13,7 @@ class CreateJobTitle extends Migration
      */
     public function up()
     {
-        Schema::create('JobTitle', function (Blueprint $table) {
+        Schema::create('job_title', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
         });
