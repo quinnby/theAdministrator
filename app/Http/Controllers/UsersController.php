@@ -21,5 +21,15 @@ class UsersController extends Controller
     {
         return view('user_profile');
     }
+    
+    public function edit()
+    {
+        return view('edit_user_profile');
+    }
+    
+    public function dashboard()
+    {
+        return view('user_dashboard');
+    }
 }
 ?>

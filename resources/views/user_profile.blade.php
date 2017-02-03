@@ -8,267 +8,120 @@
 @section('main_container')
 
 <!-- page content -->
-   <div class="right_col" role="main">
+        <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Dashboard</h3>
+                <h3>User Profile</h3>
               </div>
             </div>
-
-            <div class="clearfix"></div>
-
+            
             <div class="row">
-              <div class="col-md-12">
-                <div class="">
+              <div class="col-md-12 col-sm-12 col-xs-12"><br/>
+                <div class="x_panel">
                   <div class="x_content">
-                    <div class="row">
-                      <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                          <div class="icon"><i class="fa fa-user"></i>
-                          </div>
-                          <div class="count">179</div>
+                    <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                      <h3>Samuel Doe</h3>
 
-                          <h3>My Profile</h3>
-                          <p>View/Edit Profile</p>
-                        </div>
-                      </div>
-                      <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                          <div class="icon"><i class="fa fa-clock-o"></i>
-                          </div>
-                          <div class="count">179</div>
+                      <ul class="list-unstyled user_data">
+                        <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA
+                        </li>
 
-                          <h3>Punch In/Out</h3>
-                          <p>Record Your Hours</p>
-                        </div>
-                      </div>
-                      <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                          <div class="icon"><i class="fa fa-sort-amount-desc"></i>
-                          </div>
-                          <div class="count">179</div>
+                        <li>
+                          <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer
+                        </li>
 
-                          <h3>New Sign ups</h3>
-                          <p>Lorem ipsum psdea itgum rixt.</p>
-                        </div>
-                      </div>
-                      <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                        <div class="tile-stats">
-                          <div class="icon"><i class="fa fa-check-square-o"></i>
-                          </div>
-                          <div class="count">179</div>
+                        <li class="m-top-xs">
+                          <i class="fa fa-external-link user-profile-icon"></i>
+                          <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a>
+                        </li>
+                      </ul>
 
-                          <h3>New Sign ups</h3>
-                          <p>Lorem ipsum psdea itgum rixt.</p>
-                        </div>
-                      </div>
+                      <a class="btn btn-success"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                      <br />
+
+                      <!-- start skills -->
+                      <h4>Skills</h4>
+                      <ul class="list-unstyled user_data">
+                        <li>
+                          <p>Web Applications</p>
+                          <div class="progress progress_sm">
+                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                          </div>
+                        </li>
+                        <li>
+                          <p>Website Design</p>
+                          <div class="progress progress_sm">
+                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="70"></div>
+                          </div>
+                        </li>
+                        <li>
+                          <p>Automation & Testing</p>
+                          <div class="progress progress_sm">
+                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="30"></div>
+                          </div>
+                        </li>
+                        <li>
+                          <p>UI / UX</p>
+                          <div class="progress progress_sm">
+                            <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                          </div>
+                        </li>
+                      </ul>
+                      <!-- end of skills -->
+
                     </div>
+                    <div class="col-md-9 col-sm-9 col-xs-12">
+                      <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                        <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                          <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Personal Information</a>
+                          </li>
+                          <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Employee Information</a>
+                          </li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                          <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
 
-                    <div class="row top_tiles" style="margin: 10px 0;">
-                      <div class="col-md-3 tile">
-                        <span>Total Sessions</span>
-                        <h2>231,809</h2>
-                        <span class="sparkline_one" style="height: 160px;">
-                                      <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-                                  </span>
-                      </div>
-                      <div class="col-md-3 tile">
-                        <span>Total Revenue</span>
-                        <h2>$ 1,231,809</h2>
-                        <span class="sparkline_one" style="height: 160px;">
-                                      <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-                                  </span>
-                      </div>
-                      <div class="col-md-3 tile">
-                        <span>Total Sessions</span>
-                        <h2>231,809</h2>
-                        <span class="sparkline_two" style="height: 160px;">
-                                      <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-                                  </span>
-                      </div>
-                      <div class="col-md-3 tile">
-                        <span>Total Sessions</span>
-                        <h2>231,809</h2>
-                        <span class="sparkline_one" style="height: 160px;">
-                                      <canvas width="200" height="60" style="display: inline-block; vertical-align: top; width: 94px; height: 30px;"></canvas>
-                                  </span>
-                      </div>
-                    </div>
+                            <!-- start personal info -->
+                            <p>*Not sure how this is going to look yet...*</p>
+                            <!-- end personal info -->
 
-
-
-
-                    <br />
-        
-
-                      <div class="col-md-3 col-xs-12 widget widget_tally_box">
-                        <div class="x_panel fixed_height_390">
-                          <div class="x_title">
-                            <h2>Sales Close</h2>
-                            <ul class="nav navbar-right panel_toolbox">
-                              <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                              </li>
-                              <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                                <ul class="dropdown-menu" role="menu">
-                                  <li><a href="#">Settings 1</a>
-                                  </li>
-                                  <li><a href="#">Settings 2</a>
-                                  </li>
-                                </ul>
-                              </li>
-                              <li><a class="close-link"><i class="fa fa-close"></i></a>
-                              </li>
-                            </ul>
-                            <div class="clearfix"></div>
                           </div>
-                          <div class="x_content">
+                          <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
 
-                            <div style="text-align: center; margin-bottom: 17px">
-                              <ul class="verticle_bars list-inline">
-                                <li>
-                                  <div class="progress vertical progress_wide bottom">
-                                    <div class="progress-bar progress-bar-dark" role="progressbar" data-transitiongoal="65"></div>
-                                  </div>
-                                </li>
-                                <li>
-                                  <div class="progress vertical progress_wide bottom">
-                                    <div class="progress-bar progress-bar-gray" role="progressbar" data-transitiongoal="85"></div>
-                                  </div>
-                                </li>
-                                <li>
-                                  <div class="progress vertical progress_wide bottom">
-                                    <div class="progress-bar progress-bar-info" role="progressbar" data-transitiongoal="45"></div>
-                                  </div>
-                                </li>
-                                <li>
-                                  <div class="progress vertical progress_wide bottom">
-                                    <div class="progress-bar progress-bar-success" role="progressbar" data-transitiongoal="75"></div>
-                                  </div>
-                                </li>
-                              </ul>
-                            </div>
-                            <div class="divider"></div>
-
-                            <ul class="legend list-unstyled">
-                              <li>
-                                <p>
-                                  <span class="icon"><i class="fa fa-square dark"></i></span> <span class="name">Item One Name</span>
-                                </p>
-                              </li>
-                              <li>
-                                <p>
-                                  <span class="icon"><i class="fa fa-square grey"></i></span> <span class="name">Item Two Name</span>
-                                </p>
-                              </li>
-                              <li>
-                                <p>
-                                  <span class="icon"><i class="fa fa-square blue"></i></span> <span class="name">Item Three Name</span>
-                                </p>
-                              </li>
-                              <li>
-                                <p>
-                                  <span class="icon"><i class="fa fa-square green"></i></span> <span class="name">Item Four Name</span>
-                                </p>
-                              </li>
-                            </ul>
+                            <!-- start employee info -->
+                            <table class="data table table-striped no-margin">
+                              <tbody>
+                                <tr>
+                                  <td><strong>Employee ID</strong</td>
+                                  <td>*info from database here*</td>
+                                </tr>
+                                <tr>
+                                  <td><strong>Hire Date</strong></td>
+                                  <td>*info from database here*</td>
+                                </tr>
+                                <tr>
+                                  <td><strong>Job Title</strong></td>
+                                  <td>*info from database here*</td>
+                                </tr>
+                                <tr>
+                                  <td><strong>Department</strong></td>
+                                  <td>*info from database here*</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <!-- end employee info -->
 
                           </div>
                         </div>
                       </div>
-
-
-                      <div class="col-md-3 col-xs-12 widget widget_tally_box">
-                        <div class="x_panel ui-ribbon-container fixed_height_390">
-                          <div class="ui-ribbon-wrapper">
-                            <div class="ui-ribbon">
-                              30% Off
-                            </div>
-                          </div>
-                          <div class="x_title">
-                            <h2>User Mail</h2>
-                            <div class="clearfix"></div>
-                          </div>
-                          <div class="x_content">
-
-                            <div style="text-align: center; margin-bottom: 17px">
-                              <span class="chart" data-percent="86">
-                                                  <span class="percent"></span>
-                              </span>
-                            </div>
-
-                            <h3 class="name_title">Finance</h3>
-                            <p>Short Description</p>
-
-                            <div class="divider"></div>
-
-                            <p>If you've decided to go in development mode and tweak all of this a bit, there are few things you should do.</p>
-
-                          </div>
-                        </div>
-                      </div>
-
-
-                      <div class="col-md-3 col-xs-12 widget widget_tally_box">
-                        <div class="x_panel fixed_height_390">
-                          <div class="x_content">
-
-                            <div class="flex">
-                              <ul class="list-inline widget_profile_box">
-                                <li>
-                                  <a>
-                                    <i class="fa fa-facebook"></i>
-                                  </a>
-                                </li>
-                                <li>
-                                  <img src="images/user.png" alt="..." class="img-circle profile_img">
-                                </li>
-                                <li>
-                                  <a>
-                                    <i class="fa fa-twitter"></i>
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-
-                            <h3 class="name">Musimbi</h3>
-
-                            <div class="flex">
-                              <ul class="list-inline count2">
-                                <li>
-                                  <h3>123</h3>
-                                  <span>Articles</span>
-                                </li>
-                                <li>
-                                  <h3>1234</h3>
-                                  <span>Followers</span>
-                                </li>
-                                <li>
-                                  <h3>123</h3>
-                                  <span>Following</span>
-                                </li>
-                              </ul>
-                            </div>
-                            <p>
-                              If you've decided to go in development mode and tweak all of this a bit, there are few things you should do.
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-
-                      
-                  
-
-
-                      
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
- 
+        </div>
 
     <!-- Custom Theme Scripts Go Here -->
 
@@ -276,10 +129,7 @@
 
     <!-- footer content -->
     <footer>
-        <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-        </div>
-        <div class="clearfix"></div>
+            @include('includes.footer')     
     </footer>
     <!-- /footer content -->
 @endsection
