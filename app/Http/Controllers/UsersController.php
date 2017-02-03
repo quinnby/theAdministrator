@@ -9,27 +9,37 @@ class UsersController extends Controller
 {
     public function index()
     {
-        return view('manage_users');
+        return view('user.manage');
     }
     
     public function create()
     {
-        return view('create_user');
+        return view('user.create');
     }
     
     public function view()
     {
-        return view('user_profile');
+        return view('user.profile');
     }
     
     public function edit()
     {
-        return view('edit_user_profile');
+        return view('user.edit_profile');
     }
     
     public function dashboard()
     {
-        return view('user_dashboard');
+        return view('user.dashboard');
+    }
+    
+    public function add(Request $request)
+    {
+        $this->validate($request, [
+            
+        ]);
+        
+        $user = new User($request->all());
+        return $user;
     }
 }
 ?>
