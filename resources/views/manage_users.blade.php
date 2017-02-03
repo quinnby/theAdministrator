@@ -403,10 +403,7 @@
         </div>
     <!-- footer content -->
     <footer>
-        <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-        </div>
-        <div class="clearfix"></div>
+            @include('includes.footer')     
     </footer>
     <!-- /footer content -->
 @endsection

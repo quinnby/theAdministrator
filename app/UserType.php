@@ -8,6 +8,6 @@ class UserType extends Model
 {
     public function users()
     {
-        $this->hasMany(User::Class);
+        return $this->hasMany('App\User', 'userTypeId');
     }
 }
