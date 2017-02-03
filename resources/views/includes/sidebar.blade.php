@@ -23,7 +23,9 @@
         <!-- sidebar menu -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
+                
                 <ul class="nav side-menu">
+                    <br/>
                     <li><a href="{{ url('/user_profile') }}"><i class="fa fa-home"></i> Main Page</a>
                     </li>
                      <li><a><i class="fa fa-users"></i> Administrator <span class="fa fa-chevron-down"></span></a>
@@ -47,8 +49,8 @@
             <a data-toggle="tooltip" data-placement="top" title="FullScreen">
                 <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
             </a>
-            <a data-toggle="tooltip" data-placement="top" title="Lock">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+            <a data-toggle="tooltip" data-placement="top" title="About" href="{{ url('/about') }}" >
+                <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
             </a>
             <a data-toggle="tooltip" data-placement="top" title="Logout" href="{{ url('/logout') }}">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
