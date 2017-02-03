@@ -23,7 +23,7 @@
         <!-- sidebar menu -->
         <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
             <div class="menu_section">
-                
+                <br/><br/>
                 <ul class="nav side-menu">
                     <br/>
                     <li><a href="{{ url('/user_profile') }}"><i class="fa fa-home"></i> Main Page</a>
