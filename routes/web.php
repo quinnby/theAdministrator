@@ -14,7 +14,7 @@
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/', 'HomeController@index');
-Route::get('/userprofile', 'UserProfileController@index');
+Route::get('/user_profile', 'ManageUsersController@view');
 Route::get('/manage_users','ManageUsersController@index');
 Route::get('/manage_security','ManageSecurityController@index');
 Route::get('/manage_departments','ManageDepartmentsController@index');

@@ -12,9 +12,14 @@ class ManageUsersController extends Controller
         return view('manage_users');
     }
     
-        public function create()
+    public function create()
     {
         return view('create_user');
+    }
+    
+    public function view()
+    {
+        return view('user_profile');
     }
 }
 ?>

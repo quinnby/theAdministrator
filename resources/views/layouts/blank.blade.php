@@ -16,8 +16,7 @@
         <!-- Font Awesome -->
         <link href="{{ asset("css/font-awesome.min.css") }}" rel="stylesheet">
         <!-- Custom Theme Style -->
-        <link href="{{ asset("css/gentelella.min.css") }}" rel="stylesheet">
-
+        <link href="{{ asset("css/custom.min.css") }}" rel="stylesheet">
         @stack('stylesheets')
 
     </head>
