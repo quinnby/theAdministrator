@@ -25,14 +25,17 @@
 					@endif
                       
                       <!-- Form -->
-                    <form class="form-horizontal form-label-left" novalidate>
+                    <form class="form-horizontal form-label-left" novalidate role="form" method="POST" action ="{{ url('create_user') }}">
+                        <input type="hidden" 
+                            name="_token" 
+                            value="{{ csrf_token() }}"/>
                       <span class="section">Personal Info</span>
 
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="firstName"> First Name <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="firstName" class="form-control col-md-7 col-xs-12" name="firstName"   type="text">
+                          <input id="firstName" class="form-control col-md-7 col-xs-12" name="firstName"   type="text" value="{{ old('firstName') }}">
                         </div>
                       </div>
                         
@@ -40,14 +43,14 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="lastName"> Last Name <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="lastName" class="form-control col-md-7 col-xs-12" name="lastName"   type="text">
+                          <input id="lastName" class="form-control col-md-7 col-xs-12" name="lastName"   type="text" value="{{ old('lastName') }}">
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="SINnumber">S.I.N Number <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sinNumber">S.I.N Number <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="SINnumber" name="SINnumber"   class="form-control col-md-7 col-xs-12" placeholder="999-999-999">
+                          <input type="text" id="sinNumber" name="sinNumber"   class="form-control col-md-7 col-xs-12" placeholder="999-999-999" value="{{ old('sinNumber') }}">
                         </div>
                       </div>
                       <div class="item form-group">

@@ -35,7 +35,9 @@ class UsersController extends Controller
     public function add(Request $request)
     {
         $this->validate($request, [
-            
+            'firstName' => 'required|min:3',
+            'lastName' => 'required|min:3',
+            'sinNumber' => 'required|regex:/^\d{3}-\d{3}-\d{3}$/'
         ]);
         
         $user = new User($request->all());

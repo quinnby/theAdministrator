@@ -19,9 +19,10 @@ Route::get('/user_dashboard', 'UsersController@dashboard');
 Route::get('/user_profile', 'UsersController@view');
 Route::get('/edit_user_profile', 'UsersController@edit');
 Route::get('/manage_users','UsersController@index');
-Route::get('/create_user','UsersController@create');
+
 Route::get('/manage_departments','DepartmentsController@index');
 Route::get('/manage_security','SecurityController@index');
 
 
-
+Route::post('/create_user', 'UsersController@add');
+Route::get('/create_user','UsersController@create');
