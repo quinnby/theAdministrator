@@ -80,13 +80,13 @@
                           </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" name="province">
-                            <option>Choose Province</option>
-                            <option>ON</option>
-                            <option>BC</option>
-                            <option>NB</option>
-                            <option>AB</option>
-                            <option>MB</option>
-                            <option>NL</option>
+                            <option value="0">Choose Province</option>
+                            <option value="1">ON</option>
+                            <option value="2">BC</option>
+                            <option value="3">NB</option>
+                            <option value="4">AB</option>
+                            <option value="5">MB</option>
+                            <option value="6">NL</option>
                             <option>NS</option>
                             <option>NT</option>
                             <option>NU</option>
