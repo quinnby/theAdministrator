@@ -37,7 +37,12 @@ class UsersController extends Controller
         $this->validate($request, [
             'firstName' => 'required|min:3',
             'lastName' => 'required|min:3',
-            'sinNumber' => 'required|regex:/^\d{3}-\d{3}-\d{3}$/'
+            'sinNumber' => 'required|regex:/^\d{3}-\d{3}-\d{3}$/',
+            'telephone' => 'required|min:10|regex:/^\(\d{3}\)\s\d{3}-\d{4}',
+            'address'=> 'required|min:5',
+            'city' => 'required',
+            'province'=>'required|not_in:0'
+            
         ]);
         
         $user = new User($request->all());
