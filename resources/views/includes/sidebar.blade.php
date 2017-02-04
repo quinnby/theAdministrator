@@ -26,8 +26,16 @@
                 <br/><br/>
                 <ul class="nav side-menu">
                     <br/>
-                    <li><a href="{{ url('/user_profile') }}"><i class="fa fa-home"></i> Main Page</a>
+                    <!-- Employee Sidebar -->
+                    <li><a href="{{ url('/user_dashboard') }}"><i class="fa fa-home"></i>Dashboard</a>
                     </li>
+                    <li><a><i class="fa fa-user"></i> Personal Information<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ url('/user_profile') }}">View Profile</a></li>
+                            <li><a href="{{ url('/edit_user_profile') }}">Edit Profile</a></li>
+                        </ul>
+                        
+                     <!-- Administrator Sidebar -->
                      <li><a><i class="fa fa-users"></i> Administrator <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/manage_users') }}">Manage Users</a></li>
