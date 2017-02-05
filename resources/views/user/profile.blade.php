@@ -17,7 +17,7 @@
                             <h3>Samuel Doe</h3>
                             <ul class="list-unstyled user_data">
                                 <li> <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer, <i>Department</i> </li>
-                            </ul> <a class="btn btn-success" href="{{ url('/edit_user_profile') }}"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                            </ul> <a class="btn btn-success" href="{{ url('/edit_user_profile') }}"><i class="fa fa-edit m-right-xs"></i> Edit Profile</a>
                             <br />
                             <!-- start skills -->
                             <h4>Skills</h4>
