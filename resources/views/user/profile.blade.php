@@ -16,9 +16,7 @@
                         <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
                             <h3>Samuel Doe</h3>
                             <ul class="list-unstyled user_data">
-                                <li><i class="fa fa-map-marker user-profile-icon"></i> San Francisco, California, USA </li>
-                                <li> <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer </li>
-                                <li class="m-top-xs"> <i class="fa fa-external-link user-profile-icon"></i> <a href="http://www.kimlabs.com/profile/" target="_blank">www.kimlabs.com</a> </li>
+                                <li> <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer, <i>Department</i> </li>
                             </ul> <a class="btn btn-success" href="{{ url('/edit_user_profile') }}"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
                             <br />
                             <!-- start skills -->
@@ -63,6 +61,22 @@
                                          <table class="data table table-striped no-margin">
                                             <tbody>
                                                 <tr>
+                                                    <td><strong>Address</strong</td>
+                                                    <td>*info from database here*</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>City</strong</td>
+                                                    <td>*info from database here*</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Province</strong</td>
+                                                    <td>*info from database here*</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Postal Code</strong</td>
+                                                    <td>*info from database here*</td>
+                                                </tr>
+                                                <tr>
                                                     <td><strong>SIN Number</strong</td>
                                                     <td>*info from database here*</td>
                                                 </tr>
@@ -88,14 +102,6 @@
                                                 </tr>
                                                 <tr>
                                                     <td><strong>Hire Date</strong></td>
-                                                    <td>*info from database here*</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Job Title</strong></td>
-                                                    <td>*info from database here*</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Department</strong></td>
                                                     <td>*info from database here*</td>
                                                 </tr>
                                             </tbody>

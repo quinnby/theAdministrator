@@ -34,6 +34,11 @@
                             <li><a href="{{ url('/user_profile') }}">View Profile</a></li>
                             <li><a href="{{ url('/edit_user_profile') }}">Edit Profile</a></li>
                         </ul>
+                     <li><a><i class="fa fa-user"></i> Time Off<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ url('/request_time_off') }}">Request Time Off</a></li>
+                            <li><a href="{{ url('/view_time_off') }}">View Time Off Requests</a></li>
+                        </ul>
                         
                      <!-- Administrator Sidebar -->
                      <li><a><i class="fa fa-users"></i> Administrator <span class="fa fa-chevron-down"></span></a>

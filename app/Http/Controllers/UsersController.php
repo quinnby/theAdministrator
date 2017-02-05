@@ -17,6 +17,11 @@ class UsersController extends Controller
         return view('user.create');
     }
     
+    public function dashboard()
+    {
+        return view('user.dashboard');
+    }
+    
     public function view()
     {
         return view('user.profile');
@@ -27,11 +32,16 @@ class UsersController extends Controller
         return view('user.edit_profile');
     }
     
-    public function dashboard()
+    public function requestTimeOff()
     {
-        return view('user.dashboard');
+        return view('user.request_time_off');
     }
     
+    public function viewTimeOff()
+    {
+        return view('user.view_time_off');
+    }
+        
     public function add(Request $request)
     {
         $this->validate($request, [

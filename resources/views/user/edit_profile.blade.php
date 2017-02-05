@@ -14,47 +14,64 @@
                 <div class="x_panel">
                     <div class="x_content">
                         <br />
-                        <form class="form-horizontal form-label-left input_mask">
+                     
+                        
+                         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">First Name </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="firstName" name="firstName" class="form-control col-md-7 col-xs-12"> </div>
+                            </div>
                             
-                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <input type="text" class="form-control has-feedback-left" id="firstName" placeholder="First Name"> <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span> </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Last Name </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="lastName" name="lastName" class="form-control col-md-7 col-xs-12"> </div>
+                            </div>
+                             
+                             <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Address </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="address" name="address" class="form-control col-md-7 col-xs-12"> </div>
+                            </div>
                             
-                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <input type="text" class="form-control" id="lastName" placeholder="Last Name"> <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span> </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">City </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="city" name="city" class="form-control col-md-7 col-xs-12"> </div>
+                            </div>
+                             
+                              <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Province </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="province" name="province" class="form-control col-md-7 col-xs-12"> </div>
+                            </div>
+                             
+                              <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Postal Code </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="postal" name="postal" class="form-control col-md-7 col-xs-12"> </div>
+                            </div>
                             
-                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <input type="text" class="form-control has-feedback-left" id="email" placeholder="Email"> <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span> </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Email Address </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="email" name="email" class="form-control col-md-7 col-xs-12"> </div>
+                            </div>
                             
-                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <input type="text" class="form-control" id="telephone" placeholder="Phone"> <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span> </div>
                             
-                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <input type="text" class="form-control has-feedback-left" id="jobTitle" readonly="readonly" placeholder="Job Title"> <span class="fa fa-folder-open form-control-feedback left" aria-hidden="true"></span> </div>
-                            
-                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <input type="text" class="form-control" id="hireDate" readonly="readonly" placeholder="Hire Date"> <span class="fa fa-calendar form-control-feedback right" aria-hidden="true"></span> </div>
-                            
-                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <input type="text" class="form-control" id="sinNumber" readonly="readonly" placeholder="SIN Number"> </div>
-                            
-                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <input type="text" class="form-control" id="birthDate" placeholder="Birth Date"> </div>
-                            
-                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <input type="text" class="form-control" id="address" placeholder="Address"> </div>
-                            
-                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <input type="text" class="form-control" id="city" placeholder="City"> </div>
-                            
-                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <input type="text" class="form-control" id="province" placeholder="Province"> </div>
-                            
-                            <div class="col-md-6 col-sm-6 col-xs-12 form-group has-feedback">
-                                <input type="text" class="form-control" id="postal" placeholder="Postal Code"> </div>
-                            
-                            <div class="col-md-4">
-                                <button type="submit" class="btn btn-primary">Cancel</button>
-                                <button type="submit" class="btn btn-success">Submit</button>
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Phone Number </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="text" id="telephone" name="telephone" class="form-control col-md-7 col-xs-12"> </div>
+                            </div>
+                      
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <a href="{{ url('/user_profile') }}"><button class="btn btn-primary" type="button">Cancel</button></a>
+                                    <button class="btn btn-primary" type="reset">Reset</button>
+                                    <button type="submit" class="btn btn-success">Submit</button>
+                                </div>
                             </div>
                         </form>
                     </div>

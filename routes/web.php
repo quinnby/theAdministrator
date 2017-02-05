@@ -18,6 +18,8 @@ Route::get('/about','HomeController@about');
 Route::get('/user_dashboard', 'UsersController@dashboard');
 Route::get('/user_profile', 'UsersController@view');
 Route::get('/edit_user_profile', 'UsersController@edit');
+Route::get('/request_time_off', 'UsersController@requestTimeOff');
+Route::get('/view_time_off', 'UsersController@viewTimeOff');
 Route::get('/manage_users','UsersController@index');
 
 Route::get('/manage_departments','DepartmentsController@index');
