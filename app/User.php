@@ -20,4 +20,9 @@ class User extends Model
     {
         return $this->belongsTo(UserType::Class, 'userTypeId');
     }
+    
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'departmentId');
+    }
 }
