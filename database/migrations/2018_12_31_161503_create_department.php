@@ -24,11 +24,75 @@ class CreateDepartment extends Migration
         });
 
         DB::table('departments')->insert([
-            [
-                
+            [ 
                 'department'=> "I.T department",
-                'description'=> "this is a description"
-            ]
+                'description'=> "placeholder."
+            ],
+
+            [ 
+                'department'=> "Administrative",
+                'description'=> "placeholder."
+            ],
+
+            [ 
+                'department'=> "Banking",
+                'description'=> "placeholder."
+            ],
+
+            [ 
+                'department'=> "Consulting",
+                'description'=> "placeholder."
+            ],
+
+            [ 
+                'department'=> "Coporate",
+                'description'=> "placeholder."
+            ],
+
+            [ 
+                'department'=> "Human Resources",
+                'description'=> "placeholder."
+            ],
+
+            [ 
+                'department'=> "Insurance",
+                'description'=> "placeholder."
+            ],
+
+            [ 
+                'department'=> "Legal",
+                'description'=> "placeholder."
+            ],
+
+            [ 
+                'department'=> "Public Relations",
+                'description'=> "placeholder."
+            ],
+
+            [ 
+                'department'=> "Purchasing",
+                'description'=> "placeholder."
+            ],
+
+            [ 
+                'department'=> "Sales",
+                'description'=> "placeholder."
+            ],
+
+            [ 
+                'department'=> "Marketing",
+                'description'=> "placeholder."
+            ],
+
+            [ 
+                'department'=> "Customer Service",
+                'description'=> "placeholder."
+            ],
+
+            [ 
+                'department'=> "Maintenance",
+                'description'=> "placeholder."
+            ],
 
             ]);
     }
