@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Model
 {
+    protected $fillable = [
+        'firstname'
+        //etc...
+    ];
     public function performanceNoteOwner()
     {
         return $this->hasMany(PerformanceNotes::class, "userOwner");

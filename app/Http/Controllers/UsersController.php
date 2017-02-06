@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+ use App\JobTitle;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,7 +15,8 @@ class UsersController extends Controller
     
     public function create()
     {
-        return view('user.create');
+        $jobTitles = JobTitle::All();
+        return view('user.create', compact('jobTitles'));
     }
     
     public function dashboard()
