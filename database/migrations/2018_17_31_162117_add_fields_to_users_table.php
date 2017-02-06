@@ -15,28 +15,30 @@ class AddFieldsToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
 
-            $table->date('birthDate')->nullable();
-            $table->date('hireDate')->nullable();
-            $table->date('endDate')->nullable();
-            $table->string('primaryPhone')->nullable();
+            $table->date('birthDate');
+            $table->string('lastName');
+            $table->date('hireDate');
+            $table->string('address');
+            $table->string('city');
+            $table->string('postalCode');
+            $table->string('sinNumber');
+            $table->string('primaryPhone');
             $table->string('secondaryPhone')->nullable();
-            $table->integer('titleId')->nullable();
-            $table->foreign('titleId')->references('id')->on('job_titles')->nullable();
-            $table->integer('departmentId')->nullable();
-            $table->foreign('departmentId')->references('id')->on('departments')->nullable();
-            $table->string('address')->nullable();
-            $table->string('city')->nullable();
-            $table->string('postalCode')->nullable();
-            $table->string('sinNumber')->nullable();
-            $table->integer('userTypeId')->nullable();
+            $table->integer('titleId')->unsigned()->index();
+            $table->foreign('titleId')->references('id')->on('job_titles');
+            $table->integer('departmentId')->unsigned()->index();
+            $table->foreign('departmentId')->references('id')->on('departments');
+            $table->integer('userTypeId')->unsigned()->index();
             $table->foreign('userTypeId')->references('id')->on('user_types');
             $table->integer('noteId')->nullable();
-            $table->foreign('noteId')->references('id')->on('performance_notes')->nullable();
+            $table->foreign('noteId')->references('id')->on('performance_notes');
+            $table->date('endDate')->nullable();
         });
 
         DB::table('users')->insert([
             [
                 'name'=>"David",
+                'lastName'=>"Portillo",
                 'email'=>"david@laravel.com",
                 'password'=>bcrypt("password"),
                 'birthDate'=>"1980-01-01",
@@ -54,6 +56,7 @@ class AddFieldsToUsersTable extends Migration
 
             [
                 'name'=>"Will",
+                'lastName'=>"Beniuk",
                 'email'=>"will@laravel.com",
                 'password'=>bcrypt("password"),
                 'birthDate'=>"1980-01-01",
@@ -71,6 +74,7 @@ class AddFieldsToUsersTable extends Migration
 
             [
                 'name'=>"Quinn",
+                'lastName'=>"Graven",
                 'email'=>"quinn@laravel.com",
                 'password'=>bcrypt("password"),
                 'birthDate'=>"1980-01-01",
@@ -88,6 +92,7 @@ class AddFieldsToUsersTable extends Migration
 
             [
                 'name'=>"Ellen",
+                'lastName'=>"Coombs",
                 'email'=>"ellen@laravel.com",
                 'password'=>bcrypt("password"),
                 'birthDate'=>"1980-01-01",
@@ -105,6 +110,7 @@ class AddFieldsToUsersTable extends Migration
 
             [
                 'name'=>"Josh",
+                'lastName'=>"XXXXX",
                 'email'=>"josh@laravel.com",
                 'password'=>bcrypt("password"),
                 'birthDate'=>"1980-01-01",

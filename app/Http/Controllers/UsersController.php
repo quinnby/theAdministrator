@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
- use App\JobTitle;
+use App\JobTitle;
+use App\Department;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,7 +17,8 @@ class UsersController extends Controller
     public function create()
     {
         $jobTitles = JobTitle::All();
-        return view('user.create', compact('jobTitles'));
+        $departments = Department::All();
+        return view('user.create', compact('jobTitles', 'departments'));
     }
     
     public function dashboard()
@@ -53,7 +55,9 @@ class UsersController extends Controller
             'telephone' => 'required|min:10|regex:/^\(\d{3}\)\s\d{3}-\d{4}',
             'address'=> 'required|min:5',
             'city' => 'required',
-            'province'=>'required|not_in:0'
+            'province'=>'required|not_in:0',
+            'jobTitle'=> 'required|not_in:0',
+            'department'=> 'required|not_in:0'
             
         ]);
         
