@@ -62,6 +62,7 @@ class UsersController extends Controller
         ]);
         
         $user = new User($request->all());
+        $user.save();
         return $user;
     }
 }
