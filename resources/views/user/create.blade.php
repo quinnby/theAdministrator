@@ -195,9 +195,11 @@
                     </form>
                   </div>
                 </div>
-    <!-- footer content -->
-<footer>
-    @include('includes.footer')
-</footer>
-    <!-- /footer content -->
-@endsection
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /page content -->
+<!-- footer content -->
+<footer> @include('includes.footer') </footer>
+<!-- /footer content -->@endsection

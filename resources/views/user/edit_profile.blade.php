@@ -66,6 +66,7 @@
                                     <input type="text" id="telephone" name="telephone" class="form-control col-md-7 col-xs-12"> </div>
                             </div>
                       
+                            <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                                     <a href="{{ url('/user_profile') }}"><button class="btn btn-primary" type="button">Cancel</button></a>
