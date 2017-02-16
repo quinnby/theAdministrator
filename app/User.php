@@ -7,8 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     protected $fillable = [
-        'firstname'
-        //etc...
+        'name',
+        'lastName',
+        'sinNumber',
+        'primaryPhone',
+        'address',
+        'city',
+        'province',
+        'postalCode',
+        'birthDate',
+        'email',
+        'hireDate',
+        'titleId',
+        'userTypeId',
+        'departmentId',
+        'password'
     ];
     public function performanceNoteOwner()
     {

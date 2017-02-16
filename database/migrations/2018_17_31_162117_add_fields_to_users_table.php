@@ -21,7 +21,8 @@ class AddFieldsToUsersTable extends Migration
             $table->string('address');
             $table->string('city');
             $table->string('postalCode');
-            $table->string('sinNumber');
+            $table->string('province');
+             $table->string('sinNumber');
             $table->string('primaryPhone');
             $table->string('secondaryPhone')->nullable();
             $table->integer('titleId')->unsigned()->index();
@@ -50,6 +51,7 @@ class AddFieldsToUsersTable extends Migration
                 'address'=>"address 1",
                 'city'=>"Oshawa",
                 'postalCode'=>"L1R-4H2",
+                'province' => 'ON',
                 'sinNumber'=>"123-456-789",
                 'userTypeId'=>1
             ],
@@ -68,6 +70,7 @@ class AddFieldsToUsersTable extends Migration
                 'address'=>"address 1",
                 'city'=>"Oshawa",
                 'postalCode'=>"L1R-4H2",
+                'province' => 'ON',
                 'sinNumber'=>"123-456-789",
                 'userTypeId'=>1
             ],
@@ -86,6 +89,7 @@ class AddFieldsToUsersTable extends Migration
                 'address'=>"address 1",
                 'city'=>"Oshawa",
                 'postalCode'=>"L1R-4H2",
+                'province' => 'ON',
                 'sinNumber'=>"123-456-789",
                 'userTypeId'=>1
             ],
@@ -104,6 +108,7 @@ class AddFieldsToUsersTable extends Migration
                 'address'=>"address 1",
                 'city'=>"Oshawa",
                 'postalCode'=>"L1R-4H2",
+                'province' => 'ON',
                 'sinNumber'=>"123-456-789",
                 'userTypeId'=>1
             ],
@@ -122,6 +127,7 @@ class AddFieldsToUsersTable extends Migration
                 'address'=>"address 1",
                 'city'=>"Oshawa",
                 'postalCode'=>"L1R-4H2",
+                'province' => 'ON',
                 'sinNumber'=>"123-456-789",
                 'userTypeId'=>1
             ]

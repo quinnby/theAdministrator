@@ -32,10 +32,11 @@
                       <span class="section">Personal Info</span>
 
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="firstName"> First Name <span class="required">*</span>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="firstName"> First Name <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="firstName" class="form-control col-md-7 col-xs-12" name="firstName"   type="text" value="{{ old('firstName') }}">
+
+                          <input id="firstName" class="form-control col-md-7 col-xs-12" name="name"   type="text" value="{{ old('name') }}">
                         </div>
                       </div>
                         
@@ -54,10 +55,10 @@
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="telephone">Telephone <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="primaryPhone">Telephone <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="tel" id="telephone" name="phone"   class="form-control col-md-7 col-xs-12" placeholder="(999) 999 9999">
+                          <input type="tel" id="telephone" name="primaryPhone"   class="form-control col-md-7 col-xs-12" placeholder="(999) 999 9999">
                         </div>
                       </div>
                          <div class="item form-group">
@@ -97,17 +98,17 @@
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="postal"> Postal Code <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="postalCode"> Postal Code <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="city" class="form-control col-md-7 col-xs-12" name="postal"   type="text" placeholder="X1X1X1">
+                          <input id="city" class="form-control col-md-7 col-xs-12" name="postalCode"   type="text" placeholder="X1X1X1">
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="birthDate">Birth Date <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="birthDate" name="birthDate"  placeholder="DD/MM/YYYY" class="form-control col-md-7 col-xs-12">
+                          <input type="date" id="birthDate" name="birthDate"  placeholder="DD/MM/YYYY" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="item form-group">
@@ -129,7 +130,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="hireDate">Hire Date <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="url" id="hireDate" name="hireDate"   placeholder="DD/MM/YYYY" class="form-control col-md-7 col-xs-12">
+                          <input type="date" id="hireDate" name="hireDate"   placeholder="DD/MM/YYYY" class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
                       <div class="item form-group">
@@ -137,10 +138,23 @@
                           <span class="required">*</span>
                           </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" name="jobTitle">
+                          <select class="form-control" name="titleId">
                             <option>Choose Title</option>
                             @foreach ($jobTitles as $title)
-                                <option>{{ $title['title'] }}</option>
+                                <option value={{ $title['id']}}>{{ $title['title'] }}</option>
+                            @endforeach
+                          </select>
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">User Type
+                          <span class="required">*</span>
+                          </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="form-control" name="userTypeId">
+                            <option>Choose User Type</option>
+                            @foreach ($userTypes as $userType)
+                                <option value={{ $userType['id']}}>{{ $userType['userType'] }}</option>
                             @endforeach
                           </select>
                         </div>
@@ -150,10 +164,10 @@
                           <span class="required">*</span>
                           </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select class="form-control" name="department">
+                          <select class="form-control" name="departmentId">
                             <option>Choose Department</option>
                             @foreach ($departments as $department)
-                                <option>{{ $department['department'] }}</option>
+                                <option value={{ $department['id']}}>{{ $department['department'] }}</option>
                             @endforeach
                           </select>
                         </div>

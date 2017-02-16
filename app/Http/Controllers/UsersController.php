@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\JobTitle;
 use App\Department;
+use App\UserType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,9 +18,10 @@ class UsersController extends Controller
     
     public function create()
     {
+        $userTypes = UserType::All();
         $jobTitles = JobTitle::All();
         $departments = Department::All();
-        return view('user.create', compact('jobTitles', 'departments'));
+        return view('user.create', compact('jobTitles', 'departments', 'userTypes'));
     }
     
     public function dashboard()
@@ -48,20 +51,25 @@ class UsersController extends Controller
         
     public function add(Request $request)
     {
+
+
+        $user = new User($request->all());
+
+        //|regex:/^\(\d{3}\)\s\d{3}-\d{4}$/'
         $this->validate($request, [
-            'firstName' => 'required|min:3',
+            'name' => 'required|min:3',
             'lastName' => 'required|min:3',
             'sinNumber' => 'required|regex:/^\d{3}-\d{3}-\d{3}$/',
-            'telephone' => 'required|min:10|regex:/^\(\d{3}\)\s\d{3}-\d{4}',
+            'primaryPhone' => 'required|min:10',
             'address'=> 'required|min:5',
             'city' => 'required',
             'province'=>'required|not_in:0',
-            'jobTitle'=> 'required|not_in:0',
-            'department'=> 'required|not_in:0'
-            
+            'userTypeId' => 'required|not_in:0',
+            'titleId'=> 'required|not_in:0',
+            'departmentId'=> 'required|not_in:0'
         ]);
         
-        $user = new User($request->all());
+        $user->save();
         return $user;
     }
 }
