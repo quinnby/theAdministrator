@@ -51,9 +51,8 @@ class UsersController extends Controller
         
     public function add(Request $request)
     {
-
-
         $user = new User($request->all());
+        $user->password = bcrypt($request['password']);
 
         //|regex:/^\(\d{3}\)\s\d{3}-\d{4}$/'
         $this->validate($request, [
