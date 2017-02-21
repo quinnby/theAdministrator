@@ -32,7 +32,7 @@
                       <span class="section">Personal Info</span>
 
                       <div class="item form-group">
-                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="firstName"> First Name <span class="required">*</span>
+                      <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"> First Name <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
 
@@ -58,21 +58,21 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="primaryPhone">Telephone <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="tel" id="telephone" name="primaryPhone"   class="form-control col-md-7 col-xs-12" placeholder="(999) 999 9999">
+                          <input type="tel" id="telephone" name="primaryPhone" class="form-control col-md-7 col-xs-12" placeholder="(999) 999 9999" value="{{ old('primaryPhone') }}">
                         </div>
                       </div>
                          <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="address"> Address <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="address" class="form-control col-md-7 col-xs-12" name="address"   type="text">
+                          <input id="address" class="form-control col-md-7 col-xs-12" name="address"   type="text" maxlength="50" value="{{ old('address') }}">
                         </div>
                       </div>
                      <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="city"> City <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="city" class="form-control col-md-7 col-xs-12" name="city"   type="text">
+                          <input id="city" class="form-control col-md-7 col-xs-12" name="city" type="text" maxlength="20" value="{{ old('city') }}">
                         </div>
                       </div>
                       <div class="item form-group">
@@ -101,28 +101,28 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="postalCode"> Postal Code <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="city" class="form-control col-md-7 col-xs-12" name="postalCode"   type="text" placeholder="X1X1X1">
+                          <input id="postalCode" class="form-control col-md-7 col-xs-12" name="postalCode" type="text" placeholder="X1X-1X1" value="{{ old('postalCode') }}">
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="birthDate">Birth Date <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="date" id="birthDate" name="birthDate"  placeholder="DD/MM/YYYY" class="form-control col-md-7 col-xs-12">
+                          <input type="date" id="birthDate" name="birthDate" placeholder="DD/MM/YYYY" class="form-control col-md-7 col-xs-12" value="{{ old('birthDate') }}">
                         </div>
                       </div>
                       <div class="item form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="email" id="email" name="email"   class="form-control col-md-7 col-xs-12">
+                          <input type="email" id="email" name="email" class="form-control col-md-7 col-xs-12" value="{{ old('email') }}">
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Confirm Email <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email_confirmation">Confirm Email <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="email" id="email2" name="confirm_email" data-validate-linked="email"   class="form-control col-md-7 col-xs-12">
+                          <input type="email" id="email_confirmation" name="email_confirmation" data-validate-linked="email"   class="form-control col-md-7 col-xs-12">
                         </div>
                       </div>
 
@@ -130,7 +130,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="hireDate">Hire Date <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="date" id="hireDate" name="hireDate"   placeholder="DD/MM/YYYY" class="form-control col-md-7 col-xs-12">
+                          <input type="date" id="hireDate" name="hireDate" placeholder="DD/MM/YYYY" class="form-control col-md-7 col-xs-12" value={{date('Y-m-j')}}>
                         </div>
                       </div>
                       <div class="item form-group">
@@ -139,7 +139,7 @@
                           </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" name="titleId">
-                            <option>Choose Title</option>
+                            <option value=0 >Choose Title</option>
                             @foreach ($jobTitles as $title)
                                 <option value={{ $title['id']}}>{{ $title['title'] }}</option>
                             @endforeach
@@ -152,7 +152,7 @@
                           </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" name="userTypeId">
-                            <option>Choose User Type</option>
+                            <option value=0>Choose User Type</option>
                             @foreach ($userTypes as $userType)
                                 <option value={{ $userType['id']}}>{{ $userType['userType'] }}</option>
                             @endforeach
@@ -165,7 +165,7 @@
                           </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <select class="form-control" name="departmentId">
-                            <option>Choose Department</option>
+                            <option value=0>Choose Department</option>
                             @foreach ($departments as $department)
                                 <option value={{ $department['id']}}>{{ $department['department'] }}</option>
                             @endforeach
@@ -179,9 +179,9 @@
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label for="password2" class="control-label col-md-3 col-sm-3 col-xs-12">Repeat Password</label>
+                        <label for="password_confirmation" class="control-label col-md-3 col-sm-3 col-xs-12">Repeat Password</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="password2" type="password" name="password2" class="form-control col-md-7 col-xs-12"  >
+                          <input id="password_confirmation" type="password" name="password_confirmation" class="form-control col-md-7 col-xs-12"  >
                         </div>
                       </div>
 
@@ -199,6 +199,21 @@
         </div>
     </div>
 </div>
+
+<script>
+  $(document).ready(function($){
+
+    //mask input fields
+    $('#firstName').mask('AAAAAAAAAAAAA', {'translation': {A: {pattern: /[A-Za-z]/}}});
+    $('#lastName').mask('AAAAAAAAAAAAA', {'translation': {A: {pattern: /[A-Za-z]/}}});
+    $('#city').mask('AAAAAAAAAAAAAAAAAAAA', {'translation': {A: {pattern: /[A-Za-z]/}}})
+    $('#sinNumber').mask('000-000-000');
+    $('#telephone').mask('(000)-000-0000');
+    $('#postalCode').mask('A0A-0A0', {'translation': {A: {pattern: /[A-Za-z]/}}} );
+
+  });
+</script>
+
 <!-- /page content -->
 <!-- footer content -->
 <footer> @include('includes.footer') </footer>

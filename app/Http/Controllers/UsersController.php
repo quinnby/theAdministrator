@@ -63,6 +63,8 @@ class UsersController extends Controller
             'primaryPhone' => 'required|min:10',
             'address'=> 'required|min:5',
             'city' => 'required',
+            'email' => 'Required|Email|Confirmed',
+            'password' => 'required|Confirmed',
             'province'=>'required|not_in:0',
             'userTypeId' => 'required|not_in:0',
             'titleId'=> 'required|not_in:0',
