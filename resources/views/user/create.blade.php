@@ -101,7 +101,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="postalCode"> Postal Code <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input id="postalCode" class="form-control col-md-7 col-xs-12" name="postalCode" type="text" placeholder="X1X-1X1" value="{{ old('postalCode') }}">
+                          <input id="postalCode" class="form-control col-md-7 col-xs-12" name="postalCode" type="text" placeholder="X1X-1X1" value="{{ old('postalCode') }}" onkeydown="PCToUpper(this)">
                         </div>
                       </div>
                       <div class="item form-group">
@@ -201,6 +201,13 @@
 </div>
 
 <script>
+
+    //function to uppercase the postal code onkeydown event
+    function PCToUpper(pc)
+    {
+      setTimeout(function(){pc.value = pc.value.toUpperCase();}, 1)
+    }
+
   $(document).ready(function($){
 
     //mask input fields
