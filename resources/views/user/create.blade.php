@@ -9,10 +9,17 @@
 
     <!-- page content -->
      <div class="right_col" role="main">
-            <div class="clearfix"></div>
-
-                  <div class="x_content">
-                    <!-- If Errors are detected in validation -->  
+       <div class="">
+         <div class="page-title">
+           <div class="title_left">
+             <h3>Create Employee</h3> 
+           </div>
+         </div>
+           <div class="row">
+              <div class="col-md-12 col-sm-12 col-xs-12">
+                  <br/>
+                  
+                  <!-- If Errors are detected in validation -->  
                     @if (count($errors) > 0)
 						<div class="alert alert-danger">
 							<strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -24,12 +31,18 @@
 						</div>
 					@endif
                       
+                  <div class="x_panel">
+                      <div class="x_content">
+                          <br />
+                   
+                  <div class="x_content">
+                    
                       <!-- Form -->
                     <form class="form-horizontal form-label-left" novalidate role="form" method="POST" action ="{{ url('create_user') }}">
                         <input type="hidden" 
                             name="_token" 
                             value="{{ csrf_token() }}"/>
-                      <span class="section">Personal Info</span>
+                      
 
                       <div class="item form-group">
                       <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name"> First Name <span class="required">*</span>
@@ -179,7 +192,7 @@
                         </div>
                       </div>
                       <div class="item form-group">
-                        <label for="password_confirmation" class="control-label col-md-3 col-sm-3 col-xs-12">Repeat Password</label>
+                        <label for="password_confirmation" class="control-label col-md-3 col-sm-3 col-xs-12">Confirm Password</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input id="password_confirmation" type="password" name="password_confirmation" class="form-control col-md-7 col-xs-12"  >
                         </div>
@@ -197,6 +210,7 @@
                 </div>
             </div>
         </div>
+      </div>
     </div>
 </div>
 
