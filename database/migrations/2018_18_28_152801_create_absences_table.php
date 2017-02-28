@@ -14,10 +14,8 @@ class CreateAbsencesTable extends Migration
     public function up()
     {
         Schema::create('Absences', function (Blueprint $table) {
-            $table->integer('userId');
-            $table->foreign('userId')->references('userId')->on('schedules')->onDelete('cascade');
-            $table->date('scheduleStart');
-            $table->foreign('scheduleStart')->references('scheduleStart')->on('schedules')->onDelete('cascade');
+            $table->integer('scheduleId');
+            $table->foreign('scheduleId')->references('id')->on('schedules')->onDelete('cascade');
             $table->string('reason');
             $table->timestamps();
         });
