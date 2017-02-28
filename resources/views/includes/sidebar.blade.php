@@ -50,7 +50,7 @@
                     </li>
                     
                       <!-- Administrator Sidebar -->
-                    <li><a><i class="fa fa-user"></i> Performance Reviews<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-pencil"></i> Performance Reviews<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/create_performance_review') }}">Add Performance Review</a></li>
                             <li><a href="{{ url('/') }}">View Performance Reviews</a></li>

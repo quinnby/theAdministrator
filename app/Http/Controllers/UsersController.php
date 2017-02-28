@@ -49,10 +49,6 @@ class UsersController extends Controller
         return view('user.view_time_off');
     }
     
-    public function createPerformanceReview()
-    {
-        return view('user.create_performance_review');
-    }
         
     public function add(Request $request)
     {
