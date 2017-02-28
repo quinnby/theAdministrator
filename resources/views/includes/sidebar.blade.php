@@ -41,19 +41,16 @@
                         </ul>
                         
                      <!-- Administrator Sidebar -->
-                     <li><a><i class="fa fa-users"></i> Administrator <span class="fa fa-chevron-down"></span></a>
+                     <li><a><i class="fa fa-users"></i> Employees <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="{{ url('/manage_users') }}">Manage Users</a></li>
-                            <li><a href="{{ url('/manage_departments') }}">Manage Departments</a></li>
-                            <li><a href="{{ url('/manage_security') }}">Manage Security</a></li>
+                            <li><a href="{{ url('/create_user') }}">Add Employee</a></li>
+                            <li><a href="{{ url('/manage_users') }}">Manage Employees</a></li>
                         </ul>
                     </li>
-                    
-                      <!-- Administrator Sidebar -->
                     <li><a><i class="fa fa-pencil"></i> Performance Reviews<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/create_performance_review') }}">Add Performance Review</a></li>
-                            <li><a href="{{ url('/') }}">View Performance Reviews</a></li>
+                            <li><a href="{{ url('/view_performance_reviews') }}">View Performance Reviews</a></li>
                         </ul>
                     </li>
                     

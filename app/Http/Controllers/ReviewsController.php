@@ -10,4 +10,9 @@ class ReviewsController extends Controller
     {
         return view('reviews.create_performance_review');
     }
+    
+    public function view()
+    {
+        return view('reviews.view_performance_reviews');
+    }
 }
