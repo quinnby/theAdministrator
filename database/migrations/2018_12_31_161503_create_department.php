@@ -20,7 +20,7 @@ class CreateDepartment extends Migration
             $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
 
             $table->string('department');
-            $table->string('description');
+            $table->string('description')->nullable();
         });
 
         DB::table('departments')->insert([

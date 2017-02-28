@@ -21,8 +21,8 @@ class CreateSchedule extends Migration
 
             $table->date('scheduleStart');
             $table->date('scheduleEnd');
-            $table->dateTime('timeStarted');
-            $table->dateTime('timeFinished');
+            $table->dateTime('timeStarted')->nullable();
+            $table->dateTime('timeFinished')->nullable();
             $table->primary(array('userId', 'scheduleStart'));
         });
     }

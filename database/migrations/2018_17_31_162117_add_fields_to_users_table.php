@@ -31,8 +31,6 @@ class AddFieldsToUsersTable extends Migration
             $table->foreign('departmentId')->references('id')->on('departments');
             $table->integer('userTypeId')->unsigned()->index();
             $table->foreign('userTypeId')->references('id')->on('user_types');
-            $table->integer('noteId')->nullable();
-            $table->foreign('noteId')->references('id')->on('performance_notes');
             $table->date('endDate')->nullable();
         });
 

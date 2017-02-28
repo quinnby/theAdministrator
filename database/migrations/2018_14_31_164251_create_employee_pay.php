@@ -19,8 +19,8 @@ class CreateEmployeePay extends Migration
 
             $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
 
-            $table->double('hourlyRate');
-            $table->double('salary');
+            $table->double('hourlyRate')->nullable();
+            $table->double('salary')->nullable();
             $table->date('date');
             $table->primary(array('date', 'userId'));
         });
