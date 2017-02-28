@@ -14,7 +14,7 @@ class CreateSchedule extends Migration
     public function up()
     {
         Schema::create('schedules', function (Blueprint $table) {
-
+            $table->increments('id');
             $table->integer('userId');
 
             $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
@@ -23,7 +23,6 @@ class CreateSchedule extends Migration
             $table->date('scheduleEnd');
             $table->dateTime('timeStarted')->nullable();
             $table->dateTime('timeFinished')->nullable();
-            $table->primary(array('userId', 'scheduleStart'));
         });
     }
 
