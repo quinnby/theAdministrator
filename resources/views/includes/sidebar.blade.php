@@ -48,6 +48,18 @@
                             <li><a href="{{ url('/manage_security') }}">Manage Security</a></li>
                         </ul>
                     </li>
+                    
+                      <!-- Administrator Sidebar -->
+                    <li><a><i class="fa fa-user"></i> Performance Reviews<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ url('/create_performance_review') }}">Add Performance Review</a></li>
+                            <li><a href="{{ url('/') }}">View Performance Reviews</a></li>
+                        </ul>
+                    </li>
+                    
+                    
+                    
+                    
                 </ul>
             </div>
         
