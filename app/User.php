@@ -42,4 +42,9 @@ class User extends Model
     {
         return $this->belongsTo(Department::class, 'departmentId');
     }
+    
+    public function isOfType($type) 
+    {
+        return $this->userTypeId == $type;
+    }
 }
