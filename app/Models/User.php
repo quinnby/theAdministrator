@@ -57,7 +57,7 @@ class User extends Authenticatable
     
     public function department()
     {
-        return $this->belongsTo(Department::class, 'departmentId');
+        return $this->belongsTo("App\Department", 'departmentId');
     }
 
     public function jobTitle()

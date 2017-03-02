@@ -25,6 +25,7 @@
                                     <tr class="headings">
                                         <th class="column-title">Employee Name </th>
                                         <th class="column-title">Position </th>
+                                        <th class="column-title">Department </th>
                                         <th class="column-title">Review Date </th>
                                         <th class="column-title no-link last"><span class="nobr">Details </span></th>
                                         <th class="column-title no-link last"><span class="nobr">Action </span></th>
@@ -36,6 +37,7 @@
                                         <tr class="even pointer">
                                             <td class=" ">{{ $note->userAbout->name }} {{ $note->userAbout->lastName }}</td>
                                             <td class=" ">{{ $note->userAbout->jobTitle->title}}</td>
+                                            <td class=" ">{{ $note->userAbout->department->department}}</td>
                                             <td class=" ">{{ $note->noteDate }}</td>
                                             <td class=" ">{{ $note->note }} </td>
                                             <td class=" "><a href="#" class="btn btn-primary btn-xs editNote" data-toggle="modal" data-target="#myModal" value={{$note['id']}}>Edit</a></td>
