@@ -20,7 +20,7 @@
                         <a class="btn btn-success" href="{{ url('/create_performance_review') }}"><i class="fa fa-edit m-right-xs"></i> Create New Review</a>
                         <hr/>
                         <div class="table-responsive">
-                            <table id="datatable" class="table table-striped table-bordered">
+                            <table id="datatable" class="table table-striped jambo_table bulk_action">
                                 <thead>
                                     <tr class="headings">
                                         <th class="column-title">Employee Name </th>
