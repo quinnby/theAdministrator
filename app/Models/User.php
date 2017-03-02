@@ -59,6 +59,11 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Department::class, 'departmentId');
     }
+
+    public function jobTitle()
+    {
+        return $this->belongsTo("App\JobTitle", 'titleId');
+    }
     
     public function isOfType($type) 
     {

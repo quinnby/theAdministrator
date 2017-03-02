@@ -35,7 +35,7 @@
                                     @foreach($notes as $note)
                                         <tr class="even pointer">
                                             <td class=" ">{{ $note->userAbout->name }} {{ $note->userAbout->lastName }}</td>
-                                            <td class=" ">{{ $note->userAbout->titleId}}</td>
+                                            <td class=" ">{{ $note->userAbout->jobTitle->title}}</td>
                                             <td class=" ">{{ $note->noteDate }}</td>
                                             <td class=" ">{{ $note->note }} </td>
                                             <td class=" "><a href="#" class="btn btn-primary btn-xs editNote" data-toggle="modal" data-target="#myModal" value={{$note['id']}}>Edit</a></td>
