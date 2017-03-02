@@ -35,11 +35,11 @@
                                 <tbody>
                                     @foreach($notes as $note)
                                         <tr class="even pointer">
-                                            <td id={{ $note['id'] }}>{{ $note->userAbout->name }} {{ $note->userAbout->lastName }}</td>
-                                            <td id={{ $note['id'] }}>{{ $note->userAbout->jobTitle->title}}</td>
-                                            <td id={{ $note['id'] }}>{{ $note->userAbout->department->department}}</td>
-                                            <td id={{ $note['id'] }}>{{ $note->noteDate }}</td>
-                                            <td id={{ $note['id'] }}>{{ $note->note }} </td>
+                                            <td>{{ $note->userAbout->name }} {{ $note->userAbout->lastName }}</td>
+                                            <td>{{ $note->userAbout->jobTitle->title}}</td>
+                                            <td>{{ $note->userAbout->department->department}}</td>
+                                            <td>{{ $note->noteDate }}</td>
+                                            <td>{{ $note->note }} </td>
                                             <td id={{ $note['id'] }}><a href="#" class="btn btn-primary btn-xs editNote" data-toggle="modal" data-target="#myModal">Edit</a></td>
                                             <td class=" last">{{ $note->Owner->name }} </td>
                                         </tr>
@@ -81,6 +81,7 @@
     </div>
   </div>
 </div>
+
 
 
 <script>
