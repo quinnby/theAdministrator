@@ -1,6 +1,9 @@
-@extends('layouts.blank') @push('stylesheets')
-<!-- Example -->
-<!--<link href=" <link href="{{ asset("css/myFile.min.css") }}" rel="stylesheet">" rel="stylesheet">-->@endpush @section('main_container')
+@extends('layouts.blank') 
+@push('stylesheets')
+    <!-- Example -->
+    <!--<link href=" <link href="{{ asset("css/myFile.min.css") }}" rel="stylesheet">" rel="stylesheet">-->
+@endpush 
+@section('main_container')
 <!-- page content -->
 <div class="right_col" role="main">
     <div class="">
@@ -24,27 +27,19 @@
                                         <th class="column-title">Position </th>
                                         <th class="column-title">Review Date </th>
                                         <th class="column-title no-link last"><span class="nobr">Details </span> </th>
+                                        <th class="column-title">Issued By </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="even pointer">
-                                        <td class=" ">Employee Name </td>
-                                        <td class=" ">Developer </td>
-                                        <td class=" ">15/01/2017 </td>
-                                        <td class=" last">*performance review* </td>
-                                    </tr>
-                                    <tr class="odd pointer">
-                                        <td class=" ">Employee Name </td>
-                                        <td class=" ">Developer </td>
-                                        <td class=" ">15/01/2017</td>
-                                        <td class=" last">*performance review* </td>
-                                    </tr>
-                                    <tr class="even pointer">
-                                        <td class=" ">Employee Name </td>
-                                        <td class=" ">Developer </td>
-                                        <td class=" ">15/01/2017</td>
-                                        <td class=" last">*performance review* </td>
-                                    </tr>
+                                    @foreach($notes as $note)
+                                        <tr class="even pointer">
+                                            <td class=" ">{{ $note->userAbout->name }} {{ $note->userAbout->lastName }}</td>
+                                            <td class=" ">{{ $note->userAbout->titleId}}</td>
+                                            <td class=" ">{{ $note->noteDate }}</td>
+                                            <td class=" ">{{ $note->note }} </td>
+                                            <td class=" last">{{ $note->userOwner }} </td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -54,6 +49,12 @@
         </div>
     </div>
 </div>
+
+<script>
+    //dataTable plugin
+    $('#datatable').DataTable();
+
+</script>
 <!-- /page content -->
 <!-- footer content -->
 <footer> @include('includes.footer') </footer>

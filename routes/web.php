@@ -23,6 +23,8 @@ Route::get('/view_time_off', 'UsersController@viewTimeOff');
 Route::get('/manage_users','UsersController@index');
 
 Route::get('/create_performance_review','ReviewsController@create');
+Route::post('/create_performance_review','ReviewsController@add');
+
 Route::get('/view_performance_reviews','ReviewsController@view');
 
 Route::get('/manage_departments','DepartmentsController@index');

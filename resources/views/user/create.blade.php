@@ -21,15 +21,15 @@
                   
                   <!-- If Errors are detected in validation -->  
                     @if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
+            						<div class="alert alert-danger">
+            							<strong>Whoops!</strong> There were some problems with your input.<br><br>
+            							<ul>
+            								@foreach ($errors->all() as $error)
+            									<li>{{ $error }}</li>
+            								@endforeach
+            							</ul>
+            						</div>
+					           @endif
                       
                   <div class="x_panel">
                       <div class="x_content">
@@ -143,7 +143,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="hireDate">Hire Date <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="date" id="hireDate" name="hireDate" placeholder="DD/MM/YYYY" class="form-control col-md-7 col-xs-12" value={{date('Y-m-j')}}>
+                          <input type="date" id="hireDate" name="hireDate" placeholder="DD/MM/YYYY" class="form-control col-md-7 col-xs-12" value={{date('Y-m-d')}}>
                         </div>
                       </div>
                       <div class="item form-group">
