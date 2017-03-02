@@ -12,9 +12,9 @@ class PerformanceNotes extends Model
         'userId',
 
     ];
-    public function userOwner()
+    public function Owner()
     {
-        return $this->belongsTo(User::class, 'userOwner');
+        return $this->belongsTo(User::class, 'userOwner', 'id');
     }
     
     public function userAbout()

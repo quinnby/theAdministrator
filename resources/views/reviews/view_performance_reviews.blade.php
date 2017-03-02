@@ -26,7 +26,8 @@
                                         <th class="column-title">Employee Name </th>
                                         <th class="column-title">Position </th>
                                         <th class="column-title">Review Date </th>
-                                        <th class="column-title no-link last"><span class="nobr">Details </span> </th>
+                                        <th class="column-title no-link last"><span class="nobr">Details </span></th>
+                                        <th class="column-title no-link last"><span class="nobr">Action </span></th>
                                         <th class="column-title">Issued By </th>
                                     </tr>
                                 </thead>
@@ -37,23 +38,90 @@
                                             <td class=" ">{{ $note->userAbout->titleId}}</td>
                                             <td class=" ">{{ $note->noteDate }}</td>
                                             <td class=" ">{{ $note->note }} </td>
-                                            <td class=" last">{{ $note->userOwner }} </td>
+                                            <td class=" "><a href="#" class="btn btn-primary btn-xs editNote" data-toggle="modal" data-target="#myModal" value={{$note['id']}}>Edit</a></td>
+                                            <td class=" last">{{ $note->Owner->name }} </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
                             </table>
                         </div>
+
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+
+
+            <form class="form-horizontal" role="form">
+                  <div class="form-group">
+                    <label  class="col-sm-2 control-label"
+                              for="inputEmail3">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" 
+                        id="inputEmail3" placeholder="Email"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-2 control-label"
+                          for="inputPassword3" >Password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control"
+                            id="inputPassword3" placeholder="Password"/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <div class="checkbox">
+                        <label>
+                            <input type="checkbox"/> Remember me
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                      <button type="submit" class="btn btn-default">Sign in</button>
+                    </div>
+                  </div>
+                </form>
+        
+           
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+
 </div>
 
-<script>
-    //dataTable plugin
-    $('#datatable').DataTable();
 
+<script>
+    $('#datatable').DataTable({
+        "columnDefs": 
+        [
+            {"orderable": false, "targets": [4]}
+        ]
+    });
 </script>
 <!-- /page content -->
 <!-- footer content -->
