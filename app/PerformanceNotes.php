@@ -20,5 +20,6 @@ class PerformanceNotes extends Model
     public function userAbout()
     {
         return $this->belongsTo('App\Models\User', 'userId');
+        
     }
 }
