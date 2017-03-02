@@ -21,8 +21,14 @@ class CreateUserType extends Migration
         DB::table('user_types')->insert([
             [
                 'userType'=>"Admin"
-            ]
-            ]);
+            ],
+			[
+                'userType'=>"Manager"
+            ],
+			
+                'userType'=>"User"
+            ],
+        ]);
     }
 
     /**

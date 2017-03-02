@@ -39,7 +39,8 @@
                             <li><a href="{{ url('/request_time_off') }}">Request Time Off</a></li>
                             <li><a href="{{ url('/view_time_off') }}">View Time Off Requests</a></li>
                         </ul>
-                        
+                    
+                     @if (!auth()->guest() && auth()->user()->isOfType(1))   
                      <!-- Administrator Sidebar -->
                      <li><a><i class="fa fa-users"></i> Employees <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
@@ -53,15 +54,13 @@
                             <li><a href="{{ url('/view_performance_reviews') }}">View Performance Reviews</a></li>
                         </ul>
                     </li>
-                    
-                    
-                    
-                    
+                    @endif
+                   
                 </ul>
             </div>
-        
         </div>
         <!-- /sidebar menu -->
+        
         
         <!-- /menu footer buttons -->
         <div class="sidebar-footer hidden-small">

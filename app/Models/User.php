@@ -15,9 +15,22 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'lastName',
+        'sinNumber',
+        'primaryPhone',
+        'address',
+        'city',
+        'province',
+        'postalCode',
+        'birthDate',
+        'email',
+        'hireDate',
+        'titleId',
+        'userTypeId',
+        'departmentId',
+        'password'
     ];
-
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -26,4 +39,31 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    
+    public function performanceNoteOwner()
+    {
+        return $this->hasMany(PerformanceNotes::class, "userOwner");
+    }
+    
+    public function performanceNoteAbout()
+    {
+        return $this->hasMany(PerformanceNotes::class, 'userId');
+    }
+    
+    public function userType()
+    {
+        return $this->belongsTo(UserType::Class, 'userTypeId');
+    }
+    
+    public function department()
+    {
+        return $this->belongsTo(Department::class, 'departmentId');
+    }
+    
+    public function isOfType($type) 
+    {
+        return $this->userTypeId == $type;
+    }
+  
+
 }
