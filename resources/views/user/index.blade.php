@@ -53,7 +53,7 @@
                                             <td>{{ $user->primaryPhone }}</td>
                                             <td>{{ $user->secondaryPhone }} </td>
                                             <td>{{ $user->active ? "Enabled" : "Disabled" }} </td>
-                                            <td id="{{ $user->id }}" class=" last"><button id="active">Deactivate</button> <button id="delete">Delete</button></td>
+                                            <td id="{{ $user->id }}" class=" last"><button id="active">Deactivate</button> <button class="delete">Delete</button></td>
                                             
                                         </tr>
                                     @endforeach
@@ -77,7 +77,7 @@
                     window.location.href = "{{ url('user/toggleActivation') }}" + "/" + $( this ).parent().prop("id");
                 }
             });
-            $("#delete").on("click", function(){
+            $(".delete").on("click", function(){
                 if (confirm("Do you want to delete " + $( this ).parent().parent().children().first().text() + "?" )){
                     window.location.href = "{{ url('user/delete') }}" + "/" + $( this ).parent().prop("id");
                 }
