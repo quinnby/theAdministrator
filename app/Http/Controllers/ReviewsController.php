@@ -10,6 +10,13 @@ use App\Http\Controllers\Controller;
 
 class ReviewsController extends Controller
 {
+    
+    public function index()
+    {
+    	$notes = PerformanceNotes::All();
+    	
+        return view('reviews.view_performance_reviews', compact('notes'));
+    }
 
     public function create()
     {	
@@ -18,14 +25,8 @@ class ReviewsController extends Controller
         return view('reviews.create_performance_review', compact('users','loggedUser'));
     }
     
-    public function view()
-    {
-    	$notes = PerformanceNotes::All();
-    	
-        return view('reviews.view_performance_reviews', compact('notes'));
-    }
 
-     public function add(Request $request)
+    public function add(Request $request)
     {
     	$performanceNote = new PerformanceNotes($request->all());
     	$performanceNote->userOwner = Auth::user()->id;

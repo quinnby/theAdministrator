@@ -15,15 +15,14 @@ Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/', 'HomeController@index');
 Route::get('/about','HomeController@about');
-Route::get('/user_dashboard', 'UsersController@dashboard');
-Route::get('/user_profile', 'UsersController@view');
-Route::get('/edit_user_profile', 'UsersController@edit');
+
+
 Route::get('/manage_users','UsersController@index');
 
-Route::get('/create_performance_review','ReviewsController@create');
-Route::post('/create_performance_review','ReviewsController@add');
-Route::get('/edit_performance_review/{noteId}','ReviewsController@updateReview');
-Route::get('/view_performance_reviews','ReviewsController@view');
+Route::get('/performance_review/create','ReviewsController@create');
+Route::post('/performance_review/create','ReviewsController@add');
+Route::get('/performance_review/{noteId}','ReviewsController@update');
+Route::get('/performance_review','ReviewsController@index');
 
 Route::get('/time_off/create', 'TimeOffController@create');
 Route::get('/time_off', 'TimeOffController@index');
@@ -34,3 +33,6 @@ Route::get('/manage_security','SecurityController@index');
 
 Route::post('/create_user', 'UsersController@add');
 Route::get('/create_user','UsersController@create');
+Route::get('/user_profile', 'UsersController@view');
+Route::get('/edit_user_profile', 'UsersController@edit');
+Route::get('/user_dashboard', 'UsersController@dashboard');

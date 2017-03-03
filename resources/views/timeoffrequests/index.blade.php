@@ -14,7 +14,7 @@
                 <div class="x_panel">
                     <div class="x_content">
                         <br />
-                        <a class="btn btn-round btn-success" href="{{ url('/request_time_off') }}"><i class="fa fa-edit m-right-xs"></i> Submit New Request</a>
+                        <a class="btn btn-round btn-success" href="{{ url('/time_off/create') }}"><i class="fa fa-edit m-right-xs"></i> Submit New Request</a>
                         <hr/>
                         <div class="table-responsive">
                             <table class="table table-striped jambo_table bulk_action">
