@@ -59,7 +59,7 @@
                             <h4 class="brief"><i>Digital Strategist</i></h4>
                             <div class="left col-xs-7">
                               <h2>Nicole Pearson</h2>
-                              <p><strong>About: </strong> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                              <p><strong>About: </strong> Web Designer / UX</p>
                               <ul class="list-unstyled">
                                 <li><i class="fa fa-building"></i> Address: </li>
                                 <li><i class="fa fa-phone"></i> Phone #: </li>
@@ -211,7 +211,7 @@
                             <h4 class="brief"><i>Digital Strategist</i></h4>
                             <div class="left col-xs-7">
                               <h2>Nicole Pearson</h2>
-                              <p><strong>About: </strong> Web Designer / UX / Graphic Artist / Coffee Lover </p>
+                              <p><strong>About: </strong> Web Designer / UX </p>
                               <ul class="list-unstyled">
                                 <li><i class="fa fa-building"></i> Address: </li>
                                 <li><i class="fa fa-phone"></i> Phone #: </li>

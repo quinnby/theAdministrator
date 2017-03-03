@@ -26,6 +26,7 @@
                 <br/><br/>
                 <ul class="nav side-menu">
                     <br/>
+                    @if (!auth()->guest() && auth()->user()->isOfType(2))   
                     <!-- Employee Sidebar -->
                     <li><a href="{{ url('/user_dashboard') }}"><i class="fa fa-home"></i>Dashboard</a>
                     </li>
@@ -39,6 +40,7 @@
                             <li><a href="{{ url('/request_time_off') }}">Request Time Off</a></li>
                             <li><a href="{{ url('/view_time_off') }}">View Time Off Requests</a></li>
                         </ul>
+                    @endif
                     
                      @if (!auth()->guest() && auth()->user()->isOfType(1))   
                      <!-- Administrator Sidebar -->
