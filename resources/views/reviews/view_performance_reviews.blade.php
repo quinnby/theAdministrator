@@ -17,7 +17,7 @@
                 <div class="x_panel">
                     <div class="x_content">
                         <br />
-                        <a class="btn btn-success" href="{{ url('/create_performance_review') }}"><i class="fa fa-edit m-right-xs"></i> Create New Review</a>
+                        <a class="btn btn-round btn-success" href="{{ url('/performance_review/create') }}"><i class="fa fa-edit m-right-xs"></i> Create New Review</a>
                         <hr/>
                         <div class="table-responsive">
                             <table id="datatable" class="table table-striped jambo_table bulk_action">

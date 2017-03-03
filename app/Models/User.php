@@ -52,7 +52,7 @@ class User extends Authenticatable
     
     public function userType()
     {
-        return $this->belongsTo(UserType::Class, 'userTypeId');
+        return $this->belongsTo("App\UserType", 'userTypeId');
     }
     
     public function department()

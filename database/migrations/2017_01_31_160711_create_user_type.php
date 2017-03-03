@@ -25,7 +25,7 @@ class CreateUserType extends Migration
 			[
                 'userType'=>"Manager"
             ],
-			
+			[
                 'userType'=>"User"
             ],
         ]);

@@ -13,7 +13,8 @@ class UsersController extends Controller
 {
     public function index()
     {
-        return view('user.manage');
+        $users = User::All();
+        return view('user.index', compact('users'));
     }
     
     public function create()
@@ -38,17 +39,6 @@ class UsersController extends Controller
     {
         return view('user.edit_profile');
     }
-    
-    public function requestTimeOff()
-    {
-        return view('user.request_time_off');
-    }
-    
-    public function viewTimeOff()
-    {
-        return view('user.view_time_off');
-    }
-    
         
     public function add(Request $request)
     {

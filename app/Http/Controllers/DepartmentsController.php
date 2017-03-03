@@ -9,6 +9,6 @@ class DepartmentsController extends Controller
 {
     public function index()
     {
-        return view('manage_departments');
+        return view('departments.index');
     }
 }

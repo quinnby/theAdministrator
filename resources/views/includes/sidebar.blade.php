@@ -26,32 +26,34 @@
                 <br/><br/>
                 <ul class="nav side-menu">
                     <br/>
+                    @if (!auth()->guest() && auth()->user()->isOfType(1))   
                     <!-- Employee Sidebar -->
-                    <li><a href="{{ url('/user_dashboard') }}"><i class="fa fa-home"></i>Dashboard</a>
+                    <li><a href="{{ url('/user/dashboard') }}"><i class="fa fa-home"></i>Dashboard</a>
                     </li>
                     <li><a><i class="fa fa-user"></i> Personal Information<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="{{ url('/user_profile') }}">View Profile</a></li>
-                            <li><a href="{{ url('/edit_user_profile') }}">Edit Profile</a></li>
+                            <li><a href="{{ url('/user/profile/' . auth()->user()->id) }}">View Profile</a></li>
+                            <li><a href="{{ url('/user/profile/' . auth()->user()->id) . '/edit' }}">Edit Profile</a></li>
                         </ul>
                      <li><a><i class="fa fa-user"></i> Time Off<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="{{ url('/request_time_off') }}">Request Time Off</a></li>
-                            <li><a href="{{ url('/view_time_off') }}">View Time Off Requests</a></li>
+                            <li><a href="{{ url('/time_off/create') }}">Request Time Off</a></li>
+                            <li><a href="{{ url('/time_off') }}">View Time Off Requests</a></li>
                         </ul>
+                    @endif
                     
                      @if (!auth()->guest() && auth()->user()->isOfType(1))   
                      <!-- Administrator Sidebar -->
                      <li><a><i class="fa fa-users"></i> Employees <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="{{ url('/create_user') }}">Add Employee</a></li>
-                            <li><a href="{{ url('/manage_users') }}">Manage Employees</a></li>
+                            <li><a href="{{ url('/users/create') }}">Add Employee</a></li>
+                            <li><a href="{{ url('/users') }}">Manage Employees</a></li>
                         </ul>
                     </li>
                     <li><a><i class="fa fa-pencil"></i> Performance Reviews<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="{{ url('/create_performance_review') }}">Add Performance Review</a></li>
-                            <li><a href="{{ url('/view_performance_reviews') }}">View Performance Reviews</a></li>
+                            <li><a href="{{ url('/performance_review/create') }}">Add Performance Review</a></li>
+                            <li><a href="{{ url('/performance_review') }}">View Performance Reviews</a></li>
                         </ul>
                     </li>
                     @endif
