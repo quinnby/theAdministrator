@@ -24,6 +24,7 @@ Route::get('/manage_users','UsersController@index');
 
 Route::get('/create_performance_review','ReviewsController@create');
 Route::post('/create_performance_review','ReviewsController@add');
+Route::get('/edit_performance_review/{noteId}','ReviewsController@updateReview');
 
 Route::get('/view_performance_reviews','ReviewsController@view');
 

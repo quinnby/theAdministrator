@@ -25,19 +25,23 @@
                                     <tr class="headings">
                                         <th class="column-title">Employee Name </th>
                                         <th class="column-title">Position </th>
+                                        <th class="column-title">Department </th>
                                         <th class="column-title">Review Date </th>
-                                        <th class="column-title no-link last"><span class="nobr">Details </span> </th>
+                                        <th class="column-title no-link last"><span class="nobr">Details </span></th>
+                                        <th class="column-title no-link last"><span class="nobr">Action </span></th>
                                         <th class="column-title">Issued By </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($notes as $note)
                                         <tr class="even pointer">
-                                            <td class=" ">{{ $note->userAbout->name }} {{ $note->userAbout->lastName }}</td>
-                                            <td class=" ">{{ $note->userAbout->titleId}}</td>
-                                            <td class=" ">{{ $note->noteDate }}</td>
-                                            <td class=" ">{{ $note->note }} </td>
-                                            <td class=" last">{{ $note->userOwner }} </td>
+                                            <td>{{ $note->userAbout->name }} {{ $note->userAbout->lastName }}</td>
+                                            <td>{{ $note->userAbout->jobTitle->title}}</td>
+                                            <td>{{ $note->userAbout->department->department}}</td>
+                                            <td>{{ $note->noteDate }}</td>
+                                            <td>{{ $note->note }} </td>
+                                            <td id={{ $note['id'] }}><a href="#" class="btn btn-primary btn-xs editNote" data-toggle="modal" data-target="#myModal">Edit</a></td>
+                                            <td class=" last">{{ $note->Owner->name }} </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -48,12 +52,43 @@
             </div>
         </div>
     </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal" role="form">
+                <div class="form-group">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <textarea class="form-control" rows="3" id="editNote" name="editNote" ></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
-    //dataTable plugin
-    $('#datatable').DataTable();
-
+    $('#datatable').DataTable({
+        "columnDefs": 
+        [
+            {"orderable": false, "targets": [4]}
+        ]
+    });
 </script>
 <!-- /page content -->
 <!-- footer content -->

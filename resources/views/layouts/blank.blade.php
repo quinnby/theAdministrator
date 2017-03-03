@@ -17,6 +17,8 @@
         <link href="{{ asset("css/font-awesome.min.css") }}" rel="stylesheet">
         <!-- Custom Theme Style -->
         <link href="{{ asset("css/custom.min.css") }}" rel="stylesheet">
+        <!-- import css jquery datatables libary -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
 
         <!-- jquery -->
         <script type="text/javascript" src="https://code.jquery.com/jquery-latest.min.js"></script>
