@@ -38,17 +38,6 @@ class UsersController extends Controller
     {
         return view('user.edit_profile');
     }
-    
-    public function requestTimeOff()
-    {
-        return view('user.request_time_off');
-    }
-    
-    public function viewTimeOff()
-    {
-        return view('user.view_time_off');
-    }
-    
         
     public function add(Request $request)
     {
