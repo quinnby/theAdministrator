@@ -88,6 +88,8 @@
         [
             {"orderable": false, "targets": [4]}
         ]
+
+        
     });
 </script>
 <!-- /page content -->
