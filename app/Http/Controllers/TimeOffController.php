@@ -6,13 +6,13 @@ use Illuminate\Http\Request;
 
 class TimeOffController extends Controller
 {
-    public function createRequest()
+    public function create()
     {
         return view('timeoffrequests.create');
     }
     
-    public function view()
+    public function index()
     {
-        return view('timeoffrequests.view');
+        return view('timeoffrequests.index');
     }
 }
