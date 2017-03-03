@@ -13,7 +13,8 @@ class UsersController extends Controller
 {
     public function index()
     {
-        return view('user.manage');
+        $users = User::All();
+        return view('user.index', compact('users'));
     }
     
     public function create()

@@ -22,7 +22,7 @@ class AddFieldsToUsersTable extends Migration
             $table->string('city');
             $table->string('postalCode');
             $table->string('province');
-             $table->string('sinNumber');
+            $table->string('sinNumber');
             $table->string('primaryPhone');
             $table->string('secondaryPhone')->nullable();
             $table->integer('titleId')->unsigned()->index();
@@ -31,6 +31,7 @@ class AddFieldsToUsersTable extends Migration
             $table->foreign('departmentId')->references('id')->on('departments');
             $table->integer('userTypeId')->unsigned()->index();
             $table->foreign('userTypeId')->references('id')->on('user_types');
+            $table->boolean('active')->default(true);
             $table->date('endDate')->nullable();
         });
 
