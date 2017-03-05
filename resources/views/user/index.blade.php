@@ -28,6 +28,7 @@
               <i class="fa fa-user"> </i></button></a>
                     <div class="row">
                         <hr/>
+                        <span style="color:green" clas="msg"></span>
                         <div class="table-responsive">
                             <table id="datatable" class="table table-striped jambo_table bulk_action">
                                 <thead>
@@ -53,7 +54,7 @@
                                             <td>{{ $user->primaryPhone }}</td>
                                             <td>{{ $user->secondaryPhone }} </td>
                                             <td>{{ $user->active ? "Enabled" : "Disabled" }} </td>
-                                            <td id="{{ $user->id }}" class=" last"><button id="active">Deactivate</button> <button class="delete">Delete</button></td>
+                                            <td id="{{ $user->id }}" class=" last"><button class="active">Deactivate</button> <button class="delete">Delete</button></td>
                                             
                                         </tr>
                                     @endforeach
@@ -69,17 +70,35 @@
         </div>
     <script>
         
-        $('#datatable').DataTable();
+       var table = $('#datatable').DataTable();
         
         $(document).ready(function(){
-            $("#active").on("click", function(){
+             
+            $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+            });
+            
+            $(".active").on("click", function(){
                 if (confirm("Do you want to change activation of " + $( this ).parent().parent().children().first().text() + "?" )){
                     window.location.href = "{{ url('user/toggleActivation') }}" + "/" + $( this ).parent().prop("id");
                 }
             });
             $(".delete").on("click", function(){
                 if (confirm("Do you want to delete " + $( this ).parent().parent().children().first().text() + "?" )){
-                    window.location.href = "{{ url('user/delete') }}" + "/" + $( this ).parent().prop("id");
+                    //window.location.href = "{{ url('user/') }}" + "/" + $( this ).parent().prop("id") + "/delete";
+                    var token = $(this).data("token");
+                    $.ajax({
+                        url: '/user/' + $( this ).parent().prop("id") + '/delete',
+                        type: 'DELETE',  // user.destroy
+                        headers: {
+                            'X-CSRF-TOKEN': token
+                        },
+                        success: function(result) {
+                            table.row($(this).closest('tr')).remove().draw();
+                        }
+                    });
                 }
             });
             //window.location.href = "http://stackoverflow.com";

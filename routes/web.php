@@ -34,3 +34,4 @@ Route::get('/users/create','UsersController@create');
 Route::get('/user/profile/{id}', 'UsersController@view');
 Route::get('//user/profile/{id}/edit', 'UsersController@edit');
 Route::get('/user/dashboard', 'UsersController@dashboard');
+Route::delete('/user/{id}/delete', 'UsersController@destroy');

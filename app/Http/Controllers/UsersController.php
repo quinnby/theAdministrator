@@ -11,6 +11,11 @@ use App\Http\Controllers\Controller;
 
 class UsersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $users = User::All();
@@ -63,6 +68,14 @@ class UsersController extends Controller
         
         $user->save();
         return $user;
+    }
+    
+    public function destroy($id)
+    {
+        //User::destroy($id);
+        
+        
+        return response(['msg' => 'Member deleted', 'status' => 'Success']);
     }
 }
 ?>

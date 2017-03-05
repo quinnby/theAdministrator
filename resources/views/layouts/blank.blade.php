@@ -8,6 +8,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>The Administrator | </title>
 
@@ -26,10 +27,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
         <!-- import jquery datatables library -->
         <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js" ></script>
+        
 
         @stack('stylesheets')
 
     </head>
+    
 
     <body class="nav-md">
         <div class="container body">
