@@ -54,7 +54,11 @@
                                             <td>{{ $user->primaryPhone }}</td>
                                             <td>{{ $user->secondaryPhone }} </td>
                                             <td>{{ $user->active ? "Enabled" : "Disabled" }} </td>
-                                            <td id="{{ $user->id }}" class=" last"><button class="active">Deactivate</button> <button class="delete">Delete</button></td>
+                                            <td id="{{ $user->id }}" class=" last">
+                                                @if (Auth::user()->id != $user->id)
+                                                    <button class="active">Deactivate</button> <button class="delete">Delete</button>
+                                                @endif
+                                            </td>
                                             
                                         </tr>
                                     @endforeach

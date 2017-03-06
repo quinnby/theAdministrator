@@ -24,7 +24,12 @@ class Authenticate
                 return redirect()->guest('login');
             }
         }
-
+        
+        if (!Auth::user()->active)
+        {   
+            Auth::logout();
+            return response('Unauthorized. Account has been disabled.', 401);
+        }
         return $next($request);
     }
 }
