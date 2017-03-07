@@ -18,8 +18,8 @@ class ReviewsController extends Controller
     public function index()
     {
     	$notes = PerformanceNotes::All();
-    	
-        return view('reviews.view_performance_reviews', compact('notes'));
+    	$users = User::All();
+        return view('reviews.view_performance_reviews', compact('notes', 'users'));
     }
 
     public function create()

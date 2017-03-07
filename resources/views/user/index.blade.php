@@ -24,7 +24,7 @@
                 <div class="x_panel">
                   <div class="x_content">
                 
-              <a href="{{ url('/user/create') }}"><button class="btn btn-round btn-success" type="button"> Create Employee
+              <a href="{{ url('users/create') }}"><button class="btn btn-round btn-success" type="button"> Create Employee
               <i class="fa fa-user"> </i></button></a>
                     <div class="row">
                         <hr/>
