@@ -72,10 +72,18 @@ class UsersController extends Controller
     
     public function destroy($id)
     {
-        //User::destroy($id);
+        User::destroy($id);
         
         
         return response(['msg' => 'Member deleted', 'status' => 'Success']);
+    }
+    
+    public function toggleActivation($id)
+    {
+        $user = User::find($id);
+        $user->active = !$user->active;
+        $user->save();
+        return response(['msg' => 'Member activation toggled', 'status' => 'Success']);
     }
 }
 ?>

@@ -86,7 +86,18 @@
             
             $(".active").on("click", function(){
                 if (confirm("Do you want to change activation of " + $( this ).parent().parent().children().first().text() + "?" )){
-                    window.location.href = "{{ url('user/toggleActivation') }}" + "/" + $( this ).parent().prop("id");
+                    var token = $(this).data("token");
+                    $.ajax({
+                        url: '/user/' + $( this ).parent().prop("id") + '/toggleActivation',
+                        type: 'PATCH',  // user.destroy
+                       // headers: {
+                        //    'X-CSRF-TOKEN': token
+                        //},
+                        success: function(result) {
+                            //table.row($(this).closest('tr')).remove().draw();
+                            location.reload();
+                        }
+                    });
                 }
             });
             $(".delete").on("click", function(){
@@ -100,7 +111,8 @@
                             'X-CSRF-TOKEN': token
                         },
                         success: function(result) {
-                            table.row($(this).closest('tr')).remove().draw();
+                            //table.row($(this).closest('tr')).remove().draw();
+                            location.reload();
                         }
                     });
                 }

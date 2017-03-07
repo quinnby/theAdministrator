@@ -29,7 +29,8 @@ class User extends Authenticatable
         'titleId',
         'userTypeId',
         'departmentId',
-        'password'
+        'password',
+        'active'
     ];
     /**
      * The attributes that should be hidden for arrays.
