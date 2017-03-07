@@ -26,10 +26,10 @@
                 <br/><br/>
                 <ul class="nav side-menu">
                     <br/>
-                    @if (!auth()->guest() && auth()->user()->isOfType(1))   
-                    <!-- Employee Sidebar -->
                     <li><a href="{{ url('/user/dashboard') }}"><i class="fa fa-home"></i>Dashboard</a>
                     </li>
+                    @if (!auth()->guest() && auth()->user()->isOfType(2))   
+                    <!-- Employee Sidebar -->
                     <li><a><i class="fa fa-user"></i> Personal Information<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/user/profile/' . auth()->user()->id) }}">View Profile</a></li>
@@ -56,6 +56,10 @@
                             <li><a href="{{ url('/performance_review') }}">View Performance Reviews</a></li>
                         </ul>
                     </li>
+                     <li><a><i class="fa fa-user"></i> Time Off<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ url('/time_off') }}">Manage Time Off Requests</a></li>
+                        </ul>
                     @endif
                    
                 </ul>
