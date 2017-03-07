@@ -7,10 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class PerformanceNotes extends Model
 {
 	    protected $fillable = [
-        'noteDate',
-        'note',
-        'userId',
-
+            'noteDate',
+            'note',
+            'userId'
     ];
     public function Owner()
     {

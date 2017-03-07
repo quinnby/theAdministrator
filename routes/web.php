@@ -18,10 +18,11 @@ Route::get('/about','HomeController@about');
 
 Route::get('/performance_review/create','ReviewsController@create');
 Route::post('/performance_review/create','ReviewsController@add');
-Route::get('/performance_review/{noteId}','ReviewsController@update');
+Route::patch('/performance_review/{noteId}','ReviewsController@update');
 Route::get('/performance_review','ReviewsController@index');
 
 Route::get('/time_off/create', 'TimeOffController@create');
+Route::post('/time_off/create', 'TimeOffController@add');
 Route::get('/time_off', 'TimeOffController@index');
 
 Route::get('/departments','DepartmentsController@index');

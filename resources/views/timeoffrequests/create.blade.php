@@ -13,19 +13,29 @@
                 <br/>
                 <div class="x_panel">
                     <div class="x_content">
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                       @endif
                         <br />
-                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="POST" action ="{{ url('create_user') }}">
+                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="POST" action ="{{ url('/time_off/create') }}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Start Date </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="startDate" name="startDate" class="form-control col-md-7 col-xs-12" placeholder="DD/MM/YYYY"> </div>
+                                    <input type="date" id="startDate" name="startDate" class="form-control col-md-7 col-xs-12" placeholder="DD/MM/YYYY"> </div>
                             </div>
                             
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">End Date </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="endDate" name="endDate" class="form-control col-md-7 col-xs-12" placeholder="DD/MM/YYYY"> </div>
+                                    <input type="date" id="endDate" name="endDate" class="form-control col-md-7 col-xs-12" placeholder="DD/MM/YYYY"> </div>
                             </div>
                             
                             <div class="form-group">

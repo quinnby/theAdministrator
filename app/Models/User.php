@@ -43,12 +43,12 @@ class User extends Authenticatable
     
     public function performanceNoteOwner()
     {
-        return $this->hasMany(PerformanceNotes::class, "userOwner");
+        return $this->hasMany('App\PerformanceNotes', "userOwner");
     }
     
     public function performanceNoteAbout()
     {
-        return $this->hasMany(PerformanceNotes::class, 'userId');
+        return $this->hasMany('App\PerformanceNotes', 'userId');
     }
     
     public function userType()
@@ -69,6 +69,16 @@ class User extends Authenticatable
     public function isOfType($type) 
     {
         return $this->userTypeId == $type;
+    }
+    
+    public function bookedOff()
+    {
+        return $this->hasMany('App\Bookoff', 'userId');
+    }
+    
+    public function approvedBookedOff()
+    {
+        return $this->hasMany('App\Bookoff', 'approvedById');
     }
   
 

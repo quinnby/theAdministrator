@@ -13,8 +13,8 @@ class CreateBookOff extends Migration
      */
     public function up()
     {
-        Schema::create('book_offs', function (Blueprint $table) {
-
+        Schema::create('time_offs', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('userId');
             $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
             $table->integer('approvedById')->nullable();
@@ -23,7 +23,6 @@ class CreateBookOff extends Migration
             $table->date('startDate');
             $table->date('endDate');
             $table->string('note');
-            $table->primary(array('userId', 'startDate'));
         });
     }
 
