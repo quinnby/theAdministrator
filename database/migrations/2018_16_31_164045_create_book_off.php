@@ -16,9 +16,10 @@ class CreateBookOff extends Migration
         Schema::create('book_offs', function (Blueprint $table) {
 
             $table->integer('userId');
-
             $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
-
+            $table->integer('approvedById')->nullable();
+            $table->foreign('approvedById')->references('id')->on('users')->onDelete('cascade');
+            $table->dateTime('approvedOn');
             $table->date('startDate');
             $table->date('endDate');
             $table->string('note');
