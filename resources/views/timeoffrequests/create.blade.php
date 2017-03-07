@@ -14,7 +14,8 @@
                 <div class="x_panel">
                     <div class="x_content">
                         <br />
-                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="POST" action ="{{ url('create_user') }}">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Start Date </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
