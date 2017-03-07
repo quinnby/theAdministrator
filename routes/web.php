@@ -17,7 +17,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/about','HomeController@about');
 
 Route::get('/performance_review/create','ReviewsController@create');
-Route::post('/performance_review/create','ReviewsController@add');
+Route::post('/performance_review/add','ReviewsController@add');
 Route::get('/performance_review/{noteId}','ReviewsController@update');
 Route::get('/performance_review','ReviewsController@index');
 
@@ -29,7 +29,7 @@ Route::get('/departments','DepartmentsController@index');
 Route::get('/security','SecurityController@index');
 
 Route::get('/users','UsersController@index');
-Route::post('/users/create', 'UsersController@add');
+Route::post('/users/add', 'UsersController@add');
 Route::get('/users/create','UsersController@create');
 Route::get('/user/profile/{id}', 'UsersController@view');
 Route::get('//user/profile/{id}/edit', 'UsersController@edit');

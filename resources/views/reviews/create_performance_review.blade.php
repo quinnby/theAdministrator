@@ -27,7 +27,7 @@
                 <div class="x_panel">
                     <div class="x_content">
                         <br />
-                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" role="form" method="POST" action ="{{ url('create_performance_review') }}">
+                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" role="form" method="POST" action ="{{ url('performance_review/add') }}">
 
                         <input type="hidden" 
                             name="_token" 

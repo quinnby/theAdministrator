@@ -38,7 +38,7 @@
                   <div class="x_content">
                     
                       <!-- Form -->
-                    <form class="form-horizontal form-label-left" novalidate role="form" method="POST" action ="{{ url('create_user') }}">
+                    <form class="form-horizontal form-label-left" novalidate role="form" method="POST" action ="{{ url('users/add') }}">
                         <input type="hidden" 
                             name="_token" 
                             value="{{ csrf_token() }}"/>
