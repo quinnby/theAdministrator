@@ -14,7 +14,7 @@
                     <div class="x_content">
                         <div class="row">
                             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <a href="{{ url('/user_profile') }}">
+                                <a href="{{ url('/user/profile/{id}/edit') }}">
                                     <div class="tile-stats">
                                         <div class="icon"><i class="fa fa-user"></i> </div>
                                         <h3>My Profile</h3>
