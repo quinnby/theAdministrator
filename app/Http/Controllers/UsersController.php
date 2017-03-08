@@ -39,11 +39,6 @@ class UsersController extends Controller
     {
         return view('user.profile');
     }
-    
-    public function edit()
-    {
-        return view('user.edit_profile');
-    }
         
     public function add(Request $request)
     {
@@ -69,6 +64,12 @@ class UsersController extends Controller
         $user->save();
         return $user;
     }
+    
+    public function edit($id)
+         {
+             $user = User::find($id);
+             return view ('user.edit_profile',compact('user'));
+         }
     
     public function destroy($id)
     {

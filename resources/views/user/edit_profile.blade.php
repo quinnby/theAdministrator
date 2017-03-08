@@ -20,50 +20,50 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">First Name </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="firstName" name="firstName" class="form-control col-md-7 col-xs-12"> </div>
+                                    <input value="{{ $user->name}}" type="text" id="firstName" name="firstName" class="form-control col-md-7 col-xs-12"> </div>
                             </div>
                             
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Last Name </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="lastName" name="lastName" class="form-control col-md-7 col-xs-12"> </div>
+                                    <input value="{{ $user->lastName}}" type="text" id="lastName" name="lastName" class="form-control col-md-7 col-xs-12"> </div>
                             </div>
                              
                              <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Address </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="address" name="address" class="form-control col-md-7 col-xs-12"> </div>
+                                    <input value="{{ $user->address}}" type="text" id="address" name="address" class="form-control col-md-7 col-xs-12"> </div>
                             </div>
                             
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">City </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="city" name="city" class="form-control col-md-7 col-xs-12"> </div>
+                                    <input value="{{ $user->city}}" type="text" id="city" name="city" class="form-control col-md-7 col-xs-12"> </div>
                             </div>
                              
                               <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Province </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="province" name="province" class="form-control col-md-7 col-xs-12"> </div>
+                                    <input value="{{ $user->province}}" type="text" id="province" name="province" class="form-control col-md-7 col-xs-12"> </div>
                             </div>
                              
                               <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Postal Code </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="postal" name="postal" class="form-control col-md-7 col-xs-12"> </div>
+                                    <input value="{{ $user->postalCode}}" type="text" id="postal" name="postal" class="form-control col-md-7 col-xs-12"> </div>
                             </div>
                             
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Email Address </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="email" name="email" class="form-control col-md-7 col-xs-12"> </div>
+                                    <input value="{{ $user->email}}" type="text" id="email" name="email" class="form-control col-md-7 col-xs-12"> </div>
                             </div>
                             
                             
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Phone Number </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="text" id="telephone" name="telephone" class="form-control col-md-7 col-xs-12"> </div>
+                                    <input value="{{ $user->primaryPhone}}" type="text" id="telephone" name="telephone" class="form-control col-md-7 col-xs-12"> </div>
                             </div>
                       
                             <div class="ln_solid"></div>
