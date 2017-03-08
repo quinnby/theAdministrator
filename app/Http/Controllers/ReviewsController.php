@@ -18,8 +18,8 @@ class ReviewsController extends Controller
     public function index()
     {
     	$notes = PerformanceNotes::All();
-    	
-        return view('reviews.view_performance_reviews', compact('notes'));
+    	$users = User::All();
+        return view('reviews.view_performance_reviews', compact('notes', 'users'));
     }
 
     public function create()
@@ -34,6 +34,7 @@ class ReviewsController extends Controller
     {
     	$performanceNote = new PerformanceNotes($request->all());
     	$performanceNote->userOwner = Auth::user()->id;
+        $notes = PerformanceNotes::All();
 
     	$this->validate($request,[
     		'userId' => 'required|not_in:0',
@@ -41,6 +42,6 @@ class ReviewsController extends Controller
     	]);
 
     	$performanceNote->save();
-    	return redirect('view_performance_reviews');
+    	return redirect('performance_review');
     }
 }
