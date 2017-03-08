@@ -40,7 +40,11 @@
                                             <td>{{ $note->userAbout->department->department}}</td>
                                             <td>{{ $note->noteDate }}</td>
                                             <td>{{ $note->note }} </td>
-                                            <td id={{ $note['id'] }}><a href="#" class="btn btn-primary btn-xs editNote" data-toggle="modal" data-target="#myModal">Edit</a></td>
+                                            <td id={{ $note['id'] }}>
+                                                @if($note->userOwner == $loggedUser)
+                                                    <button class="btn btn-primary btn-xs editNote" data-toggle="modal" data-target="#myModal">Edit</button>
+                                                @endif
+                                            </td>
                                             <td class=" last">{{ $note->Owner->name }} </td>
                                         </tr>
                                     @endforeach
@@ -65,17 +69,15 @@
           <h4 class="modal-title">Modal Header</h4>
         </div>
         <div class="modal-body">
-            <form class="form-horizontal" role="form">
+            <form role="form" method="PATCH" >
                 <div class="form-group">
-                    <div class="col-md-6 col-sm-6 col-xs-12">
-                        <textarea class="form-control" rows="3" id="editNote" name="editNote" ></textarea>
-                    </div>
+                    <textarea class="form-control" rows="3" id="showNote"></textarea>
                 </div>
             </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
+          <button id="updateNote" type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
@@ -84,13 +86,44 @@
 
 <script>
     $('#datatable').DataTable({
+        "aaSorting": [], //disables default sort
         "columnDefs": 
         [
             {"orderable": false, "targets": [5]}
         ]
-
-        
     });
+
+    $(document).ready(function(){
+
+        $('.editNote').on('click', function(){
+             $noteId = $(this).parent().prop('id');
+            $('#showNote').val($(this).parent().prev().text()); 
+        });
+
+        $.ajaxSetup({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+        });
+
+        $('#updateNote').on('click', function(){
+
+            var token = $(this).data("token");
+                    $.ajax({
+                        url: '/performance_review/',
+                        type: 'PATCH',
+                        data: {
+                            'noteId': $noteId,
+                            'note': $('#showNote').val()
+                        },
+                       
+                        success: function(result) {
+                            location.reload();
+                        }
+                    });
+        });
+
+
+    }); // closes document.ready()
+
 </script>
 <!-- /page content -->
 <!-- footer content -->

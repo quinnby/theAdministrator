@@ -17,13 +17,10 @@ Route::get('/', 'HomeController@index');
 Route::get('/about','HomeController@about');
 
 Route::get('/performance_review/create','ReviewsController@create');
-<<<<<<< HEAD
 Route::post('/performance_review/create','ReviewsController@add');
-Route::patch('/performance_review/{noteId}','ReviewsController@update');
-=======
 Route::post('/performance_review/add','ReviewsController@add');
 Route::get('/performance_review/{noteId}','ReviewsController@update');
->>>>>>> 40d5cc2ac6304a6d8325442ccd526581c9e9d4ea
+Route::patch('/performance_review','ReviewsController@update');
 Route::get('/performance_review','ReviewsController@index');
 
 Route::get('/time_off/create', 'TimeOffController@create');

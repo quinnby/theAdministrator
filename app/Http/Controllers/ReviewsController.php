@@ -17,9 +17,9 @@ class ReviewsController extends Controller
     
     public function index()
     {
-    	$notes = PerformanceNotes::All();
-    	$users = User::All();
-        return view('reviews.view_performance_reviews', compact('notes', 'users'));
+    	$notes = PerformanceNotes::All()->sortByDesc("updated_at");
+    	$loggedUser = Auth::user()->id;
+        return view('reviews.view_performance_reviews', compact('notes','loggedUser'));
     }
 
     public function create()
@@ -43,5 +43,12 @@ class ReviewsController extends Controller
 
     	$performanceNote->save();
     	return redirect('performance_review');
+    }
+
+    public function update(Request $request)
+    {   $note = PerformanceNotes::find($request['noteId']);
+        $note->note = $request['note'];
+        $note->save();
+        return response(['msg' => 'Member activation toggled', 'status' => 'Success']);
     }
 }
