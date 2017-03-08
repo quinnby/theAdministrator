@@ -61,11 +61,32 @@
                             
                             
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Phone Number </label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12"> Primary Phone Number </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input value="{{ $user->primaryPhone}}" type="text" id="telephone" name="telephone" class="form-control col-md-7 col-xs-12"> </div>
+                                    <input value="{{ $user->primaryPhone}}" type="text" id="primaryTelephone" name="primaryTelephone" class="form-control col-md-7 col-xs-12"> </div>
                             </div>
                       
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12"> Secondary Phone Number </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input value="{{ $user->secondaryPhone}}" type="text" id="secondaryTelephone" name="secondaryTelephone" class="form-control col-md-7 col-xs-12"> </div>
+                            </div>
+                             
+                          <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email <span class="required">*</span>
+                            </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input value="{{ $user->email}}" type="email" id="email" name="email" class="form-control col-md-7 col-xs-12" value="{{ old('email') }}">
+                        </div>
+                      </div>
+                      <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email_confirmation">Confirm Email <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input value="{{ $user->email}}" type="email" id="email_confirmation" name="email_confirmation" data-validate-linked="email"   class="form-control col-md-7 col-xs-12">
+                        </div>
+                      </div>
+                             
                             <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
