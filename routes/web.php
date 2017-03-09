@@ -26,6 +26,8 @@ Route::get('/time_off/create', 'TimeOffController@create');
 Route::post('/time_off/create', 'TimeOffController@add');
 Route::get('/time_off', 'TimeOffController@index');
 
+Route::get('/schedule', 'ScheduleController@view');
+
 Route::get('/departments','DepartmentsController@index');
 
 Route::get('/security','SecurityController@index');
