@@ -23,10 +23,10 @@ class CreateUserType extends Migration
                 'userType'=>"Admin"
             ],
 			[
-                'userType'=>"Manager"
+                'userType'=>"User"
             ],
 			[
-                'userType'=>"User"
+                'userType'=>"Manager"
             ],
         ]);
     }

@@ -20,20 +20,24 @@ class TimeOffController extends Controller
     
     public function index()
     {
-        return view('timeoffrequests.index');
+    	$timeOffRequests = TimeOff::All()->sortByDesc("startDate");
+    	$loggedUser = Auth::user()->id;
+        return view('timeoffrequests.index', compact('timeOffRequests','loggedUser'));
     }
     
     public function add(Request $request)
     {
         $timeOff = new TimeOff($request->all());
+        $timeOff->userId = Auth::user()->id;
+        $timeOffRequests = TimeOff::All();
+            
         $this->validate($request, [
             'startDate' => 'required',
             'endDate' => 'required',
             'note' => 'required'
             ]);
         
-        $timeOff->userId = Auth::user()->id;
         $timeOff->save();
-        return view('timeoffrequests.create');
+        return redirect('time_off');
     } 
 }

@@ -128,7 +128,7 @@ class AddFieldsToUsersTable extends Migration
                 'postalCode'=>"L1R-4H2",
                 'province' => 'ON',
                 'sinNumber'=>"123-456-789",
-                'userTypeId'=>1
+                'userTypeId'=>2
             ]
 
             ]);
