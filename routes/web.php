@@ -18,7 +18,6 @@ Route::get('/about','HomeController@about');
 
 Route::get('/performance_review/create','ReviewsController@create');
 Route::post('/performance_review/create','ReviewsController@add');
-Route::post('/performance_review/add','ReviewsController@add');
 Route::get('/performance_review/{noteId}','ReviewsController@update');
 Route::patch('/performance_review','ReviewsController@update');
 Route::get('/performance_review','ReviewsController@index');
