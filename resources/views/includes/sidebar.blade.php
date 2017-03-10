@@ -28,38 +28,56 @@
                     <br/>
                     <li><a href="{{ url('/user/dashboard') }}"><i class="fa fa-home"></i>Dashboard</a>
                     </li>
-                    @if (!auth()->guest() && auth()->user()->isOfType(2))   
+                    
                     <!-- Employee Sidebar -->
-                    <li><a><i class="fa fa-user"></i> Personal Information<span class="fa fa-chevron-down"></span></a>
+                    @if (!auth()->guest() && auth()->user()->isOfType(2)) 
+                    <li><a><i class="fa fa-user"></i> My Profile<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/user/profile/' . auth()->user()->id) }}">View Profile</a></li>
-                            <li><a href="{{ url('/user/profile/' . auth()->user()->id) . '/edit' }}">Edit Profile</a></li>
                         </ul>
-                     <li><a><i class="fa fa-user"></i> Time Off<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-calendar"></i> Schedule<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ url('/schedule/') }}">View Schedule</a></li>
+                        </ul>
+                    <li><a><i class="fa fa-user"></i> Time Off<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/time_off/create') }}">Request Time Off</a></li>
-                            <li><a href="{{ url('/time_off') }}">View Time Off Requests</a></li>
+                            <li><a href="{{ url('#') }}">View Status of Requests</a></li>
                         </ul>
+                    <li><a><i class="fa fa-check"></i> Performance Reviews<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ url('#') }}">View Performance Reviews</a></li>
+                        </ul>
+                    </li>
                     @endif
                     
-                     @if (!auth()->guest() && auth()->user()->isOfType(1))   
-                     <!-- Administrator Sidebar -->
-                     <li><a><i class="fa fa-users"></i> Employees <span class="fa fa-chevron-down"></span></a>
+                    <!-- Administrator Sidebar -->
+                    @if (!auth()->guest() && auth()->user()->isOfType(1))   
+                     
+                    <li><a><i class="fa fa-user"></i> My Profile<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ url('/user/profile/' . auth()->user()->id) }}">View Profile</a></li>
+                        </ul>
+                    <li><a><i class="fa fa-users"></i> Employees <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/users/create') }}">Add Employee</a></li>
                             <li><a href="{{ url('/users') }}">Manage Employees</a></li>
                         </ul>
-                    </li>
-                    <li><a><i class="fa fa-pencil"></i> Performance Reviews<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-calendar"></i> Schedule<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ url('#') }}">Create Schedule</a></li>
+                            <li><a href="{{ url('/schedule/') }}">View Schedule</a></li>
+                        </ul>
+                    <li><a><i class="fa fa-clock-o"></i> Time Off<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ url('/time_off') }}">Manage Time Off Requests</a></li>
+                        </ul>
+                    <li><a><i class="fa fa-check"></i> Performance Reviews<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/performance_review/create') }}">Add Performance Review</a></li>
                             <li><a href="{{ url('/performance_review') }}">View Performance Reviews</a></li>
                         </ul>
                     </li>
-                     <li><a><i class="fa fa-user"></i> Time Off<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{ url('/time_off') }}">Manage Time Off Requests</a></li>
-                        </ul>
                     @endif
                    
                 </ul>

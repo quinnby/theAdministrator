@@ -13,6 +13,8 @@
                 <div class="">
                     <div class="x_content">
                         <div class="row">
+                        <!-- Employee Dashboard -->
+                        @if (!auth()->guest() && auth()->user()->isOfType(2))
                             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <a href="{{ url('/user/profile/') }}/{{ auth()->user()->id }}">
                                     <div class="tile-stats">
@@ -23,16 +25,16 @@
                                 </a>
                             </div>
                             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <a href="{{ url('/schedule/view') }}">
+                                <a href="{{ url('/schedule/') }}">
                                     <div class="tile-stats">
                                         <div class="icon"><i class="fa fa-calendar"></i> </div>
-                                        <h3>Calendar</h3>
+                                        <h3>Schedule</h3>
                                         <p>View Schedule</p>
                                     </div>
                                 </a>
                             </div>
                             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <a href="{{ url('/time_off') }}">
+                                <a href="{{ url('#') }}">
                                     <div class="tile-stats">
                                         <div class="icon"><i class="fa fa-clock-o"></i> </div>
                                         <h3>Time Off</h3>
@@ -40,8 +42,8 @@
                                     </div>
                                 </a>
                             </div>
-                             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <a href="{{ url('/time_off/') }}">
+                            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <a href="{{ url('#') }}">
                                     <div class="tile-stats">
                                         <div class="icon"><i class="fa fa-check"></i> </div>
                                         <h3>Reviews</h3>
@@ -49,7 +51,59 @@
                                     </div>
                                 </a>
                             </div>
+                    @endif
+                        
+                    <!-- Admin Dashboard -->
+                    @if (!auth()->guest() && auth()->user()->isOfType(1))
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a href="{{ url('/user/profile/') }}/{{ auth()->user()->id }}">
+                                <div class="tile-stats">
+                                    <div class="icon"><i class="fa fa-user"></i> </div>
+                                    <h3>My Profile</h3>
+                                    <p>View Profile</p>
+                                </div>
+                            </a>
                         </div>
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a href="{{ url('/users/') }}">
+                                <div class="tile-stats">
+                                    <div class="icon"><i class="fa fa-users"></i> </div>
+                                    <h3>Employees</h3>
+                                    <p>Manage Employees</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a href="{{ url('/schedule/') }}">
+                                <div class="tile-stats">
+                                    <div class="icon"><i class="fa fa-calendar"></i> </div>
+                                    <h3>Schedule</h3>
+                                    <p>View/Create Schedule</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a href="{{ url('/time_off/') }}">
+                                <div class="tile-stats">
+                                    <div class="icon"><i class="fa fa-clock-o"></i> </div>
+                                    <h3>Time Off</h3>
+                                    <p>Manage Time Off Requests</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a href="{{ url('/performance_review/') }}">
+                                <div class="tile-stats">
+                                    <div class="icon"><i class="fa fa-check"></i> </div>
+                                    <h3>Reviews</h3>
+                                    <p>Manage Performance Reviews</p>
+                                </div>
+                            </a>
+                        </div> 
+                    @endif 
+                    </div> 
                     </div>
                 </div>
             </div>

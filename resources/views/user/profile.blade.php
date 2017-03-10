@@ -30,10 +30,13 @@
                                 <li> <i class="fa fa-briefcase user-profile-icon"></i> {{ $user->jobTitle->title }}, <i>{{ $user->department->department}}</i> </li>
                             </ul> 
                             
-                             <!-- Profile Image -->
-                            <a class="btn btn-success" href="{{ url('/user/profile') }}/{{ $user->id }}/edit"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                            <!-- Edit Profile Button -->
+                            @if (!auth()->guest() && auth()->user()->isOfType(1))  
+                                <a class="btn btn-success" href="{{ url('/user/profile') }}/{{ $user->id }}/edit">
+                                <i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                                <br />
+                            @endif
                             
-                            <br />
                             <br />
                             
                             <ul class="list-unstyled user_data">
