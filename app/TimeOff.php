@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use Carbon\Carbon;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -27,5 +27,12 @@ class TimeOff extends Model
     {
         return $this->belongsTo('App\Models\User', 'userId');
         
+    }
+
+    public function getDaysOff($start, $end)
+    {
+        $createdAt =  new Carbon($start);
+        $endsAt = new Carbon($end);
+        return ($createdAt->diff($endsAt)->days <= 1) ? "Today" : $createdAt->diffForHumans($endsAt);
     }
 } 

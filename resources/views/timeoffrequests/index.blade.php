@@ -28,6 +28,7 @@
                                     <tr class="headings">
                                         <th class="column-title">Employee Name </th>
                                         <th class="column-title">Requested Dates </th>
+                                        <th class="column-title">Days Off </th>
                                         <th class="column-title">Details </th>
                                         <th class="column-title">Status </th>
                                         <th class="column-title">Action </th>
@@ -39,6 +40,7 @@
                                         <tr class="even pointer">
                                             <td>{{ $timeOffRequest->user->name }} {{ $timeOffRequest->user->lastName }}</td>
                                             <td>{{ $timeOffRequest->startDate }} - {{ $timeOffRequest->endDate }}</td>
+                                            <td>{{ $timeOffRequest->getDaysOff($timeOffRequest->startDate, $timeOffRequest->endDate) }}</td>
                                             <td>{{ $timeOffRequest->note }}</td>
                                             @if($timeOffRequest->status == "Pending")
                                                 <td><span class="label label-warning">{{$timeOffRequest->status}} </span></td>  
