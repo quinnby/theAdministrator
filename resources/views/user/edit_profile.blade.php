@@ -17,6 +17,15 @@
                      
                         
                          <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                             
+                            <div class="item form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12" for="sinNumber">S.I.N Number <span class="required">*</span>
+                                </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" id="sinNumber" name="sinNumber"   class="form-control col-md-7 col-xs-12"  value="{{ $user->sinNumber}}">
+                            </div>
+                             </div>
+                             
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">First Name </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">

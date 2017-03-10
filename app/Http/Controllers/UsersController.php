@@ -35,9 +35,10 @@ class UsersController extends Controller
         return view('user.dashboard');
     }
     
-    public function view()
+    public function view($id)
     {
-        return view('user.profile');
+        $user = User::find($id);
+        return view ('user.profile',compact('user'));
     }
         
     public function add(Request $request)

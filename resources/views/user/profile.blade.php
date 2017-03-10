@@ -6,89 +6,94 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>User Profile</h3> </div>
+                <h3>View Profile</h3> </div>
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <br/>
                 <div class="x_panel">
                     <div class="x_content">
-                        <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
-                            <h3>Samuel Doe</h3>
-                            <ul class="list-unstyled user_data">
-                                <li> <i class="fa fa-briefcase user-profile-icon"></i> Software Engineer, <i>Department</i> </li>
-                            </ul> <a class="btn btn-success" href="{{ url('/edit_user_profile') }}"><i class="fa fa-edit m-right-xs"></i> Edit Profile</a>
-                            <br />
+                        <br />
+                     
+                        
+                         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">First Name </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label type="text" id="firstName" name="firstName" class="form-control col-md-7 col-xs-12">{{ $user->name }}</label> </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Last Name </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label type="text" id="lastName" name="lastName" class="form-control col-md-7 col-xs-12">{{ $user->lastName}}</label> </div>
+                            </div>
+                             
+                             <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Address </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label type="text" id="address" name="address" class="form-control col-md-7 col-xs-12">{{ $user->address}}</label> </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">City </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label type="text" id="city" name="city" class="form-control col-md-7 col-xs-12">{{ $user->city}}</label> </div>
+                            </div>
+                             
+                              <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Province </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label type="text" id="province" name="province" class="form-control col-md-7 col-xs-12">{{ $user->province}}</label> </div>
+                            </div>
+                             
+                              <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Postal Code </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label type="text" id="postal" name="postal" class="form-control col-md-7 col-xs-12">{{ $user->postalCode}}</label> </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Email Address </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label type="text" id="email" name="email" class="form-control col-md-7 col-xs-12">{{ $user->email}}</label> </div>
+                            </div>
+                            
+                            
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12"> Primary Phone Number </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label type="text" id="primaryTelephone" name="primaryTelephone" class="form-control col-md-7 col-xs-12">{{ $user->primaryPhone}}</label> </div>
+                            </div>
+                      
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12"> Secondary Phone Number </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <label type="text" id="secondaryTelephone" name="secondaryTelephone" class="form-control col-md-7 col-xs-12">{{ $user->secondaryPhone}}</label> </div>
+                            </div>
+                             
+                          <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email
+                            </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <label type="email" id="email" name="email" class="form-control col-md-7 col-xs-12">{{ $user->email}}</label>
                         </div>
-                        <div class="col-md-9 col-sm-9 col-xs-12">
-                            <div class="" role="tabpanel" data-example-id="togglable-tabs">
-                                <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                                    <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Personal Information</a> </li>
-                                    <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">Employee Information</a> </li>
-                                </ul>
-                                <div id="myTabContent" class="tab-content">
-                                    <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                                        <!-- start personal info -->
-                                         <table class="data table table-striped no-margin">
-                                            <tbody>
-                                                <tr>
-                                                    <td><strong>Address</strong</td>
-                                                    <td>*info from database here*</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>City</strong</td>
-                                                    <td>*info from database here*</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Province</strong</td>
-                                                    <td>*info from database here*</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Postal Code</strong</td>
-                                                    <td>*info from database here*</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>SIN Number</strong</td>
-                                                    <td>*info from database here*</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Email</strong></td>
-                                                    <td>*info from database here*</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Phone</strong></td>
-                                                    <td>*info from database here*</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <!-- end personal info -->
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
-                                        <!-- start employee info -->
-                                        <table class="data table table-striped no-margin">
-                                            <tbody>
-                                                <tr>
-                                                    <td><strong>Employee ID</strong</td>
-                                                    <td>*info from database here*</td>
-                                                </tr>
-                                                <tr>
-                                                    <td><strong>Hire Date</strong></td>
-                                                    <td>*info from database here*</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                        <!-- end employee info -->
-                                    </div>
+                      </div>
+                             
+                            <div class="ln_solid"></div>
+                            <div class="form-group">
+                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
+                                    <a href="{{ url('/user/profile') }}/{{ $user->id }}/edit"><button class="btn btn-primary" type="button">Edit</button></a>
+
                                 </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- Custom Theme Scripts Go Here -->
 <!-- /page content -->
 <!-- footer content -->
 <footer> @include('includes.footer') </footer>
