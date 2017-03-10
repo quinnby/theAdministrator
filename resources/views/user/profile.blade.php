@@ -14,80 +14,87 @@
                 <div class="x_panel">
                     <div class="x_content">
                         <br />
-                     
-                        
-                         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">First Name </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <label type="text" id="firstName" name="firstName" class="form-control col-md-7 col-xs-12">{{ $user->name }}</label> </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Last Name </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <label type="text" id="lastName" name="lastName" class="form-control col-md-7 col-xs-12">{{ $user->lastName}}</label> </div>
-                            </div>
-                             
-                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Address </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <label type="text" id="address" name="address" class="form-control col-md-7 col-xs-12">{{ $user->address}}</label> </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">City </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <label type="text" id="city" name="city" class="form-control col-md-7 col-xs-12">{{ $user->city}}</label> </div>
-                            </div>
-                             
-                              <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Province </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <label type="text" id="province" name="province" class="form-control col-md-7 col-xs-12">{{ $user->province}}</label> </div>
-                            </div>
-                             
-                              <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Postal Code </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <label type="text" id="postal" name="postal" class="form-control col-md-7 col-xs-12">{{ $user->postalCode}}</label> </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Email Address </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <label type="text" id="email" name="email" class="form-control col-md-7 col-xs-12">{{ $user->email}}</label> </div>
-                            </div>
-                            
-                            
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12"> Primary Phone Number </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <label type="text" id="primaryTelephone" name="primaryTelephone" class="form-control col-md-7 col-xs-12">{{ $user->primaryPhone}}</label> </div>
-                            </div>
-                      
-                            <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12"> Secondary Phone Number </label>
-                                <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <label type="text" id="secondaryTelephone" name="secondaryTelephone" class="form-control col-md-7 col-xs-12">{{ $user->secondaryPhone}}</label> </div>
-                            </div>
-                             
-                          <div class="item form-group">
-                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="email">Email
-                            </label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-                            <label type="email" id="email" name="email" class="form-control col-md-7 col-xs-12">{{ $user->email}}</label>
-                        </div>
-                      </div>
-                             
-                            <div class="ln_solid"></div>
-                            <div class="form-group">
-                                <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <a href="{{ url('/user/profile') }}/{{ $user->id }}/edit"><button class="btn btn-primary" type="button">Edit</button></a>
-
+                        <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
+                            <div class="profile_img">
+                                <div id="crop-avatar">
+                                    <!-- Current avatar -->
+                                    <img class="img-responsive avatar-view" src="{{ Gravatar::src(Auth::user()->email) }}" alt="Avatar of {{ Auth::user()->name }}">
                                 </div>
                             </div>
-                        </form>
+                            
+                             <!-- Name -->
+                            <h3>{{ $user->name }} {{ $user->lastName}}</h3>
+                            <ul class="list-unstyled user_data">
+                                
+                                 <!-- Job Title and Department -->
+                                <li> <i class="fa fa-briefcase user-profile-icon"></i> {{ $user->jobTitle->title }}, <i>{{ $user->department->department}}</i> </li>
+                            </ul> 
+                            
+                             <!-- Profile Image -->
+                            <a class="btn btn-success" href="{{ url('/user/profile') }}/{{ $user->id }}/edit"><i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                            
+                            <br />
+                            <br />
+                            
+                            <ul class="list-unstyled user_data">
+                                 <!-- Hire Date -->
+                                <li>
+                                    <p>Hired on {{ $user->hireDate}}</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                              
+                                <div id="myTabContent" class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                                        <!-- start personal info -->
+                                        <table class="data table table-striped no-margin">
+                                            <tbody>
+                                                <tr>
+                                                    <td><strong>Date of Birth</strong></td>
+                                                    <td>{{ $user->birthDate}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>SIN Number</strong></td>
+                                                    <td>{{ $user->sinNumber}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Address</strong></td>
+                                                    <td>{{ $user->address}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>City</strong></td>
+                                                    <td>{{ $user->city}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Province</strong></td>
+                                                    <td>{{ $user->province}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Postal Code</strong></td>
+                                                    <td>{{ $user->postalCode}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Primary Phone Number</strong></td>
+                                                    <td>{{ $user->primaryPhone}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Secondary Phone Number</strong></td>
+                                                    <td>{{ $user->secondaryPhone}}</td>
+                                                </tr>
+                                                 <tr>
+                                                    <td><strong>Email Address</strong></td>
+                                                    <td>{{ $user->email}}</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <!-- end personal info -->
+                                    </div>
+                            
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
