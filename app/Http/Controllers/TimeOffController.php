@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use Carbon\Carbon;
 use App\TimeOff;
 use Illuminate\Http\Request;
 
@@ -40,4 +41,15 @@ class TimeOffController extends Controller
         $timeOff->save();
         return redirect('time_off');
     } 
+
+    public function updateStatus(Request $request)
+    {
+        $timeOff = TimeOff::find($request['id']);
+        $timeOff->status = $request['status'];
+        $timeOff->approvedById = Auth::user()->id;
+        $timeOff->approvedOn = Carbon::now();
+        $timeOff->save();
+        return response(['msg' => 'Member Status Request updated', 'status' => 'Success']);
+    }
+
 }

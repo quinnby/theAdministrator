@@ -20,6 +20,7 @@ class CreateBookOff extends Migration
             $table->integer('approvedById')->nullable();
             $table->foreign('approvedById')->references('id')->on('users')->onDelete('cascade');
             $table->dateTime('approvedOn')->nullable();
+            $table->string('status')->default('Pending');
             $table->date('startDate');
             $table->date('endDate');
             $table->string('note');

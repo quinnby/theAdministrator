@@ -24,6 +24,7 @@ Route::get('/performance_review','ReviewsController@index');
 
 Route::get('/time_off/create', 'TimeOffController@create');
 Route::post('/time_off/create', 'TimeOffController@add');
+Route::patch('/time_off', 'TimeOffController@updateStatus');
 Route::get('/time_off', 'TimeOffController@index');
 
 Route::get('/schedule', 'ScheduleController@view');

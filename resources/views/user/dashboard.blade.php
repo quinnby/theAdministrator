@@ -23,7 +23,7 @@
                                 </a>
                             </div>
                             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <a href="{{ url('/request_time_off') }}">
+                                <a href="{{ url('/time_off/create') }}">
                                     <div class="tile-stats">
                                         <div class="icon"><i class="fa fa-clock-o"></i> </div>
                                         <h3>Time Off</h3>

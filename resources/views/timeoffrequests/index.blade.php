@@ -31,6 +31,7 @@
                                         <th class="column-title">Details </th>
                                         <th class="column-title">Status </th>
                                         <th class="column-title">Action </th>
+                                      <!--  <th class="column-title">Issued By </th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -39,14 +40,22 @@
                                             <td>{{ $timeOffRequest->user->name }} {{ $timeOffRequest->user->lastName }}</td>
                                             <td>{{ $timeOffRequest->startDate }} - {{ $timeOffRequest->endDate }}</td>
                                             <td>{{ $timeOffRequest->note }}</td>
-                                            
-                                        <!-- If request has not been approved, dispaly pending status -->
-                                            @if(empty($timeOffRequest->approvedById))
-                                                <td><span class="label label-warning">Pending </span></td> 
+                                            @if($timeOffRequest->status == "Pending")
+                                                <td><span class="label label-warning">{{$timeOffRequest->status}} </span></td>  
+                                            @elseif($timeOffRequest->status == "Approved")
+                                                <td><span class="label label-success">{{$timeOffRequest->status}} </span></td>
+                                            @else
+                                                <td><span class="label label-danger">{{$timeOffRequest->status}} </span></td> 
                                             @endif
                                             
-                                            <td><button class="btn btn-primary btn-xs approve" data-toggle="modal" data-target="#approveModal">Approve</button><button class="btn btn-danger btn-xs reject">Reject</button></td>
-                                        </tr>
+                                            <td id={{ $timeOffRequest['id'] }}>
+                                            @if ($timeOffRequest->userId != $loggedUser)
+                                                <button class="btn btn-primary btn-xs approve" data-toggle="modal" data-target="#approveModal">Approve</button>
+                                                <button class="btn btn-danger btn-xs reject" data-toggle="modal" data-target="#rejectModal">Reject</button>
+                                            @endif
+                                            </td>
+                                           <!-- <td>{{ $timeOffRequest->approvedById }}</td>
+                                        </tr> -->
                                     @endforeach
                                 </tbody>
                             </table>
@@ -58,7 +67,7 @@
     </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal 1 accept request-->
   <div class="modal fade" id="approveModal" role="dialog">
     <div class="modal-dialog">
     
@@ -68,13 +77,7 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Approve Time Off Request</h4>
         </div>
-        <div class="modal-body">
-            <form role="form" method="PATCH">
-                <div >
-                   
-                </div>
-            </form>
-        </div>
+        
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           <button id="confirmApprove" type="button" class="btn btn-primary">Approve Request</button>
@@ -83,9 +86,79 @@
     </div>
   </div>
 
+
+ <!-- Modal 2 reject request-->
+  <div class="modal fade" id="rejectModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Reject Time Off Request</h4>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button id="confirmReject" type="button" class="btn btn-primary">Reject Request</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+
 <script>
     $('#datatable').DataTable();
-    
+ 
+    $(document).ready(function(){
+
+
+        $('.approve').on('click', function(){
+             $requestId = $(this).parent().prop('id');
+        });
+
+        $.ajaxSetup({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+        });
+
+        $('.reject').on('click', function(){
+             $requestId = $(this).parent().prop('id');
+        });
+
+        $('#confirmApprove').on('click', function(){
+            var token = $(this).data("token");
+                    $.ajax({
+                        url: '/time_off/',
+                        type: 'PATCH',
+                        data: {
+                            'id' : $requestId,
+                            'status' : "Approved"
+                        },
+                       
+                        success: function(result) {
+                            location.reload();
+
+                        }
+                    });
+        });
+
+        $('#confirmReject').on('click', function(){
+            var token = $(this).data("token");
+                    $.ajax({
+                        url: '/time_off/',
+                        type: 'PATCH',
+                        data: {
+                            'id' : $requestId,
+                            'status' : "Rejected"
+                        },
+                       
+                        success: function(result) {
+                            location.reload();
+                        }
+                    });
+        });
+
+    }); // closes document.ready()
+
      
 </script>
 <!-- /page content -->

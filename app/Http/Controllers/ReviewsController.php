@@ -46,9 +46,10 @@ class ReviewsController extends Controller
     }
 
     public function update(Request $request)
-    {   $note = PerformanceNotes::find($request['noteId']);
+    {   
+        $note = PerformanceNotes::find($request['noteId']);
         $note->note = $request['note'];
         $note->save();
-        return response(['msg' => 'Member activation toggled', 'status' => 'Success']);
+        return response(['msg' => 'Member Performance note updated', 'status' => 'Success']);
     }
 }

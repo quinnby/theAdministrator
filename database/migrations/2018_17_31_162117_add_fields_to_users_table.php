@@ -76,7 +76,7 @@ class AddFieldsToUsersTable extends Migration
 
             [
                 'name'=>"Quinn",
-                'lastName'=>"Graven",
+                'lastName'=>"Craven",
                 'email'=>"quinn@laravel.com",
                 'password'=>bcrypt("password"),
                 'birthDate'=>"1980-01-01",
@@ -114,7 +114,7 @@ class AddFieldsToUsersTable extends Migration
 
             [
                 'name'=>"Josh",
-                'lastName'=>"XXXXX",
+                'lastName'=>"Johnson",
                 'email'=>"josh@laravel.com",
                 'password'=>bcrypt("password"),
                 'birthDate'=>"1980-01-01",

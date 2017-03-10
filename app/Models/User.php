@@ -73,12 +73,12 @@ class User extends Authenticatable
     
     public function bookedOff()
     {
-        return $this->hasMany('App\Bookoff', 'userId');
+        return $this->hasMany('App\TimeOff', 'userId');
     }
     
     public function approvedBookedOff()
     {
-        return $this->hasMany('App\Bookoff', 'approvedById');
+        return $this->hasMany('App\TimeOff', 'approvedById');
     }
   
 
