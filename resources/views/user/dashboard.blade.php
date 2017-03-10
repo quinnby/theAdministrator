@@ -18,25 +18,34 @@
                                     <div class="tile-stats">
                                         <div class="icon"><i class="fa fa-user"></i> </div>
                                         <h3>My Profile</h3>
-                                        <p>View/Edit Profile</p>
+                                        <p>View Profile</p>
                                     </div>
                                 </a>
                             </div>
                             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <a href="{{ url('/time_off/create') }}">
-                                    <div class="tile-stats">
-                                        <div class="icon"><i class="fa fa-clock-o"></i> </div>
-                                        <h3>Time Off</h3>
-                                        <p>Request Time Off</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <a href="{{ url('/') }}">
+                                <a href="{{ url('/schedule/view') }}">
                                     <div class="tile-stats">
                                         <div class="icon"><i class="fa fa-calendar"></i> </div>
                                         <h3>Calendar</h3>
                                         <p>View Schedule</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <a href="{{ url('/time_off') }}">
+                                    <div class="tile-stats">
+                                        <div class="icon"><i class="fa fa-clock-o"></i> </div>
+                                        <h3>Time Off</h3>
+                                        <p>Manage Time Off Requests</p>
+                                    </div>
+                                </a>
+                            </div>
+                             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <a href="{{ url('/time_off/') }}">
+                                    <div class="tile-stats">
+                                        <div class="icon"><i class="fa fa-check"></i> </div>
+                                        <h3>Reviews</h3>
+                                        <p>View Performance Reviews</p>
                                     </div>
                                 </a>
                             </div>
