@@ -47,7 +47,7 @@
                                 <tbody>
                                     @foreach($users as $user)
                                         <tr class="even pointer">
-                                            <td>{{ $user->name }} {{ $user->lastName }}</td>
+                                            <td><a href="{{ url('/user/profile') }}/{{  $user->id }}">{{ $user->name }} {{ $user->lastName }}</a></td>
                                             <td>{{ $user->jobTitle->title}}</td>
                                             <td>{{ $user->department->department}}</td>
                                             <td>{{ $user->userType->userType }}</td>
