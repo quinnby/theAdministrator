@@ -61,6 +61,19 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input value="{{ $user->postalCode}}" type="text" id="postal" name="postal" class="form-control col-md-7 col-xs-12"> </div>
                             </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Job Title </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input value="{{ $user->jobTitle->title }}" type="text" id="titleId" name="titleId" class="form-control col-md-7 col-xs-12"> </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Department </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input value="{{ $user->department->department }}" type="text" id="departmentId" name="departmentId" class="form-control col-md-7 col-xs-12"> </div>
+                            </div>
+
                             
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Email Address </label>

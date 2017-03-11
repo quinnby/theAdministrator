@@ -225,8 +225,8 @@
   $(document).ready(function($){
 
     //mask input fields
-    $('#firstName').mask('AAAAAAAAAAAAA', {'translation': {A: {pattern: /[A-Za-z]/}}});
-    $('#lastName').mask('AAAAAAAAAAAAA', {'translation': {A: {pattern: /[A-Za-z]/}}});
+    $('#firstName').mask('AAAAAAAAAAAAAAAAAAAA', {'translation': {A: {pattern: /[A-Za-z]/}}});
+    $('#lastName').mask('AAAAAAAAAAAAAAAAAAAA', {'translation': {A: {pattern: /[A-Za-z]/}}});
     $('#city').mask('AAAAAAAAAAAAAAAAAAAA', {'translation': {A: {pattern: /[A-Za-z]/}}})
     $('#sinNumber').mask('000-000-000');
     $('#telephone').mask('(000)-000-0000');

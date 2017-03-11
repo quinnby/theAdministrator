@@ -52,6 +52,7 @@ class UsersController extends Controller
             'lastName' => 'required|min:3',
             'sinNumber' => 'required|regex:/^\d{3}-\d{3}-\d{3}$/',
             'primaryPhone' => 'required|min:10',
+            'birthDate' => 'required',
             'address'=> 'required|min:5',
             'city' => 'required',
             'email' => 'Required|Email|Confirmed',
@@ -67,16 +68,14 @@ class UsersController extends Controller
     }
     
     public function edit($id)
-         {
-             $user = User::find($id);
-             return view ('user.edit_profile',compact('user'));
-         }
+    {
+        $user = User::find($id);
+        return view ('user.edit_profile',compact('user', 'departments', 'jobTitles'));
+    }
     
     public function destroy($id)
     {
         User::destroy($id);
-        
-        
         return response(['msg' => 'Member deleted', 'status' => 'Success']);
     }
     
