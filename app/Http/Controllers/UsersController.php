@@ -65,11 +65,15 @@ class UsersController extends Controller
         
         $user->save();
         return $user;
+
+        //Todo: Redirect user to an actual page 
     }
     
     public function edit($id)
     {
         $user = User::find($id);
+        $jobTitles = JobTitle::All();
+        $departments = Department::All();
         return view ('user.edit_profile',compact('user', 'departments', 'jobTitles'));
     }
     

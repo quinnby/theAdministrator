@@ -65,13 +65,23 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Job Title </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input value="{{ $user->jobTitle->title }}" type="text" id="titleId" name="titleId" class="form-control col-md-7 col-xs-12"> </div>
+                                    <select class="form-control" name="titleId">
+                                        @foreach($jobTitles as $title)
+                                            <option value={{$title['id']}} {{$user['titleId'] == $title['id'] ? 'selected="selected"' : ''}}>{{ $title['title'] }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Department </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input value="{{ $user->department->department }}" type="text" id="departmentId" name="departmentId" class="form-control col-md-7 col-xs-12"> </div>
+                                    <select class="form-control" name="titleId">
+                                        @foreach($departments as $department)
+                                            <option value={{$department['id']}} {{$user['departmentId'] == $department['id'] ? 'selected="selected"' : ''}}>{{ $department['department'] }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
                             </div>
 
                             
@@ -124,6 +134,9 @@
         </div>
     </div>
 </div>
+
+{{-- todo: adding jquery for masking input fields --}}
+
 <!-- /page content -->
 <!-- footer content -->
 <footer> @include('includes.footer') </footer>
