@@ -114,7 +114,12 @@
                             $( "tbody" ).append( "<tr><td>" + booked.startDate + " - " + booked.endDate + "</td><td>" + booked.note + "</td><td><span class='label label-danger'>" + booked.status +  "</span></td></tr>" );
                         }
                     });
-                    $( "#booked" ).slideDown("slow");
+                    if (data.length > 0){
+                        $( "#booked" ).slideDown("slow");
+                    } else {
+                        $( "#booked" ).slideUp("slow");
+                    }
+                    
                 }
             });
         });
