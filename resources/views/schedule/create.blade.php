@@ -96,12 +96,13 @@
         
         $( "#userId" ).on("change", function() {
             $( "tbody" ).children().remove();
+            
             $.ajax({
-                url: '/time_off/get/2',
+                url: '/time_off/get/' + $( '#userId' ).val(),
                 type: 'GET',
                 
                 success: function(data){
-                    console.log(data[0]);
+                    console.log(data);
                     $.each(data, function(i, booked) {
                        console.log(booked.startDate);
                         if (booked.status == "Pending"){
