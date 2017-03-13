@@ -81,5 +81,13 @@ class User extends Authenticatable
         return $this->hasMany('App\TimeOff', 'approvedById');
     }
   
-
+    public function schedule()
+    {
+        return $this->hasMany('App\Schedule', 'userId');
+    }
+    
+    public function createdSchedule()
+    {
+        return $this->hasMany('App\Schedule', 'createdBy');
+    }
 }

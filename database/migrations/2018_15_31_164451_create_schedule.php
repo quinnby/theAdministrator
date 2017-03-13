@@ -16,11 +16,12 @@ class CreateSchedule extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('userId');
-
             $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
-
-            $table->date('scheduleStart');
-            $table->date('scheduleEnd');
+            $table->integer('createdBy');
+            $table->foreign('createdBy')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps();
+            $table->dateTime('scheduleStart');
+            $table->dateTime('scheduleEnd');
             $table->dateTime('timeStarted')->nullable();
             $table->dateTime('timeFinished')->nullable();
         });

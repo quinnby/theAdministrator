@@ -48,13 +48,13 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Start Date Time </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="datetime-local" id="startDate" name="startDate" class="form-control col-md-7 col-xs-12" placeholder="DD/MM/YYYY"> </div>
+                                    <input type="datetime-local" id="scheduleStart" name="scheduleStart" class="form-control col-md-7 col-xs-12" placeholder="DD/MM/YYYY"> </div>
                             </div>
                             
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">End Date Time </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="datetime-local" id="endDate" name="endDate" class="form-control col-md-7 col-xs-12" placeholder="DD/MM/YYYY"> </div>
+                                    <input type="datetime-local" id="scheduleEnd" name="scheduleEnd" class="form-control col-md-7 col-xs-12" placeholder="DD/MM/YYYY"> </div>
                             </div>
                             
                             <div id="booked" style="display: none">

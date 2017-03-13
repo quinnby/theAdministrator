@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Schedule;
 
 class ScheduleController extends Controller
 {
@@ -25,8 +26,10 @@ class ScheduleController extends Controller
     
     public function add(Request $request)
     {
+        $schedule = new Schedule($request->all());
         $users = User::all();
-        $msg = "Schedule Added";
+        $user = User::find($schedule->userId);
+        $msg = "Schedule Added for " + $user->name;
         return view('schedule.create', compact('users', 'msg'));
     }
 }
