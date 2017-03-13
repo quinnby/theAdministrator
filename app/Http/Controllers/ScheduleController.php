@@ -22,4 +22,11 @@ class ScheduleController extends Controller
         $users = User::all();
         return view('schedule.create', compact('users'));
     }
+    
+    public function add(Request $request)
+    {
+        $users = User::all();
+        $msg = "Schedule Added";
+        return view('schedule.create', compact('users', 'msg'));
+    }
 }

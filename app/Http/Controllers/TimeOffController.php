@@ -51,5 +51,13 @@ class TimeOffController extends Controller
         $timeOff->save();
         return response(['msg' => 'Member Status Request updated', 'status' => 'Success']);
     }
+    
+    public function bookedOff($id)
+    {
+        $timeOffRequests = TimeOff::all()->where('userId', $id);
+        //$timeOffRequests = TimeOff::all()->first();
+        return $timeOffRequests;
+        //return '1';
+    }
 
 }

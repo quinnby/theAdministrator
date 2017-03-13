@@ -13,6 +13,10 @@
                 <br/>
                 <div class="x_panel">
                     <div class="x_content">
+                        @if (! empty($msg))
+                        
+                            <div class="alert alert-success">{{ $msg }}</div>
+                        @endif
                         @if (count($errors) > 0)
                             <div class="alert alert-danger">
                                 <strong>Whoops!</strong> There were some problems with your input.<br><br>
@@ -27,26 +31,49 @@
                         <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" method="POST" action ="{{ url('/schedule/create') }}">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}"/>
                             
-                            <select class="form-control" name="userId">
-                                <option value=0 disabled selected>Choose Employee</option>
+                            <div class="item form-group">
+                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Employee
+                              </label>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                              <select id="userId" class="form-control" name="userId">
+                                <option value=0 >Choose Employee</option>
                                 @foreach ($users as $user)
                                         <option value={{ $user['id']}}>{{ $user['name'] }} {{ $user['lastName'] }}</option>
                                 @endforeach
                               </select>
+                            </div>
+                          </div>
                                
                             
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Start Date </label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Start Date Time </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="datetime-local" id="startDate" name="startDate" class="form-control col-md-7 col-xs-12" placeholder="DD/MM/YYYY"> </div>
                             </div>
                             
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">End Date </label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">End Date Time </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input type="datetime-local" id="endDate" name="endDate" class="form-control col-md-7 col-xs-12" placeholder="DD/MM/YYYY"> </div>
                             </div>
                             
+                            <div id="booked" style="display: none">
+                                <h4>Dates Booked Off</h4>
+                                <div class="table-responsive">
+                                <table id="datatable" class="table table-striped jambo_table bulk_action">
+                                    <thead>
+                                        <tr class="headings">
+                                            <th class="column-title">Date(s) Booked Off </th>
+                                            <th class="column-title">Reason </th>
+                                            <th class="column-title">Status </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                            </div>
                             
                             <div class="ln_solid"></div>
                             <div class="form-group">
@@ -63,6 +90,36 @@
         </div>
     </div>
 </div>
+
+<script>
+    $( document ).ready(function (){    
+        
+        $( "#userId" ).on("change", function() {
+            $( "tbody" ).children().remove();
+            $.ajax({
+                url: '/time_off/get/2',
+                type: 'GET',
+                
+                success: function(data){
+                    console.log(data[0]);
+                    $.each(data, function(i, booked) {
+                       console.log(booked.startDate);
+                        if (booked.status == "Pending"){
+                            
+                            $( "tbody" ).append( "<tr><td>" + booked.startDate + " - " + booked.endDate + "</td><td>" + booked.note + "</td><td><span class='label label-warning'>" + booked.status +  "</span></td></tr>" );
+                        } else if (booked.status == "Approved") {
+                            $( "tbody" ).append( "<tr><td>" + booked.startDate + " - " + booked.endDate + "</td><td>" + booked.note + "</td><td><span class='label label-success'>" + booked.status +  "</span></td></tr>" );
+                        } else {
+                            $( "tbody" ).append( "<tr><td>" + booked.startDate + " - " + booked.endDate + "</td><td>" + booked.note + "</td><td><span class='label label-danger'>" + booked.status +  "</span></td></tr>" );
+                        }
+                    });
+                    $( "#booked" ).slideDown("slow");
+                }
+            });
+        });
+    });
+
+</script>
 <!-- /page content -->
 <!-- footer content -->
 <footer> @include('includes.footer') </footer>

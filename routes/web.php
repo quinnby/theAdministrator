@@ -26,9 +26,11 @@ Route::get('/time_off/create', 'TimeOffController@create');
 Route::post('/time_off/create', 'TimeOffController@add');
 Route::patch('/time_off', 'TimeOffController@updateStatus');
 Route::get('/time_off', 'TimeOffController@index');
+Route::get('/time_off/get/{id}', 'TimeOffController@bookedOff');
 
 Route::get('/schedule', 'ScheduleController@view');
 Route::get('/schedule/create', 'ScheduleController@create');
+Route::post('/schedule/create', 'ScheduleController@add');
 
 Route::get('/departments','DepartmentsController@index');
 
