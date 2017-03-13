@@ -28,6 +28,7 @@ Route::patch('/time_off', 'TimeOffController@updateStatus');
 Route::get('/time_off', 'TimeOffController@index');
 
 Route::get('/schedule', 'ScheduleController@view');
+Route::get('/schedule/create', 'ScheduleController@create');
 
 Route::get('/departments','DepartmentsController@index');
 

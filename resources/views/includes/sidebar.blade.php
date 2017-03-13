@@ -65,7 +65,7 @@
                         </ul>
                     <li><a><i class="fa fa-calendar"></i> Schedule<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="{{ url('#') }}">Create Schedule</a></li>
+                            <li><a href="{{ url('/schedule/create') }}">Create Schedule</a></li>
                             <li><a href="{{ url('/schedule/') }}">View Schedule</a></li>
                         </ul>
                     <li><a><i class="fa fa-clock-o"></i> Time Off<span class="fa fa-chevron-down"></span></a>
