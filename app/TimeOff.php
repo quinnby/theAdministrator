@@ -34,6 +34,6 @@ class TimeOff extends Model
         $createdAt =  new DateTime($start);
         $endsAt = new DateTime($end);
         $diff = $endsAt->diff($createdAt)->format("%a");
-        return ($diff < 1) ? "Today" : $diff . " days";
+        return ($diff < 1) ? "Today" : $diff . " day(s)";
     }
 } 
