@@ -77,6 +77,11 @@
                             <li><a href="{{ url('/performance_review/create') }}">Add Performance Review</a></li>
                             <li><a href="{{ url('/performance_review') }}">View Performance Reviews</a></li>
                         </ul>
+                    <li><a><i class="fa fa-folder-open"></i> Departments<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ url('/departments/create') }}">Add Department</a></li>
+                            <li><a href="{{ url('/departments') }}">Manage Departments</a></li>
+                        </ul>
                     </li>
                     @endif
                    

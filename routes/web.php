@@ -33,6 +33,8 @@ Route::get('/schedule/create', 'ScheduleController@create');
 Route::post('/schedule/create', 'ScheduleController@add');
 
 Route::get('/departments','DepartmentsController@index');
+Route::get('/departments/create','DepartmentsController@create');
+Route::post('/departments/create', 'DepartmentsController@add');
 
 Route::get('/security','SecurityController@index');
 
