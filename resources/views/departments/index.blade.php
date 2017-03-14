@@ -16,7 +16,6 @@
                 <br/>
                 <div class="x_panel">
                     <div class="x_content">
-                        <br />
                         <a class="btn btn-round btn-success" href="{{ url('/departments/create') }}"><i class="fa fa-edit m-right-xs"></i> Create New Department</a>
                         <hr/>
                         <div class="table-responsive">

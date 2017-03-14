@@ -9,7 +9,6 @@
 
     <!-- page content -->
     <div class="right_col" role="main">
-        <br/>
         <img src="{{ asset('/images/dcpic1.jpg') }}" ""alt="Durham College Banner" />
         <img src="{{ asset('/images/dcpic2.gif') }}" ""alt="Durham College Banner" />
         <p> This website is the capstone project of Quinn Craven, Ellen Coombs, David Portillo and William Beniuk, and was designed for the CAPR 6203 course at Durham College during the Winter 2017 semester. It was developed using the <a href="https://laravel.com/"> Laravel</a> framework and the<a href="https://colorlib.com/polygon/gentelella/"> Gentelella Alela! </a>CSS Admin template. <br/> <br/> 
