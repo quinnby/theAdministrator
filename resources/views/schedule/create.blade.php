@@ -6,7 +6,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Request Time Off</h3> </div>
+                <h3>Create Schedule</h3> </div>
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">

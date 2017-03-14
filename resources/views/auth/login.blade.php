@@ -58,16 +58,10 @@
                     
                     <div class="clearfix"></div>
                     
-                        <br />
+                        <br/>
                         
-                        <div>
-                            @include('includes.footer')
-                        </div>
-                    </div>
+                    <div><font size="1pt">© 2017 Quinn Craven, Ellen Coombs, David Portillo, William Beniuk</div>
                 </form>
             </section>
         </div>
     </div>
-</div>
-</body>
-</html>
