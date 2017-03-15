@@ -27,6 +27,7 @@ class DepartmentsController extends Controller
     public function add(Request $request)
     {
         $department = new Department($request->all());
+        //dd($department);
         $departmentRequests = Department::All();
             
         $this->validate($request, [
