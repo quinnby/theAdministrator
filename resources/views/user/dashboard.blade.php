@@ -45,7 +45,7 @@
                             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <a href="{{ url('#') }}">
                                     <div class="tile-stats">
-                                        <div class="icon"><i class="fa fa-check"></i> </div>
+                                        <div class="icon"><i class="fa fa-book"></i> </div>
                                         <h3>Reviews</h3>
                                         <p>View Performance Reviews</p>
                                     </div>
@@ -96,7 +96,7 @@
                         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <a href="{{ url('/performance_review/') }}">
                                 <div class="tile-stats">
-                                    <div class="icon"><i class="fa fa-check"></i> </div>
+                                    <div class="icon"><i class="fa fa-book"></i> </div>
                                     <h3>Reviews</h3>
                                     <p>Manage Performance Reviews</p>
                                 </div>

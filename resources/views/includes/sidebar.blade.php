@@ -44,7 +44,7 @@
                             <li><a href="{{ url('/time_off/create') }}">Request Time Off</a></li>
                             <li><a href="{{ url('#') }}">View Status of Requests</a></li>
                         </ul>
-                    <li><a><i class="fa fa-check"></i> Performance Reviews<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-book"></i> Performance Reviews<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('#') }}">View Performance Reviews</a></li>
                         </ul>
@@ -70,9 +70,10 @@
                         </ul>
                     <li><a><i class="fa fa-clock-o"></i> Time Off<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
+                            <li><a href="{{ url('/time_off/create') }}">Request Time Off</a></li>
                             <li><a href="{{ url('/time_off') }}">Manage Time Off Requests</a></li>
                         </ul>
-                    <li><a><i class="fa fa-check"></i> Performance Reviews<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-book"></i> Performance Reviews<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/performance_review/create') }}">Add Performance Review</a></li>
                             <li><a href="{{ url('/performance_review') }}">View Performance Reviews</a></li>
@@ -115,7 +116,7 @@
                     @if (!auth()->guest() && auth()->user()->isOfType(1))   
                      
                 <div class="sidebar-footer hidden-small">
-                    <a data-toggle="tooltip" data-placement="top" title="Manage Users">
+                    <a data-toggle="tooltip" data-placement="top" title="Manage Users" href="{{ url('/users') }}">
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                     </a>
                     <a data-toggle="tooltip" data-placement="top" title="View Tasks">
