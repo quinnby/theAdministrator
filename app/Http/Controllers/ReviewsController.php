@@ -32,13 +32,16 @@ class ReviewsController extends Controller
 
     public function add(Request $request)
     {
+        //DD($request->all());
     	$performanceNote = new PerformanceNotes($request->all());
+        //DD($performanceNote);
     	$performanceNote->userOwner = Auth::user()->id;
         $notes = PerformanceNotes::All();
 
     	$this->validate($request,[
     		'userId' => 'required|not_in:0',
-    		'note' => 'required:min:5'
+    		'note' => 'required:min:5',
+            'noteDate' =>'required'
     	]);
 
     	$performanceNote->save();
