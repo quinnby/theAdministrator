@@ -54,6 +54,7 @@
                     <li><a><i class="fa fa-user"></i> My Profile<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/user/profile/' . auth()->user()->id) }}">View Profile</a></li>
+                            <li><a href="{{ url('/user/profile') }}/{{ $user->id }}/edit">Edit Profile</a></li>
                         </ul>
                     <li><a><i class="fa fa-users"></i> Employees <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
