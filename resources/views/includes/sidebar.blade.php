@@ -84,6 +84,12 @@
                             <li><a href="{{ url('/departments') }}">Manage Departments</a></li>
                         </ul>
                     </li>
+                    <li><a><i class="fa fa-briefcase"></i> Job Titles<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ url('/jobtitles/create') }}">Add Job Title</a></li>
+                            <li><a href="{{ url('/jobtitles') }}">Manage Job Titles</a></li>
+                        </ul>
+                    </li>
                     @endif
                    
                 </ul>

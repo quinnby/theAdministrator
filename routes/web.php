@@ -36,6 +36,10 @@ Route::get('/departments','DepartmentsController@index');
 Route::get('/departments/create','DepartmentsController@create');
 Route::post('/departments/create', 'DepartmentsController@add');
 
+Route::get('/jobtitles','JobTitlesController@index');
+Route::get('/jobtitles/create','JobTitlesController@create');
+Route::post('/jobtitles/create', 'JobTitlesController@add');
+
 Route::get('/security','SecurityController@index');
 
 Route::get('/users','UsersController@index');
