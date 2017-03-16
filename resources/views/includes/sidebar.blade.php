@@ -31,10 +31,9 @@
                     
                     <!-- Employee Sidebar -->
                     @if (!auth()->guest() && auth()->user()->isOfType(2)) 
-                    <li><a><i class="fa fa-user"></i> My Profile<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{ url('/user/profile/' . auth()->user()->id) }}">View Profile</a></li>
-                        </ul>
+                        
+                    <li><a href="{{ url('/user/profile/' . auth()->user()->id) }}"><i class="fa fa-user"></i>View My Profile</a>
+                    </li>
                     <li><a><i class="fa fa-calendar"></i> Schedule<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/schedule/') }}">View Schedule</a></li>
