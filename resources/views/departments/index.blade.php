@@ -23,14 +23,16 @@
                                 <thead>
                                     <tr class="headings">
                                         <th class="column-title">Department Name </th>
-                                        <th class="column-title no-link last"><span class="nobr">Description </span></th>
+                                        <th class="column-title">Description </th>
+                                        <th class="column-title no-link last"><span class="nobr">Number of Employees </span></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($departments as $department)
                                         <tr class="even pointer">
                                             <td>{{ $department->department }}</td>
-                                            <td class=" last">{{ $department->description }} </td>
+                                            <td>{{ $department->description }} </td>
+                                            <td class=" last"></td>
                                         </tr>
                                     @endforeach
                                 </tbody>

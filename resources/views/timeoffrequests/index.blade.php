@@ -36,7 +36,15 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    
+                                    <!-- If the user is not an admin -->
+                                    @if (!auth()->guest() && auth()->user()->isOfType(2)) 
+                                    
                                     @foreach($timeOffRequests as $timeOffRequest)
+                                    
+                                    @if ($timeOffRequest->userId ==auth()->id())
+                                    
+                                    
                                         <tr class="even pointer">
                                             <td>{{ $timeOffRequest->user->name }} {{ $timeOffRequest->user->lastName }}</td>
                                             <td>{{ $timeOffRequest->startDate }} - {{ $timeOffRequest->endDate }}</td>
@@ -58,7 +66,35 @@
                                             </td>
                                            <!-- <td>{{ $timeOffRequest->approvedById }}</td>
                                         </tr> -->
+                                            @endif
                                     @endforeach
+                                            
+                                            @endif
+                                            
+                                        <!-- Administrator Sidebar -->
+                                        @if (!auth()->guest() && auth()->user()->isOfType(1)) 
+                                            @foreach($timeOffRequests as $timeOffRequest)
+                                                                                    <tr class="even pointer">
+                                            <td>{{ $timeOffRequest->user->name }} {{ $timeOffRequest->user->lastName }}</td>
+                                            <td>{{ $timeOffRequest->startDate }} - {{ $timeOffRequest->endDate }}</td>
+                                            <td>{{ $timeOffRequest->getDaysOff($timeOffRequest->startDate, $timeOffRequest->endDate) }}</td>
+                                            <td>{{ $timeOffRequest->note }}</td>
+                                            @if($timeOffRequest->status == "Pending")
+                                                <td><span class="label label-warning">{{$timeOffRequest->status}} </span></td>  
+                                            @elseif($timeOffRequest->status == "Approved")
+                                                <td><span class="label label-success">{{$timeOffRequest->status}} </span></td>
+                                            @else
+                                                <td><span class="label label-danger">{{$timeOffRequest->status}} </span></td> 
+                                            @endif
+                                            
+                                            <td id={{ $timeOffRequest['id'] }}>
+                                            @if ($timeOffRequest->userId != $loggedUser)
+                                                <button class="btn btn-primary btn-xs approve" data-toggle="modal" data-target="#approveModal">Approve</button>
+                                                <button class="btn btn-danger btn-xs reject" data-toggle="modal" data-target="#rejectModal">Reject</button>
+                                            @endif
+                                                 @endforeach
+                                            @endif
+                                            </td>
                                 </tbody>
                             </table>
                         </div>

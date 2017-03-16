@@ -31,24 +31,23 @@
                     
                     <!-- Employee Sidebar -->
                     @if (!auth()->guest() && auth()->user()->isOfType(2)) 
-                    <li><a><i class="fa fa-user"></i> My Profile<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{ url('/user/profile/' . auth()->user()->id) }}">View Profile</a></li>
-                        </ul>
-                    <li><a><i class="fa fa-calendar"></i> Schedule<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{ url('/schedule/') }}">View Schedule</a></li>
-                        </ul>
+
+                    <li><a href="{{ url('/user/profile/' . auth()->user()->id) }}"><i class="fa fa-user"></i>My Profile</a>
+                    </li>
+                    <li><a href="{{ url('/schedule/') }}"><i class="fa fa-calendar"></i>Schedule</a>
+
+                    <li><a href="{{ url('/user/profile/' . auth()->user()->id) }}"><i class="fa fa-user"></i>View My Profile</a>
+                    </li>
+                    <li><a href="{{ url('/schedule/' . auth()->user()->id) }}"><i class="fa fa-calendar"></i> My Schedule</a>
+                    </li>
                     <li><a><i class="fa fa-user"></i> Time Off<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/time_off/create') }}">Request Time Off</a></li>
-                            <li><a href="{{ url('#') }}">View Status of Requests</a></li>
+                            <li><a href="{{ url('/time_off') }}">View Status of Requests</a></li>
                         </ul>
-                    <li><a><i class="fa fa-book"></i> Performance Reviews<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{ url('#') }}">View Performance Reviews</a></li>
-                        </ul>
+                    <li><a href="{{ url('/performance_review') }}"><i class="fa fa-book"></i>Performance Reviews</a>
                     </li>
+                    
                     @endif
                     
                     <!-- Administrator Sidebar -->
@@ -57,6 +56,7 @@
                     <li><a><i class="fa fa-user"></i> My Profile<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/user/profile/' . auth()->user()->id) }}">View Profile</a></li>
+                            
                         </ul>
                     <li><a><i class="fa fa-users"></i> Employees <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
