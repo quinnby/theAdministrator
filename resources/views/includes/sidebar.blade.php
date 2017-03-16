@@ -45,7 +45,7 @@
                             <li><a href="{{ url('/time_off/create') }}">Request Time Off</a></li>
                             <li><a href="{{ url('/time_off') }}">View Status of Requests</a></li>
                         </ul>
-                    <li><a href="{{ url('/performance_review') }}"><i class="fa fa-book"></i>Performance Reviews</a>
+                    <li><a href="{{ url('/performance_review') }}"><i class="fa fa-book"></i>My Performance Reviews</a>
                     </li>
                     
                     @endif
