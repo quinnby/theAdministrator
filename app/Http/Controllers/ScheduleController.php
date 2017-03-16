@@ -27,6 +27,12 @@ class ScheduleController extends Controller
     public function add(Request $request)
     {
         $schedule = new Schedule($request->all());
+        $this->validate($request, [
+            'userId' => 'required',
+            'scheduleStart' => 'required|after:today',
+            'scheduleEnd' => 'required|after:scheduleStart'
+            ]);
+        
         $users = User::all();
         $user = User::find($schedule->userId);
         $msg = "Schedule Added for " + $user->name;
