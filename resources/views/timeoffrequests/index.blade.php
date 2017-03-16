@@ -71,10 +71,10 @@
                                             
                                             @endif
                                             
-                                        <!-- Administrator Sidebar -->
+                                        <!-- Is User Is Admin  -->
                                         @if (!auth()->guest() && auth()->user()->isOfType(1)) 
                                             @foreach($timeOffRequests as $timeOffRequest)
-                                                                                    <tr class="even pointer">
+                                            <tr class="even pointer">
                                             <td>{{ $timeOffRequest->user->name }} {{ $timeOffRequest->user->lastName }}</td>
                                             <td>{{ $timeOffRequest->startDate }} - {{ $timeOffRequest->endDate }}</td>
                                             <td>{{ $timeOffRequest->getDaysOff($timeOffRequest->startDate, $timeOffRequest->endDate) }}</td>
