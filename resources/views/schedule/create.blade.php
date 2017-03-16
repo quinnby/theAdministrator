@@ -36,7 +36,7 @@
                               </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
                               <select id="userId" class="form-control" name="userId">
-                                <option value=0 >Choose Employee</option>
+                                <option selected disabled>Choose Employee</option>
                                 @foreach ($users as $user)
                                         <option value={{ $user['id']}}>{{ $user['name'] }} {{ $user['lastName'] }}</option>
                                 @endforeach

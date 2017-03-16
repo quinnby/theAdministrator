@@ -57,7 +57,6 @@ class TimeOffController extends Controller
         $timeOffRequests = TimeOff::all()->where('userId', $id);
         //$timeOffRequests = TimeOff::all()->first();
         return $timeOffRequests;
-        //return '1';
     }
 
 }
