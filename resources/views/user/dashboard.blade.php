@@ -34,20 +34,20 @@
                                 </a>
                             </div>
                             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <a href="{{ url('#') }}">
+                                <a href="{{ url('/time_off') }}">
                                     <div class="tile-stats">
                                         <div class="icon"><i class="fa fa-clock-o"></i> </div>
                                         <h3>Time Off</h3>
-                                        <p>Manage Time Off Requests</p>
+                                        <p>Manage Requests</p>
                                     </div>
                                 </a>
                             </div>
                             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <a href="{{ url('#') }}">
+                                <a href="{{ url('/performance_review') }}">
                                     <div class="tile-stats">
                                         <div class="icon"><i class="fa fa-book"></i> </div>
                                         <h3>Reviews</h3>
-                                        <p>View Performance Reviews</p>
+                                        <p>View Reviews</p>
                                     </div>
                                 </a>
                             </div>
@@ -78,7 +78,7 @@
                                 <div class="tile-stats">
                                     <div class="icon"><i class="fa fa-calendar"></i> </div>
                                     <h3>Schedule</h3>
-                                    <p>View/Create Schedule</p>
+                                    <p>View Schedule</p>
                                 </div>
                             </a>
                         </div>
@@ -87,7 +87,7 @@
                                 <div class="tile-stats">
                                     <div class="icon"><i class="fa fa-clock-o"></i> </div>
                                     <h3>Time Off</h3>
-                                    <p>Manage Time Off Requests</p>
+                                    <p>Manage Requests</p>
                                 </div>
                             </a>
                         </div>
@@ -98,7 +98,7 @@
                                 <div class="tile-stats">
                                     <div class="icon"><i class="fa fa-book"></i> </div>
                                     <h3>Reviews</h3>
-                                    <p>Manage Performance Reviews</p>
+                                    <p>Manage Reviews</p>
                                 </div>
                             </a>
                         </div> 
