@@ -33,8 +33,8 @@ class TimeOffController extends Controller
         $timeOffRequests = TimeOff::All();
             
         $this->validate($request, [
-            'startDate' => 'required',
-            'endDate' => 'required|after:startDate',
+            'startDate' => 'required|after:today',
+            'endDate' => 'required|after:today',
             'note' => 'required'
             ]);
         
