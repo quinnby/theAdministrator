@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Schedule;
 use Auth;
+use Carbon\Carbon;
 
 class ScheduleController extends Controller
 {
@@ -44,10 +45,12 @@ class ScheduleController extends Controller
     
     public function viewWeek()
     {
+        $monday = Carbon::now()->startOfWeek();
+        $sunday = Carbon::now()->endOfWeek();
         $users = User::all();
         foreach ($users as $user)
         {
-            $schedule[$user->id]['schedule'] = $user->schedule->where('scheduleStart', '>=', '2017-03-17')->where('scheduleEnd', '<=', '2017-03-23');
+            $schedule[$user->id]['schedule'] = $user->schedule->where('scheduleStart', '>=', '2017-03-17')->where('scheduleEnd', '<=', '2017-03-23')->sortByDesc('scheduleStart');
             $schedule[$user->id]['bookoff'] = $user->bookedOff;
         }
         //$schedule = User::find('3');
