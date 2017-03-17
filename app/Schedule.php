@@ -13,7 +13,7 @@ class Schedule extends Model
     ];
     public function user()
     {
-        return $this->belongsTo('App\Models\User', 'userId', 'id');
+        return $this->belongsTo('App\Models\User', 'userId');
     }
     
     public function owner()

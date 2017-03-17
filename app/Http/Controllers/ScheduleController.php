@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Schedule;
+use Auth;
 
 class ScheduleController extends Controller
 {
@@ -32,10 +33,12 @@ class ScheduleController extends Controller
             'scheduleStart' => 'required|after:today',
             'scheduleEnd' => 'required|after:scheduleStart'
             ]);
-        
+        $schedule->createdBy = Auth::user()->id;
         $users = User::all();
+        
         $user = User::find($schedule->userId);
-        $msg = "Schedule Added for " + $user->name;
+        $schedule->save();
+        $msg = "Schedule Added for " . $user->name;
         return view('schedule.create', compact('users', 'msg'));
     }
 }

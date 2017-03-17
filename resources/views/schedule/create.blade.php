@@ -35,10 +35,14 @@
                             <label class="control-label col-md-3 col-sm-3 col-xs-12">Employee
                               </label>
                             <div class="col-md-6 col-sm-6 col-xs-12">
-                              <select id="userId" class="form-control" name="userId">
+                              <select id="userId" class="form-control" name="userId" >
                                 <option selected disabled>Choose Employee</option>
                                 @foreach ($users as $user)
+                                    @if (old('userId') != null && $user->id == old('userId'))
+                                        <option selected value={{ $user['id']}}>{{ $user['name'] }} {{ $user['lastName'] }}</option>
+                                    @else
                                         <option value={{ $user['id']}}>{{ $user['name'] }} {{ $user['lastName'] }}</option>
+                                    @endif
                                 @endforeach
                               </select>
                             </div>
@@ -48,13 +52,13 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Start Date Time </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="datetime-local" id="scheduleStart" name="scheduleStart" class="form-control col-md-7 col-xs-12" placeholder="DD/MM/YYYY"> </div>
+                                    <input type="datetime-local" id="scheduleStart" name="scheduleStart" class="form-control col-md-7 col-xs-12" placeholder="DD/MM/YYYY" value="{{ old('scheduleStart') }}"> </div>
                             </div>
                             
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">End Date Time </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="datetime-local" id="scheduleEnd" name="scheduleEnd" class="form-control col-md-7 col-xs-12" placeholder="DD/MM/YYYY"> </div>
+                                    <input type="datetime-local" id="scheduleEnd" name="scheduleEnd" class="form-control col-md-7 col-xs-12" placeholder="DD/MM/YYYY" value="{{ old('scheduleEnd') }}"> </div>
                             </div>
                             
                             <div id="booked" style="display: none">
