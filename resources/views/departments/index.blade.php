@@ -23,7 +23,7 @@
                                 <thead>
                                     <tr class="headings">
                                         <th class="column-title">Department Name </th>
-                                         <th class="column-title">Department </th>
+                                         <th class="column-title">Department Head </th>
                                         <th class="column-title">Description </th>
                                         <th class="column-title no-link last"><span class="nobr">Number of Employees </span></th>
                                     </tr>
@@ -32,6 +32,7 @@
                                     @foreach($departments as $department)
                                         <tr class="even pointer">
                                             <td>{{ $department->department }}</td>
+                                            <td>{{ $department->userId }} </td>
                                             <td>{{ $department->description }} </td>
                                             <td class=" last"></td>
                                         </tr>
