@@ -9,14 +9,18 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>View Schedule</h3> </div>
+                <h3>Schedule</h3> <br/>
+                <a class="btn btn-round btn-default" href="{{ url('/schedule/create') }}"><i class="fa fa-arrow-circle-left m-right-xs"></i> Previous Week </a>
+                <a class="btn btn-round btn-default" href="{{ url('/schedule/create') }}"> Next Week <i class="fa fa-arrow-circle-right m-right-xs"></i></a>
+            </div>
         </div>
+        
+        
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <br/>
                 <div class="x_panel">
                     <div class="x_content">
-                        <a class="btn btn-round btn-success" href="{{ url('/schedule/create') }}"><i class="fa fa-edit m-right-xs"></i> Create New Schedule</a>
                         <hr/>
                         <div class="table-responsive">
                             <table id="datatable" class="table table-striped jambo_table bulk_action">
@@ -41,6 +45,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 <script>
