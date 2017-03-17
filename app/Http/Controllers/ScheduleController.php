@@ -41,4 +41,19 @@ class ScheduleController extends Controller
         $msg = "Schedule Added for " . $user->name;
         return view('schedule.create', compact('users', 'msg'));
     }
+    
+    public function viewWeek()
+    {
+        $users = User::all();
+        foreach ($users as $user)
+        {
+            $schedule[$user->id]['schedule'] = $user->schedule->where('scheduleStart', '>=', '2017-03-17')->where('scheduleEnd', '<=', '2017-03-23');
+            $schedule[$user->id]['bookoff'] = $user->bookedOff;
+        }
+        //$schedule = User::find('3');
+        //$schedule = $schedule->schedule;
+        
+        //$schedule = Schedule::all()->where('scheduleStart', '>=', '2017-03-17')->where('scheduleStart', '<=', '2017-03-23');
+        return $schedule;
+    }
 }

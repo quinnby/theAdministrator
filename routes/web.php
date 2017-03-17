@@ -29,6 +29,7 @@ Route::get('/time_off', 'TimeOffController@index');
 Route::get('/time_off/get/{id}', 'TimeOffController@bookedOff');
 
 Route::get('/schedule', 'ScheduleController@view');
+Route::get('/schedule/week', 'ScheduleController@viewWeek');
 Route::get('/schedule/create', 'ScheduleController@create');
 Route::post('/schedule/create', 'ScheduleController@add');
 
