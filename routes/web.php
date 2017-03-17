@@ -41,6 +41,7 @@ Route::get('/jobtitles','JobTitlesController@index');
 Route::get('/jobtitles/create','JobTitlesController@create');
 Route::post('/jobtitles/create', 'JobTitlesController@add');
 
+Route::get('/tasks', 'TasksController@index');
 Route::get('/tasks/create', 'TasksController@create');
 
 Route::get('/security','SecurityController@index');
