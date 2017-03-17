@@ -16,7 +16,10 @@
                 <br/>
                 <div class="x_panel">
                     <div class="x_content">
+                        <!-- If User Is An Admin -->
+                                    @if (!auth()->guest() && auth()->user()->isOfType(1)) 
                         <a class="btn btn-round btn-success" href="{{ url('/performance_review/create') }}"><i class="fa fa-edit m-right-xs"></i> Create New Review</a>
+                        @endif
                         <hr/>
                         <div class="table-responsive">
                             <table id="datatable" class="table table-striped jambo_table bulk_action">
