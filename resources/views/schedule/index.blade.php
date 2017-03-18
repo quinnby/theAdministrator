@@ -55,7 +55,7 @@
                                                 @endif
                                                 @endfor
                                                 @endif
-                                        
+                                                @if(!is_null($schedule[$user->id]['bookoff']))
                                                 @for($booked = 0; $booked < count($schedule[$user->id]['bookoff']); $booked++)
                                                     <?php $bookStart = \Carbon\Carbon::parse($schedule[$user->id]['bookoff'][$booked]['startDate']);
                                                         $bookEnd = \Carbon\Carbon::parse($schedule[$user->id]['bookoff'][$booked]['endDate']); ?>
@@ -63,6 +63,7 @@
                                                 <span class="label label-warning">Booked Off</span></br>
                                                     @endif
                                                 @endfor
+                                                @endif
                                             </td>
                                         @endfor 
                                     </tr>

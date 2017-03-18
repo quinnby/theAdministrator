@@ -52,7 +52,7 @@ class ScheduleController extends Controller
         foreach ($users as $user)
         {
             $schedule[$user->id]['schedule'] = $user->schedule->where('scheduleStart', '>=', '2017-03-17')->where('scheduleStart', '<=', '2017-03-20')->sortByDesc('scheduleStart');
-            $schedule[$user->id]['bookoff'] = $user->bookedOff->where('startDate', '<=', $sunday)->where('endDate', '>=', $monday);
+            $schedule[$user->id]['bookoff'] = $user->bookedOff->where('startDate', '<=', $sunday)->where('endDate', '>=', $monday)->where('status', '=', 'Approved');
         }
         //$schedule = User::find('3');
         //$schedule = $schedule->schedule;
