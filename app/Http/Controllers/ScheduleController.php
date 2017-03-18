@@ -31,7 +31,7 @@ class ScheduleController extends Controller
         $schedule = new Schedule($request->all());
         $this->validate($request, [
             'userId' => 'required',
-            'scheduleStart' => 'required|after:today',
+            'scheduleStart' => 'required',
             'scheduleEnd' => 'required|after:scheduleStart'
             ]);
         $schedule->createdBy = Auth::user()->id;
@@ -51,7 +51,7 @@ class ScheduleController extends Controller
         $users = User::all();
         foreach ($users as $user)
         {
-            $schedule[$user->id]['schedule'] = $user->schedule->where('scheduleStart', '>=', '2017-03-17')->where('scheduleStart', '<=', '2017-03-20')->sortByDesc('scheduleStart');
+            $schedule[$user->id]['schedule'] = $user->schedule->sortByDesc('scheduleStart')->where('scheduleStart', '>=', $monday)->where('scheduleStart', '<=', $sunday);
             $schedule[$user->id]['bookoff'] = $user->bookedOff->where('startDate', '<=', $sunday)->where('endDate', '>=', $monday)->where('status', '=', 'Approved');
         }
         //$schedule = User::find('3');
@@ -59,7 +59,7 @@ class ScheduleController extends Controller
         
         //$schedule = Schedule::all()->where('scheduleStart', '>=', '2017-03-17')->where('scheduleStart', '<=', '2017-03-23');
         //return $monday->format('d');
-        return view('schedule.index', compact('schedule', 'monday', 'users', 'week'));
+        //return view('schedule.index', compact('schedule', 'monday', 'users', 'week'));
         return compact('schedule', 'monday', 'users');
     }
 }

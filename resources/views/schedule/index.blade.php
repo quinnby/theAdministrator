@@ -44,7 +44,7 @@
                                             $bookedIt = 0; ?>
                                         @for ($i = 0; $i < 7; $i++)
                                             <td>
-                                                @if(count($schedule[$user->id]['schedule']) > 0 && count($schedule[$user->id]['schedule']) > $scheduleIt)
+                                                @if(!is_null($schedule[$user->id]['schedule']) && count($schedule[$user->id]['schedule']) > $scheduleIt)
                                                 @for($inner = $scheduleIt; $inner < count($schedule[$user->id]['schedule']); $inner++)
                                                     <?php $date = \Carbon\Carbon::parse($schedule[$user->id]['schedule'][$scheduleIt]['scheduleStart']) ?>
                                                 
