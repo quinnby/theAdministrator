@@ -9,7 +9,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>View Performance Reviews</h3> </div>
+                <h3>View My Tasks</h3> </div>
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -18,7 +18,7 @@
                     <div class="x_content">
                         <!-- If User Is An Admin -->
                                     @if (!auth()->guest() && auth()->user()->isOfType(1)) 
-                        <a class="btn btn-round btn-success" href="{{ url('/performance_review/create') }}"><i class="fa fa-edit m-right-xs"></i> Create New Review</a>
+                        <a class="btn btn-round btn-success" href="{{ url('/tasks/create') }}"><i class="fa fa-edit m-right-xs"></i> Create New Task</a>
                         @endif
                         <hr/>
                         <div class="table-responsive">
@@ -41,7 +41,7 @@
                                         @if($task['userId'] == $loggedUser)
                                             <tr class="even pointer">
                                                 <td>{{$task->taskName}}</td>
-                                                <td></td>
+                                                <td>{{$task->taskDescription}}</td>
                                                 <td></td>
                                                 <td></td>
                                                 <td> </td>
