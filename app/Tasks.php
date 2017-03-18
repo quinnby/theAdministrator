@@ -6,7 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tasks extends Model
 {
-    protected $fillable = [];
+    protected $fillable = [
+    	'userId',
+    	'taskName',
+    	'taskDescription',
+    	'date',
+
+    ];
 
     public function Owner()
     {
