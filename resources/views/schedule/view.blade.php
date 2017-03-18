@@ -9,15 +9,13 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Schedule</h3> <br/>
-                <a class="btn btn-round btn-default" href="{{ url('/schedule/create') }}"><i class="fa fa-arrow-circle-left m-right-xs"></i> Previous Week </a>
-                <a class="btn btn-round btn-default" href="{{ url('/schedule/create') }}"> Next Week <i class="fa fa-arrow-circle-right m-right-xs"></i></a>
+                <h3>Schedule</h3> 
             </div>
         </div>
-        
-        
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
+                <br/>
+                      <a class="btn btn-round btn-default" href="{{ url('#') }}"><i class="fa fa-arrow-circle-left m-right-xs"></i> Previous Week </a> <a class="btn btn-round btn-default" href="{{ url('#') }}"> Next Week <i class="fa fa-arrow-circle-right m-right-xs"></i></a>
                 <br/>
                 <div class="x_panel">
                     <div class="x_content">

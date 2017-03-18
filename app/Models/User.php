@@ -90,4 +90,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Schedule', 'createdBy');
     }
+
+    public function tasks()
+    {
+        return $this->hasMany('App\tasks', 'userId');
+    }
 }
