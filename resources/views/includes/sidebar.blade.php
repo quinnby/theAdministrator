@@ -38,7 +38,7 @@
 
                     <li><a href="{{ url('/user/profile/' . auth()->user()->id) }}"><i class="fa fa-user"></i>View My Profile</a>
                     </li>
-                    <li><a href="{{ url('/schedule/week' . auth()->user()->id) }}"><i class="fa fa-calendar"></i> My Schedule</a>
+                    <li><a href="{{ url('/schedule/' . auth()->user()->id) }}"><i class="fa fa-calendar"></i> My Schedule</a>
                     </li>
                     <li><a><i class="fa fa-user"></i> Time Off<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
@@ -66,7 +66,7 @@
                     <li><a><i class="fa fa-calendar"></i> Schedule<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/schedule/create') }}">Create Schedule</a></li>
-                            <li><a href="{{ url('/schedule/') }}">View Schedule</a></li>
+                            <li><a href="{{ url('/schedule/week') }}">View Schedule</a></li>
                         </ul>
                     <li><a><i class="fa fa-clock-o"></i> Time Off<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
