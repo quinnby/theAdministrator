@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Auth;
 use App\Tasks;
+use Carbon\Carbon;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,7 +16,6 @@ class TasksController extends Controller
 		$tasks = Tasks::All();
 		$loggedUser = Auth::user()->id;
 		return view('tasks.view_tasks', compact('tasks','loggedUser'));
-
 	}
 
     public function create()
@@ -30,18 +30,18 @@ class TasksController extends Controller
     	$task = new Tasks($request->all());
     	$task->userOwner = Auth::user()->id;
 
-
-    	//dd($task);
     	$this->validate($request,[
 
     		'userId' => 'required|not_in:0',
     		'taskName' => 'required:min:5',
-            'taskDescription' =>'required',
-            'date' => 'required|after:today'
-
+            'taskDescription' =>'required|min:10|max:100',
+            'date' => 'required|after:yesterday'
     	]);
 
     	$task->save();
-    	return redirect('performance_review');
+    	$user = User::find($task->userId);
+    	$msg = "You have successfully added a task for " . $user->name . " " . $user->lastName;
+    	$request->session()->flash('success', $msg);
+    	return redirect()->back();
     }
 }
