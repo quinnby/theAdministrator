@@ -1,5 +1,6 @@
 <?php
 
+
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -20,7 +21,10 @@ class CreateTaskTable extends Migration
             $table->string('taskName');
             $table->string('taskDescription')->nullable();
             $table->date('date');
-            $table->boolean('completed');
+            $table->boolean('completed')->default('false');
+            $table->integer('userOwner');
+            $table->foreign('userOwner')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

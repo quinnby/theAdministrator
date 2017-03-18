@@ -120,14 +120,30 @@
                                 </div>
                             </a>
                         </div> 
+
+                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a href="{{ url('/tasks/') }}">
+                                <div class="tile-stats">
+                                    <div class="icon"><i class="fa fa-briefcase"></i> </div>
+                                    <h3>Tasks</h3>
+                                    <p>Manage My tasks</p>
+                                </div>
+                            </a>
+                        </div> 
                     @endif 
                     </div> 
+
+                    </div>
+                    
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+
 <!-- Custom Theme Scripts Go Here -->
 <!-- /page content -->
 <!-- footer content -->
