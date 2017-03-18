@@ -28,6 +28,8 @@
         <!-- import jquery datatables library -->
         <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js" ></script>
         
+        <link rel="stylesheet" href="//rawgit.com/seankenny/fullcalendar/v2/dist/fullcalendar.css" />
+        
 
         @stack('stylesheets')
 
