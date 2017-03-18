@@ -43,11 +43,11 @@ class ScheduleController extends Controller
         return view('schedule.create', compact('users', 'msg'));
     }
     
-    public function viewWeek()
+    public function viewWeek($week = 0)
     {
-        //$monday = Carbon::now()->addDays(7)->startOfWeek();
-        $monday = Carbon::now()->startOfWeek();
-        $sunday = Carbon::now()->endOfWeek();
+        $monday = Carbon::now()->addDays($week * 7)->startOfWeek();
+        //$monday = Carbon::now()->startOfWeek();
+        $sunday = Carbon::now()->addDays($week * 7)->endOfWeek();
         $users = User::all();
         foreach ($users as $user)
         {
@@ -59,7 +59,7 @@ class ScheduleController extends Controller
         
         //$schedule = Schedule::all()->where('scheduleStart', '>=', '2017-03-17')->where('scheduleStart', '<=', '2017-03-23');
         //return $monday->format('d');
-        return view('schedule.index', compact('schedule', 'monday', 'users'));
+        return view('schedule.index', compact('schedule', 'monday', 'users', 'week'));
         return compact('schedule', 'monday', 'users');
     }
 }

@@ -10,8 +10,8 @@
         <div class="page-title">
             <div class="title_left">
                 <h3>Schedule</h3> <br/>
-                <a class="btn btn-round btn-default" href="{{ url('/schedule/create') }}"><i class="fa fa-arrow-circle-left m-right-xs"></i> Previous Week </a>
-                <a class="btn btn-round btn-default" href="{{ url('/schedule/create') }}"> Next Week <i class="fa fa-arrow-circle-right m-right-xs"></i></a>
+                <a class="btn btn-round btn-default" href="{{ url('/schedule/week') }}/{{ $week - 1 }}"><i class="fa fa-arrow-circle-left m-right-xs"></i> Previous Week </a>
+                <a class="btn btn-round btn-default" href="{{ url('/schedule/week') }}/{{ $week + 1 }}"> Next Week <i class="fa fa-arrow-circle-right m-right-xs"></i></a>
             </div>
         </div>
         
