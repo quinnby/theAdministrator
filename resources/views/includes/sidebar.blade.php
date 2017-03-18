@@ -66,7 +66,7 @@
                     <li><a><i class="fa fa-calendar"></i> Schedule<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/schedule/create') }}">Create Schedule</a></li>
-                            <li><a href="{{ url('/schedule/') }}">View Schedule</a></li>
+                            <li><a href="{{ url('/schedule/week') }}">View Schedule</a></li>
                         </ul>
                     <li><a><i class="fa fa-clock-o"></i> Time Off<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
@@ -88,6 +88,12 @@
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/jobtitles/create') }}">Add Job Title</a></li>
                             <li><a href="{{ url('/jobtitles') }}">Manage Job Titles</a></li>
+                        </ul>
+                    </li>
+                    <li><a><i class="fa fa-briefcase"></i> Tasks<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ url('/tasks/create') }}">Assign a Task</a></li>
+                            <li><a href="{{ url('/tasks') }}">Manage Tasks</a></li>
                         </ul>
                     </li>
                     @endif

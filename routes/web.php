@@ -29,6 +29,8 @@ Route::get('/time_off', 'TimeOffController@index');
 Route::get('/time_off/get/{id}', 'TimeOffController@bookedOff');
 
 Route::get('/schedule', 'ScheduleController@view');
+Route::get('/schedule/week', 'ScheduleController@viewWeek');
+Route::get('/schedule/week/{week}', 'ScheduleController@viewWeek');
 Route::get('/schedule/create', 'ScheduleController@create');
 Route::post('/schedule/create', 'ScheduleController@add');
 
@@ -39,6 +41,11 @@ Route::post('/departments/create', 'DepartmentsController@add');
 Route::get('/jobtitles','JobTitlesController@index');
 Route::get('/jobtitles/create','JobTitlesController@create');
 Route::post('/jobtitles/create', 'JobTitlesController@add');
+
+Route::get('/tasks', 'TasksController@index');
+Route::get('/tasks/create', 'TasksController@create');
+Route::post('/tasks/create', 'TasksController@add');
+
 
 Route::get('/security','SecurityController@index');
 
