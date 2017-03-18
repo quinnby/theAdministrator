@@ -51,6 +51,7 @@ class ScheduleController extends Controller
         $users = User::all();
         foreach ($users as $user)
         {
+            $schedule[$user->id]['schedule'] = DB::table('');
             $schedule[$user->id]['schedule'] = $user->schedule->sortByDesc('scheduleStart')->where('scheduleStart', '>=', $monday)->where('scheduleStart', '<=', $sunday);
             $schedule[$user->id]['bookoff'] = $user->bookedOff->where('startDate', '<=', $sunday)->where('endDate', '>=', $monday)->where('status', '=', 'Approved');
         }
