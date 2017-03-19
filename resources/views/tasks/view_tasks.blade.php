@@ -51,9 +51,9 @@
                                 </tbody>
                             </table>
                         </div>
-
-
+                        
                     </div>
+                    <button id="myTaskUpdate" type="button" class="btn btn-primary btn-sm pull-right">Update</button>
 
                 </div>
 
@@ -81,7 +81,7 @@
                         @endif
                         <hr/>
                         <div class="table-responsive">
-                            <table id="datatable" class="table table-striped jambo_table bulk_action">
+                            <table id="givendatatable" class="table table-striped jambo_table bulk_action">
                                 <thead>
                                     <tr class="headings">
                                         <th class="column-title">To</th>
@@ -121,26 +121,15 @@
                                         @endif
                                     @endforeach
                                     @endif
-                                    
-                         
                                 </tbody>
                             </table>
                         </div>
-
-
                     </div>
-
                 </div>
-
-
             </div>
-
         </div>
     </div>
-
-
 @endif
-
 
 
 
@@ -170,19 +159,20 @@
   </div>
 </div>
 
+
+
 <script>
     $('#datatable').DataTable({
-        // "aaSorting": [], //disables default sort
-        columnDefs: [ {
-            orderable: false,
-            className: 'select-checkbox',
-            targets:   0
-        } ],
-        select: {
-            style:    'os',
-            selector: 'td:first-child'
-        },
-        order: [[ 1, 'asc' ]]
+        "aaSorting": [], //disables default sort
+        "lengthMenu": [ 5, 10, 25, 50, 75, 100 ],
+        "pageLength": 5
+    });
+
+    $('#givendatatable').DataTable({
+       "aaSorting": [], //disables default sort
+        "lengthMenu": [ 5, 10, 25, 50, 75, 100 ],
+        "pageLength": 5
+   
     });
 
     $(document).ready(function(){
