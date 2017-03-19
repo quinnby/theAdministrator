@@ -91,7 +91,7 @@
                             <li><a href="{{ url('/jobtitles') }}">Manage Job Titles</a></li>
                         </ul>
                     </li>
-                    <li><a><i class="fa fa-briefcase"></i> Tasks<span class="fa fa-chevron-down"></span></a>
+                    <li><a><i class="fa fa-check"></i> Tasks<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/tasks/create') }}">Assign a Task</a></li>
                             <li><a href="{{ url('/tasks') }}">Manage Tasks</a></li>
