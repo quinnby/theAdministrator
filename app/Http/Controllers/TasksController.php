@@ -51,7 +51,17 @@ class TasksController extends Controller
     {
     	$myTask = Tasks::find($request['id']);
     	$myTask->completed = $request['completed'];
-    	$myTask->save();
+	   	$myTask->save();
     	return response(['msg' => 'checkbox changed', 'status' => 'Success']);
     }
+
+    public function updateGivenTasks(Request $request)
+    {
+    	$myTask = Tasks::find($request['id']);
+    	$myTask->taskName = $request['taskName'];
+   		$myTask->taskDescription = $request['taskDescription'];
+   		$myTask->save();
+    	return response(['msg' => 'task changed', 'status' => 'Success']);
+    }
+   		
 }

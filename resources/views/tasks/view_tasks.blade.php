@@ -134,7 +134,7 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Edit Performance Note</h4>
+          <h4 class="modal-title">Edit Task</h4>
         </div>
         <div class="modal-header">
           
@@ -182,13 +182,13 @@
         });
 
 
-        $('.checkbox').on('click', function(){
+        $('#datatable').on('click','.checkbox', function(){
             console.log($(this).prop('checked'));
             console.log($(this).prop('id'));
 
 
              $.ajax({
-                url: '/tasks/',
+                url: '/tasks/status',
                 type: 'PATCH',
                 data:   {
                     'id': $(this).prop('id'),
@@ -212,20 +212,28 @@
             console.log($description);
             console.log($name);
 
+            $('#showTaskName').val($name);
+            $('#showTaskDes').val($description);
+
         });
 
 
         $('#updateTask').on('click', function(){
-
-
+            
             var token = $(this).data("token");
             $.ajax({
-                url: '/tasks',
+                url: '/tasks/edit',
                 type: 'PATCH',
                 data: {
-                    'id': 'placeholder',
-                    
+                    'id': $id,
+                    'taskName': $('#showTaskName').val(),
+                    'taskDescription': $('#showTaskDes').val()
                 },
+
+                success: function(result){
+                    location.reload();
+                    console.log('successfully edited task');
+                }
             });
 
         });

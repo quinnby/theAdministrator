@@ -45,7 +45,8 @@ Route::post('/jobtitles/create', 'JobTitlesController@add');
 Route::get('/tasks', 'TasksController@index');
 Route::get('/tasks/create', 'TasksController@create');
 Route::post('/tasks/create', 'TasksController@add');
-Route::patch('/tasks','TasksController@updateMyTasks');
+Route::patch('/tasks/status','TasksController@updateMyTasks');
+Route::patch('/tasks/edit','TasksController@updateGivenTasks');
 
 
 Route::get('/security','SecurityController@index');
