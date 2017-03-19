@@ -92,7 +92,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <h4 class="modal-title">Edit Performance Note</h4>
         </div>
         <div class="modal-body">
             <form role="form" method="PATCH" >
@@ -113,15 +113,19 @@
 <script>
     $('#datatable').DataTable({
         "aaSorting": [], //disables default sort
+        "lengthMenu": [ 5, 10, 25, 50, 75, 100 ],
+        "pageLength": 5,
+
         "columnDefs": 
         [
             {"orderable": false, "targets": [5]}
         ]
+
     });
 
     $(document).ready(function(){
 
-        $('.editNote').on('click', function(){
+        $('#datatable').on('click','.editNote', function(){
              $noteId = $(this).parent().prop('id');
             $('#showNote').val($(this).parent().prev().text()); 
         });

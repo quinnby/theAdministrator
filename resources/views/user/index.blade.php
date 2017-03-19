@@ -77,7 +77,10 @@
         </div>
     <script>
         
-       var table = $('#datatable').DataTable();
+       var table = $('#datatable').DataTable({
+        "lengthMenu": [ 5, 10, 25, 50, 75, 100 ],
+        "pageLength": 5
+       });
         
         $(document).ready(function(){
              
@@ -87,7 +90,7 @@
                     }
             });
             
-            $(".active").on("click", function(){
+            $("#datatable").on("click",'.active', function(){
                 if (confirm("Do you want to change activation of " + $( this ).parent().parent().children().first().text() + "?" )){
                     var token = $(this).data("token");
                     $.ajax({
@@ -103,7 +106,7 @@
                     });
                 }
             });
-            $(".delete").on("click", function(){
+            $("#datatable").on("click",'.delete', function(){
                 if (confirm("Do you want to delete " + $( this ).parent().parent().children().first().text() + "?" )){
                     //window.location.href = "{{ url('user/') }}" + "/" + $( this ).parent().prop("id") + "/delete";
                     var token = $(this).data("token");
