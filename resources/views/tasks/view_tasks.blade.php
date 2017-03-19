@@ -36,7 +36,7 @@
 
                                         @if($task['userId'] == $loggedUser)
                                             <tr class="even pointer">
-                                                <td><input type="checkbox" {{$task['completed'] == 1 ? 'checked="checked"' : ''}}></td>
+                                                <td><input type="checkbox" id={{$task['id']}} class='checkbox' {{$task['completed'] == 1 ? 'checked="checked"' : ''}}></td>
                                                 <td>{{$task->taskName}}</td>
                                                 <td>{{$task->taskDescription}}</td>
                                                 <td>{{$task->date}}</td>
@@ -46,20 +46,12 @@
                                         @endif
                                     @endforeach
                                     @endif
-                                    
-                         
                                 </tbody>
                             </table>
                         </div>
-                        
                     </div>
-                    <button id="myTaskUpdate" type="button" class="btn btn-primary btn-sm pull-right">Update</button>
-
                 </div>
-
-
             </div>
-
         </div>
     </div>
 
@@ -176,6 +168,33 @@
     });
 
     $(document).ready(function(){
+
+
+        $.ajaxSetup({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+        });
+
+
+        $('.checkbox').on('click', function(){
+            console.log($(this).prop('checked'));
+            console.log($(this).prop('id'));
+
+
+             $.ajax({
+                url: '/tasks/',
+                type: 'PATCH',
+                data:   {
+                    'id': $(this).prop('id'),
+                    'completed': $(this).prop('checked')
+                },
+
+                success: function(result){
+                    location.reload();
+                    console.log('success');
+                }
+
+             });
+        });
 
 
     }); // closes document.ready()

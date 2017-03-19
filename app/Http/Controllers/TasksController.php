@@ -46,4 +46,12 @@ class TasksController extends Controller
     	$request->session()->flash('success', $msg);
     	return redirect()->back();
     }
+
+    public function updateMyTasks(Request $request)
+    {
+    	$myTask = Tasks::find($request['id']);
+    	$myTask->completed = $request['completed'];
+    	$myTask->save();
+    	return response(['msg' => 'checkbox changed', 'status' => 'Success']);
+    }
 }
