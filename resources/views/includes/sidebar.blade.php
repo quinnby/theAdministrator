@@ -47,6 +47,13 @@
                         </ul>
                     <li><a href="{{ url('/performance_review') }}"><i class="fa fa-book"></i>My Performance Reviews</a>
                     </li>
+
+                    <li><a><i class="fa fa-briefcase"></i> Tasks<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            
+                            <li><a href="{{ url('/tasks') }}">View My Tasks</a></li>
+                        </ul>
+                    </li>
                     
                     @endif
                     
@@ -96,6 +103,7 @@
                             <li><a href="{{ url('/tasks') }}">Manage Tasks</a></li>
                         </ul>
                     </li>
+                    
                     @endif
                    
                 </ul>

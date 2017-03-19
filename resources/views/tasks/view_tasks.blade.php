@@ -9,7 +9,68 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>View My Tasks</h3> </div>
+                <h3>My Tasks</h3> </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <br/>
+                <div class="x_panel">
+                    <div class="x_content">
+         
+                        <hr/>   <div class="table-responsive">
+                            <table id="datatable" class="table table-striped jambo_table bulk_action">
+                                <thead>
+                                    <tr class="headings">
+                                        <th class="column-title"></th>
+                                        <th class="column-title">Task Name</th>
+                                        <th class="column-title">Task Description </th>
+                                        <th class="column-title">Complete by</th>
+                                        <th class="column-title">Time Left</th>
+                                        <th class="column-title">Issued By </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- If User Is An Admin -->
+                                    @if (!auth()->guest() && auth()->user()->isOfType(1)) 
+                                    @foreach($tasks as $task)
+
+                                        @if($task['userId'] == $loggedUser)
+                                            <tr class="even pointer">
+                                                <td><input type="checkbox" {{$task['completed'] == 1 ? 'checked="checked"' : ''}}></td>
+                                                <td>{{$task->taskName}}</td>
+                                                <td>{{$task->taskDescription}}</td>
+                                                <td>{{$task->date}}</td>
+                                                <td>{{$task->getDaysLeft($task->created_at, $task->date)}}</td>
+                                                <td> {{$task->Owner->name}} {{$task->Owner->lastName}}</td>
+                                            </tr>
+                                        @endif
+                                    @endforeach
+                                    @endif
+                                    
+                         
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+@if (!auth()->guest() && auth()->user()->isOfType(1))
+
+<div class="">
+        <div class="page-title">
+            <div class="title_left">
+                <h3>Given Tasks</h3> </div>
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -66,6 +127,11 @@
 
         </div>
     </div>
+
+
+@endif
+
+
 
 
   <!-- Modal -->
