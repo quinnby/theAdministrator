@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Gentellela Alela! | </title>
+    <title>The Administrator| </title>
     
     <!-- Bootstrap -->
     <link href="{{ asset("css/bootstrap.min.css") }}" rel="stylesheet">
@@ -21,6 +21,9 @@
 </head>
 
 <body class="login">
+    				<div>
+					<img src="{{ asset('/images/administratorlogo.gif') }}" ""alt="administrator_logo" />
+				</div>
 <div>
     <a class="hiddenanchor" id="signup"></a>
     <a class="hiddenanchor" id="signin"></a>
@@ -85,8 +88,7 @@
                         <br />
                         
                         <div>
-                            <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                            <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                            <p>© 2017 Quinn Craven, Ellen Coombs, David Portillo, William Beniuk</p>
                         </div>
                     </div>
                 </form>
