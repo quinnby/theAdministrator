@@ -55,6 +55,9 @@
         </div>
     </div>
 
+
+ <!-- See the given tasks-->   
+
 @if (!auth()->guest() && auth()->user()->isOfType(1))
 
 <div class="">
@@ -82,6 +85,7 @@
                                         <th class="column-title">Complete by</th>
                                         <th class="column-title">Time Left</th>
                                         <th class="column-title">Status</th>
+                                        <th class="column-title">Action</th>
                                         <th class="column-title">Issued By </th>
                                     </tr>
                                 </thead>
@@ -104,11 +108,10 @@
                                                         <span class="label label-warning">Incomplete</span>
                                                     @endif
                                                 </td>
-                                                <td>
-                                                    @if($task->userOwner == $loggedUser)
-                                                        You
-                                                    @endif
+                                                <td id={{$task['id']}}>
+                                                    <button class="btn btn-primary btn-xs editNote" data-toggle="modal" data-target="#myModal">Edit</button>
                                                 </td>
+                                                <td> You </td>
                                             </tr>
                                         @endif
                                     @endforeach
@@ -122,7 +125,6 @@
         </div>
     </div>
 @endif
-
 
 
   <!-- Modal -->
@@ -150,7 +152,6 @@
     </div>
   </div>
 </div>
-
 
 
 <script>

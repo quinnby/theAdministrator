@@ -26,7 +26,6 @@ class TimeOff extends Model
     public function user()
     {
         return $this->belongsTo('App\Models\User', 'userId');
-        
     }
 
     public function getDaysOff($start, $end)
