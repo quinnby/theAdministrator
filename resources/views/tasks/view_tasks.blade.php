@@ -63,8 +63,6 @@
         </div>
     </div>
 
-
-
 @if (!auth()->guest() && auth()->user()->isOfType(1))
 
 <div class="">
@@ -86,11 +84,12 @@
                             <table id="datatable" class="table table-striped jambo_table bulk_action">
                                 <thead>
                                     <tr class="headings">
-                                        <th class="column-title"></th>
+                                        <th class="column-title">To</th>
                                         <th class="column-title">Task Name</th>
                                         <th class="column-title">Task Description </th>
                                         <th class="column-title">Complete by</th>
                                         <th class="column-title">Time Left</th>
+                                        <th class="column-title">Status</th>
                                         <th class="column-title">Issued By </th>
                                     </tr>
                                 </thead>
@@ -99,14 +98,25 @@
                                     @if (!auth()->guest() && auth()->user()->isOfType(1)) 
                                     @foreach($tasks as $task)
 
-                                        @if($task['userId'] == $loggedUser)
+                                        @if($task['userOwner'] == $loggedUser)
                                             <tr class="even pointer">
-                                                <td><input type="checkbox" {{$task['completed'] == 1 ? 'checked="checked"' : ''}}></td>
+                                                <td>{{$task->userAbout->name}} {{$task->userAbout->lastName}}</td>
                                                 <td>{{$task->taskName}}</td>
                                                 <td>{{$task->taskDescription}}</td>
                                                 <td>{{$task->date}}</td>
                                                 <td>{{$task->getDaysLeft($task->created_at, $task->date)}}</td>
-                                                <td> {{$task->Owner->name}} {{$task->Owner->lastName}}</td>
+                                                <td>
+                                                    @if($task['completed'] == 1)
+                                                        <span class="label label-success">Complete</span>
+                                                    @else
+                                                        <span class="label label-warning">Incomplete</span>
+                                                    @endif
+                                                </td>
+                                                <td>
+                                                    @if($task->userOwner == $loggedUser)
+                                                        You
+                                                    @endif
+                                                </td>
                                             </tr>
                                         @endif
                                     @endforeach
