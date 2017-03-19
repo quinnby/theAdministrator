@@ -34,26 +34,20 @@
 
                     <li><a href="{{ url('/user/profile/' . auth()->user()->id) }}"><i class="fa fa-user"></i>My Profile</a>
                     </li>
-                    <li><a href="{{ url('/schedule/') }}"><i class="fa fa-calendar"></i>Schedule</a>
 
-                    <li><a href="{{ url('/user/profile/' . auth()->user()->id) }}"><i class="fa fa-user"></i>View My Profile</a>
-                    </li>
                     <li><a href="{{ url('/schedule/' . auth()->user()->id) }}"><i class="fa fa-calendar"></i> My Schedule</a>
                     </li>
-                    <li><a><i class="fa fa-user"></i> Time Off<span class="fa fa-chevron-down"></span></a>
+                    <li><a href="{{ url('/tasks') }}"><i class="fa fa-check"></i>My Tasks</a>
+                    </li>
+                    <li><a><i class="fa fa-clock-o"></i> My Time Off Requests<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/time_off/create') }}">Request Time Off</a></li>
                             <li><a href="{{ url('/time_off') }}">View Status of Requests</a></li>
                         </ul>
                     <li><a href="{{ url('/performance_review') }}"><i class="fa fa-book"></i>My Performance Reviews</a>
                     </li>
-
-                    <li><a><i class="fa fa-briefcase"></i> Tasks<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            
-                            <li><a href="{{ url('/tasks') }}">View My Tasks</a></li>
-                        </ul>
-                    </li>
+                     
+                   
                     
                     @endif
                     

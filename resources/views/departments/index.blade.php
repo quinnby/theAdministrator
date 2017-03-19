@@ -34,7 +34,7 @@
                                             <td>{{ $department->department }}</td>
                                             <td>{{ $department->userId }} </td>
                                             <td>{{ $department->description }} </td>
-                                            <td class=" last">$count = Model::where('status','=','1')->count();</td>
+                                            <td class=" last"></td>
                                         </tr>
                                     @endforeach
                                 </tbody>
