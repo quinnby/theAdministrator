@@ -46,10 +46,10 @@
                                             <td>
                                                 @if(!is_null($schedule[$user->id]['schedule']) && count($schedule[$user->id]['schedule']) > $scheduleIt)
                                                 @for($inner = $scheduleIt; $inner < count($schedule[$user->id]['schedule']); $inner++)
-                                                    <?php $date = \Carbon\Carbon::parse($schedule[$user->id]['schedule'][$scheduleIt]['scheduleStart']) ?>
+                                                    <?php $date = \Carbon\Carbon::parse($schedule[$user->id]['schedule'][$scheduleIt]->scheduleStart) ?>
                                                 
-                                                @if($date->format('d') == ($monday->format('d') + $i))
-                                                    <?php $end = \Carbon\Carbon::parse($schedule[$user->id]['schedule'][$scheduleIt]['scheduleEnd']) ?>
+                                                @if($date->day == ($monday->day + $i))
+                                                    <?php $end = \Carbon\Carbon::parse($schedule[$user->id]['schedule'][$scheduleIt]->scheduleEnd) ?>
                                                 <span>{{ $date->hour }}:{{ $date->minute }} -  {{ $end->hour }}:{{ $end->minute }}</span></br>
                                                     <?php $scheduleIt++ ?>
                                                 @endif
@@ -57,8 +57,8 @@
                                                 @endif
                                                 @if(!is_null($schedule[$user->id]['bookoff']))
                                                 @for($booked = 0; $booked < count($schedule[$user->id]['bookoff']); $booked++)
-                                                    <?php $bookStart = \Carbon\Carbon::parse($schedule[$user->id]['bookoff'][$booked]['startDate']);
-                                                        $bookEnd = \Carbon\Carbon::parse($schedule[$user->id]['bookoff'][$booked]['endDate']); ?>
+                                                    <?php $bookStart = \Carbon\Carbon::parse($schedule[$user->id]['bookoff'][$booked]->startDate);
+                                                        $bookEnd = \Carbon\Carbon::parse($schedule[$user->id]['bookoff'][$booked]->endDate); ?>
                                                     @if($monday->day + $i >= $bookStart->day && $monday->day + $i <= $bookEnd->day)
                                                 <span class="label label-warning">Booked Off</span></br>
                                                     @endif
