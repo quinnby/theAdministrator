@@ -25,12 +25,11 @@
                             <table id="datatable" class="table table-striped jambo_table bulk_action">
                                 <thead>
                                     <tr class="headings">
-                                        <th class="column-title">Employee Name </th>
-                                        <th class="column-title">Position </th>
-                                        <th class="column-title">Department </th>
-                                        <th class="column-title">Review Date </th>
-                                        <th class="column-title no-link last"><span class="nobr">Details </span></th>
-                                        <th class="column-title no-link last"><span class="nobr">Action </span></th>
+                                        <th class="column-title"></th>
+                                        <th class="column-title">Task Name</th>
+                                        <th class="column-title">Task Description </th>
+                                        <th class="column-title">Complete by</th>
+                                        <th class="column-title">Time Left</th>
                                         <th class="column-title">Issued By </th>
                                     </tr>
                                 </thead>
@@ -38,46 +37,33 @@
                                     <!-- If User Is An Admin -->
                                     @if (!auth()->guest() && auth()->user()->isOfType(1)) 
                                     @foreach($tasks as $task)
+
                                         @if($task['userId'] == $loggedUser)
                                             <tr class="even pointer">
+                                                <td><input type="checkbox" {{$task['completed'] == 1 ? 'checked="checked"' : ''}}></td>
                                                 <td>{{$task->taskName}}</td>
                                                 <td>{{$task->taskDescription}}</td>
-                                                <td></td>
-                                                <td></td>
-                                                <td> </td>
-                                                
-                                                {{-- <td class=" last">{{ $note->Owner->name }} </td> --}}
+                                                <td>{{$task->date}}</td>
+                                                <td>{{$task->getDaysLeft($task->created_at, $task->date)}}</td>
+                                                <td> {{$task->Owner->name}} {{$task->Owner->lastName}}</td>
                                             </tr>
                                         @endif
                                     @endforeach
                                     @endif
                                     
-                                         <!-- If User Is Not An Admin -->
-                                    @if (!auth()->guest() && auth()->user()->isOfType(2)) 
-                                    @foreach($notes as $note)
-                                    @if ($note->userId ==auth()->id())
-                                        <tr class="even pointer">
-                                            <td>{{ $note->userAbout->name }} {{ $note->userAbout->lastName }}</td>
-                                            <td>{{ $note->userAbout->jobTitle->title}}</td>
-                                            <td>{{ $note->userAbout->department->department}}</td>
-                                            <td>{{ $note->noteDate }}</td>
-                                            <td>{{ $note->note }} </td>
-                                            <td id={{ $note['id'] }}>
-                                                @if($note->userOwner == $loggedUser)
-                                                    <button class="btn btn-primary btn-xs editNote" data-toggle="modal" data-target="#myModal">Edit</button>
-                                                @endif
-                                            </td>
-                                            <td class=" last">{{ $note->Owner->name }} </td>
-                                        </tr>
-                                    @endif
-                                    @endforeach
-                                    @endif
+                         
                                 </tbody>
                             </table>
                         </div>
+
+
                     </div>
+
                 </div>
+
+
             </div>
+
         </div>
     </div>
 
@@ -110,40 +96,20 @@
 
 <script>
     $('#datatable').DataTable({
-        "aaSorting": [], //disables default sort
-        "columnDefs": 
-        [
-            {"orderable": false, "targets": [5]}
-        ]
+        // "aaSorting": [], //disables default sort
+        columnDefs: [ {
+            orderable: false,
+            className: 'select-checkbox',
+            targets:   0
+        } ],
+        select: {
+            style:    'os',
+            selector: 'td:first-child'
+        },
+        order: [[ 1, 'asc' ]]
     });
 
     $(document).ready(function(){
-
-        $('.editNote').on('click', function(){
-             $noteId = $(this).parent().prop('id');
-            $('#showNote').val($(this).parent().prev().text()); 
-        });
-
-        $.ajaxSetup({
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
-        });
-
-        $('#updateNote').on('click', function(){
-
-            var token = $(this).data("token");
-                    $.ajax({
-                        url: '/performance_review/',
-                        type: 'PATCH',
-                        data: {
-                            'noteId': $noteId,
-                            'note': $('#showNote').val()
-                        },
-                       
-                        success: function(result) {
-                            location.reload();
-                        }
-                    });
-        });
 
 
     }); // closes document.ready()

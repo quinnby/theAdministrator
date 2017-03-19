@@ -15,6 +15,8 @@ class TasksController extends Controller
 	{
 		$tasks = Tasks::All();
 		$loggedUser = Auth::user()->id;
+		// $task = Tasks::find(1);
+		// dd($tasks);
 		return view('tasks.view_tasks', compact('tasks','loggedUser'));
 	}
 

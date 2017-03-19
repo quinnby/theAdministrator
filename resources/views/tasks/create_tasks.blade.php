@@ -68,7 +68,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Task Detail </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea class="form-control" rows="3" id="taskDescription" name="taskDescription" >{{ old('note') }}</textarea>
+                                    <textarea class="form-control" rows="3" id="taskDescription" name="taskDescription" placeholder="Task Details" >{{ old('note') }}</textarea>
                                 </div>
                             </div>
 
