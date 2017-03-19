@@ -62,7 +62,6 @@
                                                     <button class="btn btn-danger btn-xs delete">Delete</button>
                                                 @endif
                                             </td>
-                                            
                                         </tr>
                                     @endforeach
                                 </tbody>

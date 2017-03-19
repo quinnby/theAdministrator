@@ -30,6 +30,9 @@ class Tasks extends Model
         $createdAt =  new DateTime($start);
         $endsAt = new DateTime($end);
         $diff = $endsAt->diff($createdAt)->format("%a");
-        return ($diff < 1) ? "End of the day" : $diff . " day(s)";
+        if($diff > 0)
+            return ($diff < 1) ? "End of the day" : $diff . " day(s)";
+        else
+            return 'Time Passed';
     }
 }

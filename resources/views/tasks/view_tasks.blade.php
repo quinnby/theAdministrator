@@ -63,7 +63,8 @@
 <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Given Tasks</h3> </div>
+                <h3>Given Tasks</h3>
+            </div>
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -71,8 +72,8 @@
                 <div class="x_panel">
                     <div class="x_content">
                         <!-- If User Is An Admin -->
-                                    @if (!auth()->guest() && auth()->user()->isOfType(1)) 
-                        <a class="btn btn-round btn-success" href="{{ url('/tasks/create') }}"><i class="fa fa-edit m-right-xs"></i> Create New Task</a>
+                        @if (!auth()->guest() && auth()->user()->isOfType(1)) 
+                            <a class="btn btn-round btn-success" href="{{ url('/tasks/create') }}"><i class="fa fa-edit m-right-xs"></i> Create New Task</a>
                         @endif
                         <hr/>
                         <div class="table-responsive">
@@ -110,6 +111,7 @@
                                                 </td>
                                                 <td id={{$task['id']}}>
                                                     <button class="btn btn-primary btn-xs editTask" data-toggle="modal" data-target="#myModal">Edit</button>
+                                                    <button class="btn btn-danger btn-xs delete" data-toggle="modal" data-target="#deleteModal">Delete</button>
                                                 </td>
                                                 <td> You </td>
                                             </tr>
@@ -137,11 +139,9 @@
           <h4 class="modal-title">Edit Task</h4>
         </div>
         <div class="modal-header">
-          
-          <h4 class="modal-title">
+            <h4 class="modal-title">
                 <input type="text" id="showTaskName" class="form-control">
             </h4>
-
         </div>
         <div class="modal-body">
             <form role="form" method="PATCH" >
@@ -160,6 +160,24 @@
 </div>
 
 
+ <!-- Modal 2 reject request-->
+  <div class="modal fade" id="deleteModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id='taskTitle'>Delete Task</h4>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button id="confirmDelete" type="button" class="btn btn-primary">Delete This Task</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+
 <script>
     $('#datatable').DataTable({
         "aaSorting": [], //disables default sort
@@ -176,16 +194,11 @@
 
     $(document).ready(function(){
 
-
         $.ajaxSetup({
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
         });
 
-
         $('#datatable').on('click','.checkbox', function(){
-            console.log($(this).prop('checked'));
-            console.log($(this).prop('id'));
-
 
              $.ajax({
                 url: '/tasks/status',
@@ -208,18 +221,13 @@
             $id = $(this).parent().prop('id');
             $description = $(this).parent().prev().prev().prev().prev().text();
             $name = $(this).parent().prev().prev().prev().prev().prev().text();
-            console.log($id);
-            console.log($description);
-            console.log($name);
-
             $('#showTaskName').val($name);
             $('#showTaskDes').val($description);
-
         });
 
 
         $('#updateTask').on('click', function(){
-            
+
             var token = $(this).data("token");
             $.ajax({
                 url: '/tasks/edit',
@@ -238,8 +246,27 @@
 
         });
 
+        $('#givendatatable').on('click','.delete', function(){
+            
+            $deleteId = $(this).parent().prop('id');
+            console.log($deleteId);
+        });
 
 
+         $('#confirmDelete').on('click', function(){
+            var token = $(this).data("token");
+                    $.ajax({
+                        url: '/tasks/' + $deleteId + '/delete',
+                        type: 'DELETE',
+                        headers: {
+                            'X-CSRF-TOKEN': token
+                        },
+                       
+                        success: function(result) {
+                            location.reload();
+                        }
+                    });
+        });
 
     }); // closes document.ready()
 

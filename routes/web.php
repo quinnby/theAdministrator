@@ -47,6 +47,7 @@ Route::get('/tasks/create', 'TasksController@create');
 Route::post('/tasks/create', 'TasksController@add');
 Route::patch('/tasks/status','TasksController@updateMyTasks');
 Route::patch('/tasks/edit','TasksController@updateGivenTasks');
+Route::delete('/tasks/{id}/delete','TasksController@destroy');
 
 
 Route::get('/security','SecurityController@index');

@@ -63,5 +63,11 @@ class TasksController extends Controller
    		$myTask->save();
     	return response(['msg' => 'task changed', 'status' => 'Success']);
     }
+
+    public function destroy($id)
+    {
+    	Tasks::destroy($id);
+        return response(['msg' => 'task deleted', 'status' => 'Success']);
+    }
    		
 }
