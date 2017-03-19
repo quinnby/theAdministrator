@@ -109,7 +109,7 @@
                                                     @endif
                                                 </td>
                                                 <td id={{$task['id']}}>
-                                                    <button class="btn btn-primary btn-xs editNote" data-toggle="modal" data-target="#myModal">Edit</button>
+                                                    <button class="btn btn-primary btn-xs editTask" data-toggle="modal" data-target="#myModal">Edit</button>
                                                 </td>
                                                 <td> You </td>
                                             </tr>
@@ -134,19 +134,25 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
+          <h4 class="modal-title">Edit Performance Note</h4>
+        </div>
+        <div class="modal-header">
+          
+          <h4 class="modal-title">
+                <input type="text" id="showTaskName" class="form-control">
+            </h4>
+
         </div>
         <div class="modal-body">
             <form role="form" method="PATCH" >
                 <div class="form-group">
-                    <textarea class="form-control" rows="3" id="showNote"></textarea>
+                    <textarea class="form-control" rows="3" id="showTaskDes"></textarea>
                 </div>
             </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button id="updateNote" type="button" class="btn btn-primary">Save changes</button>
+          <button id="updateTask" type="button" class="btn btn-primary">Save changes</button>
         </div>
       </div>
     </div>
@@ -196,6 +202,35 @@
 
              });
         });
+
+        $('#givendatatable').on('click','.editTask', function(){
+            
+            $id = $(this).parent().prop('id');
+            $description = $(this).parent().prev().prev().prev().prev().text();
+            $name = $(this).parent().prev().prev().prev().prev().prev().text();
+            console.log($id);
+            console.log($description);
+            console.log($name);
+
+        });
+
+
+        $('#updateTask').on('click', function(){
+
+
+            var token = $(this).data("token");
+            $.ajax({
+                url: '/tasks',
+                type: 'PATCH',
+                data: {
+                    'id': 'placeholder',
+                    
+                },
+            });
+
+        });
+
+
 
 
     }); // closes document.ready()
