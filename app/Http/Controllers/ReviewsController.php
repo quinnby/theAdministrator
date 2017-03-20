@@ -55,4 +55,10 @@ class ReviewsController extends Controller
         $note->save();
         return response(['msg' => 'Member Performance note updated', 'status' => 'Success']);
     }
+
+    public function destroy($id)
+    {
+        PerformanceNotes::destroy($id);
+        return response(['msg' => 'performance note deleted', 'status' => 'Success']);
+    }
 }

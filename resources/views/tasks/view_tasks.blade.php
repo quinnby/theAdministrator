@@ -163,7 +163,7 @@
 </div>
 
 
- <!-- Modal 2 reject request-->
+ <!-- Modal 2 delete request-->
   <div class="modal fade" id="deleteModal" role="dialog">
     <div class="modal-dialog">
     

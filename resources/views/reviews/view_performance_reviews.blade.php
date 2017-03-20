@@ -47,6 +47,7 @@
                                             <td id={{ $note['id'] }}>
                                                 @if($note->userOwner == $loggedUser)
                                                     <button class="btn btn-primary btn-xs editNote" data-toggle="modal" data-target="#myModal">Edit</button>
+                                                    <button class="btn btn-danger btn-xs delete" data-toggle="modal" data-target="#deleteModal">Delete</button>
                                                 @endif
                                             </td>
                                             <td class=" last">{{ $note->Owner->name }} </td>
@@ -112,6 +113,25 @@
   </div>
 </div>
 
+
+ <!-- Modal 2 delete request-->
+  <div class="modal fade" id="deleteModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id='taskTitle'>Delete Performance Note</h4>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button id="confirmDelete" type="button" class="btn btn-primary">Delete This Performance</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+
 <script>
     $('#datatable').DataTable({
         "aaSorting": [], //disables default sort
@@ -137,32 +157,51 @@
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
         });
 
-        
+        $('#updateNote').on('click', function(){
+            if($('#showNote').val().length >= 5 && $('#showNote').val().length <= 100)
+            {
+                var token = $(this).data("token");
+                        $.ajax({
+                            url: '/performance_review/',
+                            type: 'PATCH',
+                            data: {
+                                'noteId': $noteId,
+                                'note': $('#showNote').val()
+                            },
+                           
+                            success: function(result) {
+                                location.reload();
+                            }
+                        });
+            }
+            else
+            {
+                $('#errMsg').text("Performance note detail must be in between 10 and 100 characters inclusive")
+                $(".err").show('slow');
+            }
+        });
 
-            $('#updateNote').on('click', function(){
-                if($('#showNote').val().length >= 5 && $('#showNote').val().length <= 100)
-                {
-                    var token = $(this).data("token");
-                            $.ajax({
-                                url: '/performance_review/',
-                                type: 'PATCH',
-                                data: {
-                                    'noteId': $noteId,
-                                    'note': $('#showNote').val()
-                                },
-                               
-                                success: function(result) {
-                                    location.reload();
-                                }
-                            });
+        $('#datatable').on('click','.delete', function(){
+            
+            $deleteId = $(this).parent().prop('id');
+            console.log($deleteId);
+        });
 
-                }
-                else
-                {
-                    $('#errMsg').text("Performance note detail must be in between 10 and 100 characters inclusive")
-                    $(".err").show('slow');
-                }
-                    });
+        $('#confirmDelete').on('click', function(){
+            var token = $(this).data("token");
+                $.ajax({
+                    url: '/performance_review/' + $deleteId + '/delete',
+                    type: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': token
+                    },
+                   
+                    success: function(result) {
+                        location.reload();
+                    }
+                });
+        });
+
 
       
 
