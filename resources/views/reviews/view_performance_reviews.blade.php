@@ -91,8 +91,10 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Edit Performance Note</h4>
+        </div>
+         <div class="alert alert-danger err" style="display:none">
+            <strong>Whoops! </strong> <span id='errMsg'></span>
         </div>
         <div class="modal-body">
             <form role="form" method="PATCH" >
@@ -126,6 +128,7 @@
     $(document).ready(function(){
 
         $('#datatable').on('click','.editNote', function(){
+             $(".err").hide();
              $noteId = $(this).parent().prop('id');
             $('#showNote').val($(this).parent().prev().text()); 
         });
@@ -134,22 +137,34 @@
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
         });
 
-        $('#updateNote').on('click', function(){
+        
 
-            var token = $(this).data("token");
-                    $.ajax({
-                        url: '/performance_review/',
-                        type: 'PATCH',
-                        data: {
-                            'noteId': $noteId,
-                            'note': $('#showNote').val()
-                        },
-                       
-                        success: function(result) {
-                            location.reload();
-                        }
+            $('#updateNote').on('click', function(){
+                if($('#showNote').val().length >= 5 && $('#showNote').val().length <= 100)
+                {
+                    var token = $(this).data("token");
+                            $.ajax({
+                                url: '/performance_review/',
+                                type: 'PATCH',
+                                data: {
+                                    'noteId': $noteId,
+                                    'note': $('#showNote').val()
+                                },
+                               
+                                success: function(result) {
+                                    location.reload();
+                                }
+                            });
+
+                }
+                else
+                {
+                    $('#errMsg').text("Performance note detail must be in between 10 and 100 characters inclusive")
+                    $(".err").show('slow');
+                }
                     });
-        });
+
+      
 
 
     }); // closes document.ready()

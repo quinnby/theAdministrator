@@ -40,7 +40,7 @@ class ReviewsController extends Controller
 
     	$this->validate($request,[
     		'userId' => 'required|not_in:0',
-    		'note' => 'required:min:5',
+    		'note' => 'required:min:5|max:100',
             'noteDate' =>'required'
     	]);
 
