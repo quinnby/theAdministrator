@@ -58,7 +58,7 @@
                                             <td>{{ $user->active ? "Enabled" : "Disabled" }} </td>
                                             <td id="{{ $user->id }}" class=" last">
                                                 @if (Auth::user()->id != $user->id)
-                                                    <button class="btn btn-default btn-xs active">Deactivate</button> 
+                                                    <button class="btn btn-default btn-xs active">{{ $user->active ? "Disable" : "Enable" }}</button> 
                                                     <button class="btn btn-danger btn-xs delete">Delete</button>
                                                 @endif
                                             </td>

@@ -50,7 +50,7 @@
                                                     <button class="btn btn-danger btn-xs delete" data-toggle="modal" data-target="#deleteModal">Delete</button>
                                                 @endif
                                             </td>
-                                            <td class=" last">{{ $note->Owner->name }} </td>
+                                            <td class=" last">{{ $note->Owner->name }} {{ $note->Owner->lastName }}</td>
                                         </tr>
                                     @endforeach
                                     @endif
@@ -70,7 +70,7 @@
                                                     <button class="btn btn-primary btn-xs editNote" data-toggle="modal" data-target="#myModal">Edit</button>
                                                 @endif
                                             </td>
-                                            <td class=" last">{{ $note->Owner->name }} </td>
+                                            <td class=" last">{{ $note->Owner->name }} {{ $note->Owner->lastName }}</td>
                                         </tr>
                                     @endif
                                     @endforeach
@@ -126,7 +126,7 @@
         
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button id="confirmDelete" type="button" class="btn btn-primary">Delete This Performance</button>
+          <button id="confirmDelete" type="button" class="btn btn-primary">Delete This Performance Note</button>
         </div>
       </div>
     </div>
