@@ -97,12 +97,6 @@
 
 <script>
     
-  $(document).ready(function($){
-
-    //mask input fields
-    $('#taskName').mask('AAAAAAAAAAAAAAAAAAAAAAAAAAAAA', {'translation': {A: {pattern: /[A-Za-z]/}}});
-
-    });
 </script>
 <!-- /page content -->
 <!-- footer content -->

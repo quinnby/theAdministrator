@@ -35,7 +35,7 @@ class TasksController extends Controller
     	$this->validate($request,[
 
     		'userId' => 'required|not_in:0',
-    		'taskName' => 'required:min:5',
+    		'taskName' => 'required|min:5|max:30',
             'taskDescription' =>'required|min:10|max:100',
             'date' => 'required|after:yesterday'
     	]);

@@ -138,6 +138,9 @@
         <div class="modal-header">
           <h4 class="modal-title">Edit Task</h4>
         </div>
+        <div class="alert alert-danger err" style="display:none">
+            <strong>Whoops! </strong> <span id='errMsg'></span>
+        </div>
         <div class="modal-header">
             <h4 class="modal-title">
                 <input type="text" id="showTaskName" class="form-control">
@@ -192,7 +195,7 @@
    
     });
 
-    $(document).ready(function(){
+    $(document).ready(function($){
 
         $.ajaxSetup({
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
@@ -217,7 +220,8 @@
         });
 
         $('#givendatatable').on('click','.editTask', function(){
-            
+            $(".err").hide();
+
             $id = $(this).parent().prop('id');
             $description = $(this).parent().prev().prev().prev().prev().text();
             $name = $(this).parent().prev().prev().prev().prev().prev().text();
@@ -228,22 +232,39 @@
 
         $('#updateTask').on('click', function(){
 
-            var token = $(this).data("token");
-            $.ajax({
-                url: '/tasks/edit',
-                type: 'PATCH',
-                data: {
-                    'id': $id,
-                    'taskName': $('#showTaskName').val(),
-                    'taskDescription': $('#showTaskDes').val()
-                },
+            if($('#showTaskName').val().length >= 5 && $('#showTaskName').val().length <= 30)
+            {
+                if($('#showTaskDes').val().length >= 10 && $('#showTaskDes').val().length <= 100)
+                {
+                    var token = $(this).data("token");
+                    $.ajax({
+                        url: '/tasks/edit',
+                        type: 'PATCH',
+                        data: {
+                            'id': $id,
+                            'taskName': $('#showTaskName').val(),
+                            'taskDescription': $('#showTaskDes').val()
+                        },
 
-                success: function(result){
-                    location.reload();
-                    console.log('successfully edited task');
+                        success: function(result){
+                            location.reload();
+                            console.log('successfully edited task');
+                        }
+                    });
+
                 }
-            });
 
+                else
+                {
+                    $('#errMsg').text("Task description must be in between 10 and 100 characters inclusive")
+                    $(".err").show('slow');
+                }
+            }
+            else
+            {
+                $('#errMsg').text("Task name must be in between 5 and 30 characters inclusive")
+                $(".err").show('slow');
+            }
         });
 
         $('#givendatatable').on('click','.delete', function(){
@@ -255,17 +276,17 @@
 
          $('#confirmDelete').on('click', function(){
             var token = $(this).data("token");
-                    $.ajax({
-                        url: '/tasks/' + $deleteId + '/delete',
-                        type: 'DELETE',
-                        headers: {
-                            'X-CSRF-TOKEN': token
-                        },
-                       
-                        success: function(result) {
-                            location.reload();
-                        }
-                    });
+                $.ajax({
+                    url: '/tasks/' + $deleteId + '/delete',
+                    type: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': token
+                    },
+                   
+                    success: function(result) {
+                        location.reload();
+                    }
+                });
         });
 
     }); // closes document.ready()
