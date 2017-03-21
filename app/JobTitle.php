@@ -10,6 +10,8 @@ class JobTitle extends Model
             'title'
     ];
     
+    public $timestamps = false;
+    
     public function users()
     {
     	return $this->hasMany('App\Models\User','titleId');
