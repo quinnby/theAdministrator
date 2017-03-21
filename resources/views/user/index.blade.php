@@ -24,6 +24,13 @@
                       <br/>
                 <div class="x_panel">
                   <div class="x_content">
+
+                            @if (\Session::has('success'))
+                    <div class="alert alert-success">
+                        {!! \Session::get('success') !!}  
+                    </div>
+                @endif               
+
                       
                 
               <a href="{{ url('users/create') }}"><button class="btn btn-round btn-success" type="button"> Create Employee
@@ -58,8 +65,8 @@
                                             <td>{{ $user->active ? "Enabled" : "Disabled" }} </td>
                                             <td id="{{ $user->id }}" class=" last">
                                                 @if (Auth::user()->id != $user->id)
-                                                    <button class="btn btn-primary btn-xs active" data-toggle="modal" data-target="#myModal">{{ $user->active ? "Disable" : "Enable" }}</button> 
-                                                    <button class="btn btn-danger btn-xs delete" data-toggle="modal" data-target="#deleteModal">Delete</button>
+                                                    <button class="btn btn-primary btn-xs active" data-toggle="modal" data-target="#myModal">{{ $user->active ? "disable" : "enable" }}</button> 
+                                                    <button class="btn btn-danger btn-xs delete" data-toggle="modal" data-target="#deleteModal">delete</button>
                                                 @endif
                                             </td>
                                         </tr>
@@ -74,9 +81,6 @@
             </div>
           </div>
         </div>
-
-
-
 
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
@@ -100,9 +104,6 @@
     </div>
   </div>
 </div>
-
-
-
 
  <!-- Modal 2 delete request-->
   <div class="modal fade" id="deleteModal" role="dialog">
@@ -147,7 +148,7 @@
                 var $btnText = $(this).text();
                 var $id = $(this).parent().prop("id");
 
-                $('#showUser').text('Do you want to ' + $btnText + ' ' + $user);
+                $('#showUser').text('Do you want to ' + $btnText + ' ' + $user + '?');
                 $('#showUser').attr('data-id', $id);
             });
 
@@ -174,7 +175,7 @@
                 var $btnText = $(this).text();
                 var $id = $(this).parent().prop("id");
                 
-                $('#showUserDel').text('Do you want to ' + $btnText + ' ' + $user);
+                $('#showUserDel').text('Do you want to ' + $btnText + ' ' + $user + '?');
                 $('#showUserDel').attr('data-id', $id);
             });
 
@@ -194,6 +195,7 @@
             
             });
         });
+
     </script>
     <!-- footer content -->
     <footer>
