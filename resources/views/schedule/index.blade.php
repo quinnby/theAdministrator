@@ -35,39 +35,45 @@
                                         <th class="column-title">Friday - {{ $monday->addDays(1)->format('d') }} </th>
                                         <th class="column-title">Saturday - {{ $monday->addDays(1)->format('d') }} </th>
                                         <th class="column-title no-link last"><span class="nobr">Sunday - {{ $monday->addDays(1)->format('d') }} </span></th>
-                                        <?php $monday->addDays(-6); ?>
+                                        <?php $monday->addDays(-6); 
+                                        $currentDay = $monday;?>
                                     </tr>
                                 </thead>
+                                
                                 <tbody>
                                     @foreach ($users as $user)
                                     <tr><td>{{ $user->name }} {{$user->lastName}}</td>
                                         <?php $scheduleIt = 0;
-                                            $bookedIt = 0; ?>
+                                            $bookedIt = 0;
+                                             ?>
                                         @for ($i = 0; $i < 7; $i++)
                                             <td>
                                                 @if(!is_null($schedule[$user->id]['schedule']) && count($schedule[$user->id]['schedule']) > $scheduleIt)
-                                                @for($inner = $scheduleIt; $inner < count($schedule[$user->id]['schedule']); $inner++)
-                                                    <?php $date = \Carbon\Carbon::parse($schedule[$user->id]['schedule'][$scheduleIt]->scheduleStart) ?>
-                                                
-                                                @if($date->day == ($monday->day + $i))
-                                                    <?php $end = \Carbon\Carbon::parse($schedule[$user->id]['schedule'][$scheduleIt]->scheduleEnd) ?>
-                                                <span>{{ date('g:ia', strtotime($date)) }} - {{date('g:ia', strtotime($end))}}</span></br>
-                                                    <?php $scheduleIt++ ?>
-                                                @endif
-                                                @endfor
+                                                    @for($inner = $scheduleIt; $inner < count($schedule[$user->id]['schedule']); $inner++)
+                                                        
+                                                        <?php $date = \Carbon\Carbon::parse($schedule[$user->id]['schedule'][$scheduleIt]->scheduleStart) ?>
+                                                        
+                                                        @if($date->day == ($currentDay->day))
+                                                            <?php $end = \Carbon\Carbon::parse($schedule[$user->id]['schedule'][$scheduleIt]->scheduleEnd) ?>
+                                                        <span>{{ date('g:ia', strtotime($date)) }} - {{date('g:ia', strtotime($end))}}</span></br>
+                                                            <?php $scheduleIt++ ?>
+                                                        @endif
+                                                    @endfor
                                                 @endif
                                                 @if(!is_null($schedule[$user->id]['bookoff']))
-                                                @for($booked = 0; $booked < count($schedule[$user->id]['bookoff']); $booked++)
-                                                    <?php $bookStart = \Carbon\Carbon::parse($schedule[$user->id]['bookoff'][$booked]->startDate);
-                                                        $bookEnd = \Carbon\Carbon::parse($schedule[$user->id]['bookoff'][$booked]->endDate); ?>
-                                                    @if($monday->day + $i >= $bookStart->day && $monday->day + $i <= $bookEnd->day)
-                                                <span class="label label-warning">Booked Off</span></br>
-                                                    @endif
-                                                @endfor
+                                                    @for($booked = 0; $booked < count($schedule[$user->id]['bookoff']); $booked++)
+                                                        <?php $bookStart = \Carbon\Carbon::parse($schedule[$user->id]['bookoff'][$booked]->startDate);
+                                                            $bookEnd = \Carbon\Carbon::parse($schedule[$user->id]['bookoff'][$booked]->endDate); ?>
+                                                        @if($currentDay->day >= $bookStart->day && $currentDay->day <= $bookEnd->day)
+                                                    <span class="label label-warning">Booked Off</span></br>
+                                                        @endif
+                                                    @endfor
                                                 @endif
                                             </td>
+                                            <?php $currentDay->addDays(1); ?>
                                         @endfor 
                                     </tr>
+                                    <?php $currentDay->addDays(-7); ?>
                                     @endforeach
                                 </tbody>
                             </table>
