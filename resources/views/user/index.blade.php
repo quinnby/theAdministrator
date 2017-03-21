@@ -58,11 +58,10 @@
                                             <td>{{ $user->active ? "Enabled" : "Disabled" }} </td>
                                             <td id="{{ $user->id }}" class=" last">
                                                 @if (Auth::user()->id != $user->id)
-                                                    <button class="btn btn-default btn-xs active">Deactivate</button> 
+                                                    <button class="btn btn-default btn-xs active">{{ $user->active ? "Disable" : "Enable" }}</button> 
                                                     <button class="btn btn-danger btn-xs delete">Delete</button>
                                                 @endif
                                             </td>
-                                            
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -77,7 +76,10 @@
         </div>
     <script>
         
-       var table = $('#datatable').DataTable();
+       var table = $('#datatable').DataTable({
+        "lengthMenu": [ 5, 10, 25, 50, 75, 100 ],
+        "pageLength": 5
+       });
         
         $(document).ready(function(){
              
@@ -87,7 +89,7 @@
                     }
             });
             
-            $(".active").on("click", function(){
+            $("#datatable").on("click",'.active', function(){
                 if (confirm("Do you want to change activation of " + $( this ).parent().parent().children().first().text() + "?" )){
                     var token = $(this).data("token");
                     $.ajax({
@@ -103,7 +105,7 @@
                     });
                 }
             });
-            $(".delete").on("click", function(){
+            $("#datatable").on("click",'.delete', function(){
                 if (confirm("Do you want to delete " + $( this ).parent().parent().children().first().text() + "?" )){
                     //window.location.href = "{{ url('user/') }}" + "/" + $( this ).parent().prop("id") + "/delete";
                     var token = $(this).data("token");

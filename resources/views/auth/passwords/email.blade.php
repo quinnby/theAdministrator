@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <title>Gentellela Alela! | </title>
+    <title>Password Reset | </title>
     
     <!-- Bootstrap -->
     <link href="{{ asset("css/bootstrap.min.css") }}" rel="stylesheet">
@@ -21,11 +21,12 @@
 </head>
 
 <body class="login">
-<div>
+
     <a class="hiddenanchor" id="signup"></a>
     <a class="hiddenanchor" id="signin"></a>
-    
+
     <div class="login_wrapper">
+
         <div class="animate form login_form">
             <section class="login_content">
                 @if (session('status'))
@@ -33,6 +34,7 @@
                         {{ session('status') }}
                     </div>
                 @endif
+                <img src="{{ asset('/images/administratorlogo.gif') }}" ""alt="administrator_logo" />
                 <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/email') }}">
                     <h1>Reset Password</h1>
                     {{ csrf_field() }}
@@ -63,8 +65,7 @@
                         <br />
                         
                         <div>
-                            <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                            <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                            <p><font size="1pt">© 2017 Quinn Craven, Ellen Coombs, David Portillo, William Beniuk</p>
                         </div>
                     </div>
                 </form>

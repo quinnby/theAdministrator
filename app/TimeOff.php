@@ -26,7 +26,6 @@ class TimeOff extends Model
     public function user()
     {
         return $this->belongsTo('App\Models\User', 'userId');
-        
     }
 
     public function getDaysOff($start, $end)
@@ -34,6 +33,9 @@ class TimeOff extends Model
         $createdAt =  new DateTime($start);
         $endsAt = new DateTime($end);
         $diff = $endsAt->diff($createdAt)->format("%a");
-        return ($diff < 1) ? "Today" : $diff . " day(s)";
+        if($diff > 0)
+            return ($diff < 1) ? "Today" : $diff . " day(s)";
+        else
+            return 'Time Passed';
     }
 } 

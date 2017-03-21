@@ -15,6 +15,8 @@ class TasksController extends Controller
 	{
 		$tasks = Tasks::All();
 		$loggedUser = Auth::user()->id;
+		// $task = Tasks::find(1);
+		// dd($tasks);
 		return view('tasks.view_tasks', compact('tasks','loggedUser'));
 	}
 
@@ -33,7 +35,7 @@ class TasksController extends Controller
     	$this->validate($request,[
 
     		'userId' => 'required|not_in:0',
-    		'taskName' => 'required:min:5',
+    		'taskName' => 'required|min:5|max:30',
             'taskDescription' =>'required|min:10|max:100',
             'date' => 'required|after:yesterday'
     	]);
@@ -44,4 +46,28 @@ class TasksController extends Controller
     	$request->session()->flash('success', $msg);
     	return redirect()->back();
     }
+
+    public function updateMyTasks(Request $request)
+    {
+    	$myTask = Tasks::find($request['id']);
+    	$myTask->completed = $request['completed'];
+	   	$myTask->save();
+    	return response(['msg' => 'checkbox changed', 'status' => 'Success']);
+    }
+
+    public function updateGivenTasks(Request $request)
+    {
+    	$myTask = Tasks::find($request['id']);
+    	$myTask->taskName = $request['taskName'];
+   		$myTask->taskDescription = $request['taskDescription'];
+   		$myTask->save();
+    	return response(['msg' => 'task changed', 'status' => 'Success']);
+    }
+
+    public function destroy($id)
+    {
+    	Tasks::destroy($id);
+        return response(['msg' => 'task deleted', 'status' => 'Success']);
+    }
+   		
 }

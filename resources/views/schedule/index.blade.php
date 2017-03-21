@@ -51,7 +51,7 @@
                                                 
                                                 @if($date->day == ($monday->day + $i))
                                                     <?php $end = \Carbon\Carbon::parse($schedule[$user->id]['schedule'][$scheduleIt]->scheduleEnd) ?>
-                                                <span>{{ $date->hour }}:{{ $date->minute }} -  {{ $end->hour }}:{{ $end->minute }}</span></br>
+                                                <span>{{ date('g:ia', strtotime($date)) }} - {{date('g:ia', strtotime($end))}}</span></br>
                                                     <?php $scheduleIt++ ?>
                                                 @endif
                                                 @endfor

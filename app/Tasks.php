@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use DateTime;
 class Tasks extends Model
 {
     protected $fillable = [
@@ -23,5 +23,16 @@ class Tasks extends Model
     {
         return $this->belongsTo('App\Models\User', 'userId');
         
+    }
+
+     public function getDaysLeft($start, $end)
+    {
+        $createdAt =  new DateTime($start);
+        $endsAt = new DateTime($end);
+        $diff = $endsAt->diff($createdAt)->format("%a");
+        if($diff > 0)
+            return ($diff < 1) ? "End of the day" : $diff . " day(s)";
+        else
+            return 'Time Passed';
     }
 }

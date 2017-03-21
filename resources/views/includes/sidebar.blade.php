@@ -34,30 +34,27 @@
 
                     <li><a href="{{ url('/user/profile/' . auth()->user()->id) }}"><i class="fa fa-user"></i>My Profile</a>
                     </li>
-                    <li><a href="{{ url('/schedule/') }}"><i class="fa fa-calendar"></i>Schedule</a>
 
-                    <li><a href="{{ url('/user/profile/' . auth()->user()->id) }}"><i class="fa fa-user"></i>View My Profile</a>
-                    </li>
                     <li><a href="{{ url('/schedule/' . auth()->user()->id) }}"><i class="fa fa-calendar"></i> My Schedule</a>
                     </li>
-                    <li><a><i class="fa fa-user"></i> Time Off<span class="fa fa-chevron-down"></span></a>
+                    <li><a href="{{ url('/tasks') }}"><i class="fa fa-check"></i>My Tasks</a>
+                    </li>
+                    <li><a><i class="fa fa-clock-o"></i> My Time Off Requests<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/time_off/create') }}">Request Time Off</a></li>
                             <li><a href="{{ url('/time_off') }}">View Status of Requests</a></li>
                         </ul>
                     <li><a href="{{ url('/performance_review') }}"><i class="fa fa-book"></i>My Performance Reviews</a>
                     </li>
+                     
+                   
                     
                     @endif
                     
                     <!-- Administrator Sidebar -->
                     @if (!auth()->guest() && auth()->user()->isOfType(1))   
-                     
-                    <li><a><i class="fa fa-user"></i> My Profile<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{ url('/user/profile/' . auth()->user()->id) }}">View Profile</a></li>
-                            
-                        </ul>
+                    <li><a href="{{ url('/user/profile/' . auth()->user()->id) }}"><i class="fa fa-user"></i>My Profile</a>
+                    </li>
                     <li><a><i class="fa fa-users"></i> Employees <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/users/create') }}">Add Employee</a></li>
@@ -68,6 +65,12 @@
                             <li><a href="{{ url('/schedule/create') }}">Create Schedule</a></li>
                             <li><a href="{{ url('/schedule/week') }}">View Schedule</a></li>
                         </ul>
+                    <li><a><i class="fa fa-check"></i> Tasks<span class="fa fa-chevron-down"></span></a>
+                        <ul class="nav child_menu">
+                            <li><a href="{{ url('/tasks/create') }}">Assign a Task</a></li>
+                            <li><a href="{{ url('/tasks') }}">Manage Tasks</a></li>
+                        </ul>
+                    </li>
                     <li><a><i class="fa fa-clock-o"></i> Time Off<span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="{{ url('/time_off/create') }}">Request Time Off</a></li>
@@ -90,12 +93,8 @@
                             <li><a href="{{ url('/jobtitles') }}">Manage Job Titles</a></li>
                         </ul>
                     </li>
-                    <li><a><i class="fa fa-briefcase"></i> Tasks<span class="fa fa-chevron-down"></span></a>
-                        <ul class="nav child_menu">
-                            <li><a href="{{ url('/tasks/create') }}">Assign a Task</a></li>
-                            <li><a href="{{ url('/tasks') }}">Manage Tasks</a></li>
-                        </ul>
-                    </li>
+                    
+                    
                     @endif
                    
                 </ul>
@@ -112,7 +111,7 @@
                     <a data-toggle="tooltip" data-placement="top" title="View Schedule">
                         <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                     </a>
-                    <a data-toggle="tooltip" data-placement="top" title="View Tasks">
+                    <a data-toggle="tooltip" data-placement="top" title="View Tasks" href="{{ url('/tasks/') }}">
                         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                     </a>
                     <a data-toggle="tooltip" data-placement="top" title="About" href="{{ url('/about') }}" >
@@ -131,7 +130,7 @@
                     <a data-toggle="tooltip" data-placement="top" title="Manage Users" href="{{ url('/users') }}">
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                     </a>
-                    <a data-toggle="tooltip" data-placement="top" title="View Tasks">
+                    <a data-toggle="tooltip" data-placement="top" title="View Tasks" href="{{ url('/tasks/') }}">
                         <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
                     </a>
                     <a data-toggle="tooltip" data-placement="top" title="About" href="{{ url('/about') }}" >

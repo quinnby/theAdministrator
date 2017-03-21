@@ -6,7 +6,7 @@
     <div class="">
         <div class="page-title">
             <div class="title_left">
-                <h3>Add Performance Review</h3> </div>
+                <h3>Assign a Task</h3> </div>
         </div>
         <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -23,11 +23,18 @@
                         </ul>
                     </div>
                @endif
+                
+                <!-- If passed validation --> 
+                @if (\Session::has('success'))
+                    <div class="alert alert-success">
+                        {!! \Session::get('success') !!}  
+                    </div>
+                @endif               
 
                 <div class="x_panel">
                     <div class="x_content">
                         <br />
-                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" role="form" method="POST" action ="{{ url('performance_review/create') }}">
+                        <form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left" role="form" method="POST" action ="{{ url('tasks/create') }}">
 
                         <input type="hidden" 
                             name="_token" 
@@ -41,7 +48,11 @@
                                 <option value=0 >Choose Employee</option>
                                 @foreach ($users as $user)
                                     @if($user->id != $loggedUser)
-                                        <option value={{ $user['id']}}>{{ $user['name'] }} {{ $user['lastName'] }}</option>
+                                        @if (old('userId') != null && $user->id == old('userId'))
+                                            <option selected value={{ $user['id']}}>{{ $user['name'] }} {{ $user['lastName'] }}</option>
+                                        @else
+                                            <option value={{ $user['id']}}>{{ $user['name'] }} {{ $user['lastName'] }}</option>
+                                        @endif
                                     @endif
                                 @endforeach
                               </select>
@@ -49,22 +60,28 @@
                           </div>
                             
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Date </label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Task Name </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input type="date" id="noteDate" name="noteDate" class="form-control col-md-7 col-xs-12" placeholder="DD/MM/YYYY" value={{date('Y-m-d')}}> </div>
+                                    <input type="text" id="taskName" name="taskName" class="form-control col-md-7 col-xs-12" placeholder="Task Name" value={{old('taskName')}}> </div>
                             </div>
                             
                             <div class="form-group">
-                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Details </label>
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Task Detail </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <textarea class="form-control" rows="3" id="note" name="note" >{{ old('note') }}</textarea>
+                                    <textarea class="form-control" rows="3" id="taskDescription" name="taskDescription" placeholder="Task Details" >{{ old('note') }}</textarea>
                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Complete by </label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <input type="date" id="date" name="date" class="form-control col-md-7 col-xs-12" placeholder="Task Name" value={{old('date')}}> </div>
                             </div>
                             
                             <div class="ln_solid"></div>
                             <div class="form-group">
                                 <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
-                                    <a href="{{ url('/performance_review') }}"><button class="btn btn-primary" type="button">Cancel</button></a>
+                                    <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3"><a href="{{ url('/tasks/') }}"><button class="btn btn-primary" type="button">Cancel</button></a>
                                     <button class="btn btn-primary" type="reset">Reset</button>
                                     <button type="submit" class="btn btn-success">Submit</button>
                                 </div>
@@ -76,6 +93,17 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    
+  $(document).ready(function($){
+
+    //mask input fields
+    $('#taskName').mask('AAAAAAAAAAAAAAAAAAAAAAAAAAAAA', {'translation': {A: {pattern: /[A-Za-z]/}}});
+
+    });
+</script>
 <!-- /page content -->
 <!-- footer content -->
 <footer> @include('includes.footer') </footer>
