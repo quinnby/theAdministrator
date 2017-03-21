@@ -34,6 +34,15 @@
                                 </a>
                             </div>
                             <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                <a href="{{ url('/tasks/') }}">
+                                    <div class="tile-stats">
+                                        <div class="icon"><i class="fa fa-check"></i> </div>
+                                        <h3>Tasks</h3>
+                                        <p>View My tasks</p>
+                                    </div>
+                                </a>
+                            </div> 
+                            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                                 <a href="{{ url('/time_off') }}">
                                     <div class="tile-stats">
                                         <div class="icon"><i class="fa fa-clock-o"></i> </div>
@@ -51,15 +60,7 @@
                                     </div>
                                 </a>
                             </div>
-                            <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                                <a href="{{ url('/tasks/') }}">
-                                    <div class="tile-stats">
-                                        <div class="icon"><i class="fa fa-briefcase"></i> </div>
-                                        <h3>Tasks</h3>
-                                        <p>View My tasks</p>
-                                    </div>
-                                </a>
-                            </div> 
+                            
                     @endif
                         
                     <!-- Admin Dashboard -->
@@ -83,7 +84,7 @@
                             </a>
                         </div>
                         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <a href="{{ url('/schedule/') }}">
+                            <a href="{{ url('/schedule/week') }}">
                                 <div class="tile-stats">
                                     <div class="icon"><i class="fa fa-calendar"></i> </div>
                                     <h3>Schedule</h3>
@@ -92,6 +93,18 @@
                             </a>
                         </div>
                         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                            <a href="{{ url('/tasks/') }}">
+                                <div class="tile-stats">
+                                    <div class="icon"><i class="fa fa-check"></i> </div>
+                                    <h3>Tasks</h3>
+                                    <p>Manage My tasks</p>
+                                </div>
+                            </a>
+                        </div> 
+                            
+                    </div>
+                    <div class="row">
+                         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <a href="{{ url('/time_off/') }}">
                                 <div class="tile-stats">
                                     <div class="icon"><i class="fa fa-clock-o"></i> </div>
@@ -100,8 +113,6 @@
                                 </div>
                             </a>
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
                             <a href="{{ url('/performance_review/') }}">
                                 <div class="tile-stats">
@@ -130,15 +141,7 @@
                             </a>
                         </div> 
 
-                        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                            <a href="{{ url('/tasks/') }}">
-                                <div class="tile-stats">
-                                    <div class="icon"><i class="fa fa-briefcase"></i> </div>
-                                    <h3>Tasks</h3>
-                                    <p>Manage My tasks</p>
-                                </div>
-                            </a>
-                        </div> 
+                        
                     @endif 
                     </div> 
 

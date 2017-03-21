@@ -65,7 +65,7 @@
                         <br />
                         
                         <div>
-                            <p>© 2017 Quinn Craven, Ellen Coombs, David Portillo, William Beniuk</p>
+                            <p><font size="1pt">© 2017 Quinn Craven, Ellen Coombs, David Portillo, William Beniuk</p>
                         </div>
                     </div>
                 </form>
