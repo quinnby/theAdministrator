@@ -21,6 +21,7 @@ Route::post('/performance_review/create','ReviewsController@add');
 Route::get('/performance_review/{noteId}','ReviewsController@update');
 Route::patch('/performance_review','ReviewsController@update');
 Route::get('/performance_review','ReviewsController@index');
+Route::delete('/performance_review/{id}/delete','ReviewsController@destroy');
 
 Route::get('/time_off/create', 'TimeOffController@create');
 Route::post('/time_off/create', 'TimeOffController@add');
@@ -45,7 +46,9 @@ Route::post('/jobtitles/create', 'JobTitlesController@add');
 Route::get('/tasks', 'TasksController@index');
 Route::get('/tasks/create', 'TasksController@create');
 Route::post('/tasks/create', 'TasksController@add');
-Route::patch('/tasks','TasksController@updateMyTasks');
+Route::patch('/tasks/status','TasksController@updateMyTasks');
+Route::patch('/tasks/edit','TasksController@updateGivenTasks');
+Route::delete('/tasks/{id}/delete','TasksController@destroy');
 
 
 Route::get('/security','SecurityController@index');

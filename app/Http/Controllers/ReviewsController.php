@@ -40,7 +40,7 @@ class ReviewsController extends Controller
 
     	$this->validate($request,[
     		'userId' => 'required|not_in:0',
-    		'note' => 'required:min:5',
+    		'note' => 'required:min:5|max:100',
             'noteDate' =>'required'
     	]);
 
@@ -54,5 +54,11 @@ class ReviewsController extends Controller
         $note->note = $request['note'];
         $note->save();
         return response(['msg' => 'Member Performance note updated', 'status' => 'Success']);
+    }
+
+    public function destroy($id)
+    {
+        PerformanceNotes::destroy($id);
+        return response(['msg' => 'performance note deleted', 'status' => 'Success']);
     }
 }

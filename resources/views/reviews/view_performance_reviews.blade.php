@@ -47,9 +47,10 @@
                                             <td id={{ $note['id'] }}>
                                                 @if($note->userOwner == $loggedUser)
                                                     <button class="btn btn-primary btn-xs editNote" data-toggle="modal" data-target="#myModal">Edit</button>
+                                                    <button class="btn btn-danger btn-xs delete" data-toggle="modal" data-target="#deleteModal">Delete</button>
                                                 @endif
                                             </td>
-                                            <td class=" last">{{ $note->Owner->name }} </td>
+                                            <td class=" last">{{ $note->Owner->name }} {{ $note->Owner->lastName }}</td>
                                         </tr>
                                     @endforeach
                                     @endif
@@ -69,7 +70,7 @@
                                                     <button class="btn btn-primary btn-xs editNote" data-toggle="modal" data-target="#myModal">Edit</button>
                                                 @endif
                                             </td>
-                                            <td class=" last">{{ $note->Owner->name }} </td>
+                                            <td class=" last">{{ $note->Owner->name }} {{ $note->Owner->lastName }}</td>
                                         </tr>
                                     @endif
                                     @endforeach
@@ -91,8 +92,10 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h4 class="modal-title">Edit Performance Note</h4>
+        </div>
+         <div class="alert alert-danger err" style="display:none">
+            <strong>Whoops! </strong> <span id='errMsg'></span>
         </div>
         <div class="modal-body">
             <form role="form" method="PATCH" >
@@ -110,6 +113,25 @@
   </div>
 </div>
 
+
+ <!-- Modal 2 delete request-->
+  <div class="modal fade" id="deleteModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id='taskTitle'>Delete Performance Note</h4>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button id="confirmDelete" type="button" class="btn btn-primary">Delete This Performance Note</button>
+        </div>
+      </div>
+    </div>
+  </div> 
+
 <script>
     $('#datatable').DataTable({
         "aaSorting": [], //disables default sort
@@ -126,6 +148,7 @@
     $(document).ready(function(){
 
         $('#datatable').on('click','.editNote', function(){
+             $(".err").hide();
              $noteId = $(this).parent().prop('id');
             $('#showNote').val($(this).parent().prev().text()); 
         });
@@ -135,21 +158,52 @@
         });
 
         $('#updateNote').on('click', function(){
-
-            var token = $(this).data("token");
-                    $.ajax({
-                        url: '/performance_review/',
-                        type: 'PATCH',
-                        data: {
-                            'noteId': $noteId,
-                            'note': $('#showNote').val()
-                        },
-                       
-                        success: function(result) {
-                            location.reload();
-                        }
-                    });
+            if($('#showNote').val().length >= 5 && $('#showNote').val().length <= 100)
+            {
+                var token = $(this).data("token");
+                        $.ajax({
+                            url: '/performance_review/',
+                            type: 'PATCH',
+                            data: {
+                                'noteId': $noteId,
+                                'note': $('#showNote').val()
+                            },
+                           
+                            success: function(result) {
+                                location.reload();
+                            }
+                        });
+            }
+            else
+            {
+                $('#errMsg').text("Performance note detail must be in between 10 and 100 characters inclusive")
+                $(".err").show('slow');
+            }
         });
+
+        $('#datatable').on('click','.delete', function(){
+            
+            $deleteId = $(this).parent().prop('id');
+            console.log($deleteId);
+        });
+
+        $('#confirmDelete').on('click', function(){
+            var token = $(this).data("token");
+                $.ajax({
+                    url: '/performance_review/' + $deleteId + '/delete',
+                    type: 'DELETE',
+                    headers: {
+                        'X-CSRF-TOKEN': token
+                    },
+                   
+                    success: function(result) {
+                        location.reload();
+                    }
+                });
+        });
+
+
+      
 
 
     }); // closes document.ready()
