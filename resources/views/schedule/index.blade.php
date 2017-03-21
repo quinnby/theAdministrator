@@ -29,12 +29,13 @@
                                     <tr class="headings">
                                         <th class="column-title">Staff </th>
                                         <th class="column-title">Monday - {{ $monday->format('d') }} </th>
-                                        <th class="column-title">Tuesday - {{ $monday->format('d') + 1 }} </th>
-                                        <th class="column-title">Wednesday - {{ $monday->format('d') + 2 }} </th>
-                                        <th class="column-title">Thursday - {{ $monday->format('d') + 3 }} </th>
-                                        <th class="column-title">Friday - {{ $monday->format('d') + 4 }} </th>
-                                         <th class="column-title">Saturday - {{ $monday->format('d') + 5 }} </th>
-                                        <th class="column-title no-link last"><span class="nobr">Sunday - {{ $monday->format('d') + 6 }} </span></th>
+                                        <th class="column-title">Tuesday - {{ $monday->addDays(1)->format('d') }} </th>
+                                        <th class="column-title">Wednesday - {{ $monday->addDays(1)->format('d') }} </th>
+                                        <th class="column-title">Thursday - {{ $monday->addDays(1)->format('d') }} </th>
+                                        <th class="column-title">Friday - {{ $monday->addDays(1)->format('d') }} </th>
+                                        <th class="column-title">Saturday - {{ $monday->addDays(1)->format('d') }} </th>
+                                        <th class="column-title no-link last"><span class="nobr">Sunday - {{ $monday->addDays(1)->format('d') }} </span></th>
+                                        <?php $monday->addDays(-6); ?>
                                     </tr>
                                 </thead>
                                 <tbody>
