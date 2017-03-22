@@ -76,8 +76,41 @@ class UsersController extends Controller
         $user = User::find($id);
         $jobTitles = JobTitle::All();
         $departments = Department::All();
+        
         return view ('user.edit_profile',compact('user', 'departments', 'jobTitles'));
     }
+    
+    public function edited($id, Request $request)
+    {
+        
+        $user = User::whereId($id)->update($request->except(['_method','_token']));
+        $user->password = bcrypt($request['password']);
+
+        //|regex:/^\(\d{3}\)\s\d{3}-\d{4}$/'
+        $this->validate($request, [
+            'name' => 'required|min:3',
+            'lastName' => 'required|min:3',
+            'sinNumber' => 'required|regex:/^\d{3}-\d{3}-\d{3}$/',
+            'primaryPhone' => 'required|min:10',
+            'birthDate' => 'required',
+            'address'=> 'required|min:5',
+            'city' => 'required',
+            'email' => 'Required|Email|Confirmed',
+            'password' => 'required|Confirmed',
+            'province'=>'required|not_in:0',
+            'userTypeId' => 'required|not_in:0',
+            'titleId'=> 'required|not_in:0',
+            'departmentId'=> 'required|not_in:0'
+        ]);
+        
+        $user->save();
+        $msg = "You have successfully edited " . $user->name . " " . $user->lastName;
+        $request->session()->flash('success', $msg);
+        return back();
+
+        //Todo: Redirect user to an actual page 
+    }
+        
     
     public function destroy($id, Request $request)
     {   
