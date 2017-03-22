@@ -31,7 +31,7 @@
                                 </thead>
                                 <tbody>
                                     <!-- If User Is An Admin -->
-                                    @if (!auth()->guest() && auth()->user()->isOfType(1)) 
+                                    @if (!auth()->guest()) 
                                     @foreach($tasks as $task)
 
                                         @if($task['userId'] == $loggedUser)
