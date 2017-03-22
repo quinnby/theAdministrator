@@ -50,7 +50,7 @@ class DepartmentsController extends Controller
 
     public function destroy($id)
     {
-        Department::destroy(2);
+        Department::destroy($id);
         return response(['msg' => 'department deleted', 'status' => 'Success']);
     }
 }

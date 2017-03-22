@@ -37,7 +37,7 @@
                                             <td id={{ $department['id'] }}>
                                                  @if (!auth()->guest() && auth()->user()->isOfType(1))   
                                                     <button class="btn btn-primary btn-xs editDepartment" data-toggle="modal" data-target="#myModal">Edit</button>
-                                                   {{--  <button class="btn btn-danger btn-xs delete" data-toggle="modal" data-target="#deleteModal">Delete</button> --}}
+                                                    <button class="btn btn-danger btn-xs delete" data-toggle="modal" data-target="#deleteModal">Delete</button>
                                                 @endif
                                             </td>
                                         </tr>
@@ -87,7 +87,7 @@
 
 
  <!-- Modal 2 delete request-->
-{{--   <div class="modal fade" id="deleteModal" role="dialog">
+  <div class="modal fade" id="deleteModal" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
@@ -106,7 +106,7 @@
         </div>
       </div>
     </div>
-  </div>  --}}
+  </div> 
 <script>
 
     var table = $('#datatable').DataTable({
@@ -167,31 +167,31 @@
             }
         });
 
-            // $("#datatable").on("click",'.delete', function(){
+            $("#datatable").on("click",'.delete', function(){
 
-            //     var $id = $(this).parent().prop("id");
-            //     var $name = $( this ).parent().prev().prev().prev().text();
+                var $id = $(this).parent().prop("id");
+                var $name = $( this ).parent().prev().prev().prev().text();
 
-            //     $('#showDepartDel').text('Do you want to delete ' + $name + ' department ?');
-            //     $('#showDepartDel').attr('data-id', $id);
-            //     console.log($id);
-            // });
+                $('#showDepartDel').text('Do you want to delete ' + $name + ' department ?');
+                $('#showDepartDel').attr('data-id', $id);
+                console.log($id);
+            });
 
-            // $('#confirmDelete').on('click',function(){
-            //     var token = $(this).data("token");
-            //     $.ajax({
-            //         url: '/departments/' + $('#showDepartDel').attr('data-id') + '/delete/',
-            //         type: 'DELETE',  // user.destroy
-            //         // headers: {
-            //         //    'X-CSRF-TOKEN': token
-            //         // },
-            //         success: function(result) {
-            //             //table.row($(this).closest('tr')).remove().draw();
-            //             location.reload();
-            //         }
-            //     });
+            $('#confirmDelete').on('click',function(){
+                var token = $(this).data("token");
+                $.ajax({
+                    url: '/departments/' + $('#showDepartDel').attr('data-id') + '/delete/',
+                    type: 'DELETE',  // user.destroy
+                    // headers: {
+                    //    'X-CSRF-TOKEN': token
+                    // },
+                    success: function(result) {
+                        //table.row($(this).closest('tr')).remove().draw();
+                        location.reload();
+                    }
+                });
             
-            // });
+            });
 
 
     }); // closes document.ready()

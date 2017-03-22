@@ -27,8 +27,8 @@ class AddFieldsToUsersTable extends Migration
             $table->string('secondaryPhone')->nullable();
             $table->integer('titleId')->unsigned()->index();
             $table->foreign('titleId')->references('id')->on('job_titles');
-            $table->integer('departmentId')->unsigned()->index();
-            // $table->foreign('departmentId')->references('id')->on('departments');
+            $table->integer('departmentId')->unsigned()->nullable();
+            $table->foreign('departmentId')->references('id')->on('departments');
             $table->integer('userTypeId')->unsigned()->index();
             $table->foreign('userTypeId')->references('id')->on('user_types');
             $table->boolean('active')->default(true);
