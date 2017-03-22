@@ -50,7 +50,7 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">First Name </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input value="{{ $user->name}}" type="text" id="firstName" name="firstName" class="form-control col-md-7 col-xs-12"> </div>
+                                    <input value="{{ $user->name}}" type="text" id="name" name="name" class="form-control col-md-7 col-xs-12"> </div>
                             </div>
                             
                             <div class="form-group">
@@ -107,6 +107,13 @@
                                 <div class="col-md-6 col-sm-6 col-xs-12">
                                     <input value="{{ $user->postalCode}}" type="text" id="postal" name="postal" class="form-control col-md-7 col-xs-12"> </div>
                             </div>
+                        <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="birthDate">Birth Date <span class="required">*</span>
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="date" id="birthDate" name="birthDate" placeholder="DD/MM/YYYY" class="form-control col-md-7 col-xs-12" value="{{ $user['birthDate'] }}">
+                        </div>
+                      </div>
 
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Job Title </label>
@@ -118,11 +125,25 @@
                                     </select>
                                 </div>
                             </div>
+                        
+                            <div class="item form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">User Type
+                          <span class="required">*</span>
+                          </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <select class="form-control" name="userTypeId">
+                            <option value=0>Choose User Type</option>
+                            @foreach ($userTypes as $userType)
+                                <option value={{ $userType['id']}}>{{ $userType['userType'] }}</option>
+                            @endforeach
+                          </select>
+                        </div>
+                      </div>
 
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12">Department </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <select class="form-control" name="titleId">
+                                    <select class="form-control" name="departmentId">
                                         @if($user['departmentId'] != null)
                                             @foreach($departments as $department)
                                                 <option value={{$department['id']}} {{$user['departmentId'] == $department['id'] ? 'selected="selected"' : ''}}>{{ $department['department'] }}</option>
@@ -148,13 +169,13 @@
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12"> Primary Phone Number </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input value="{{ $user->primaryPhone}}" type="text" id="primaryTelephone" name="primaryTelephone" class="form-control col-md-7 col-xs-12"> </div>
+                                    <input value="{{ $user->primaryPhone}}" type="text" id="primaryPhone" name="primaryPhone" class="form-control col-md-7 col-xs-12"> </div>
                             </div>
                       
                             <div class="form-group">
                                 <label class="control-label col-md-3 col-sm-3 col-xs-12"> Secondary Phone Number </label>
                                 <div class="col-md-6 col-sm-6 col-xs-12">
-                                    <input value="{{ $user->secondaryPhone}}" type="text" id="secondaryTelephone" name="secondaryTelephone" class="form-control col-md-7 col-xs-12"> </div>
+                                    <input value="{{ $user->secondaryPhone}}" type="text" id="secondaryPhone" name="secondaryPhone" class="form-control col-md-7 col-xs-12"> </div>
                             </div>
                              
                           <div class="item form-group">

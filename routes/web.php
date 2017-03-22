@@ -60,7 +60,7 @@ Route::post('/users/add', 'UsersController@add');
 Route::get('/users/create','UsersController@create');
 Route::get('/user/profile/{id}', 'UsersController@view');
 Route::get('/user/profile/{id}/edit', 'UsersController@edit');
-Route::post('/user/profile/{id}/edit', 'UsersController@edited');
+Route::post('/user/profile/{user}/edit', 'UsersController@edited');
 Route::get('/user/dashboard', 'UsersController@dashboard');
 Route::delete('/user/{id}/delete', 'UsersController@destroy');
 Route::patch('user/{id}/toggleActivation', 'UsersController@toggleActivation');
