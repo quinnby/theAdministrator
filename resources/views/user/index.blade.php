@@ -58,7 +58,11 @@
                                         <tr class="even pointer">
                                             <td><a href="{{ url('/user/profile') }}/{{  $user->id }}">{{ $user->name }} {{ $user->lastName }}</a></td>
                                             <td>{{ $user->jobTitle->title}}</td>
-                                            <td>{{ $user->department->department}}</td>
+                                            @if($user->department != null)
+                                                <td>{{ $user->department->department}}</td>
+                                            @else
+                                               <td>N/A</td>
+                                            @endif
                                             <td>{{ $user->userType->userType }}</td>
                                             <td>{{ $user->primaryPhone }}</td>
                                             <td>{{ $user->secondaryPhone }} </td>

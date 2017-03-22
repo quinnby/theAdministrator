@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use Illuminate\Http\Request;
 use App\Department;
+use Illuminate\Support\Facades\DB;
 
 class DepartmentsController extends Controller
 {
@@ -50,6 +51,7 @@ class DepartmentsController extends Controller
 
     public function destroy($id)
     {
+        DB::table('users')->where('departmentId', $id)->update(array('departmentId' => NULL));
         Department::destroy($id);
         return response(['msg' => 'department deleted', 'status' => 'Success']);
     }

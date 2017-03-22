@@ -27,7 +27,7 @@
                             <ul class="list-unstyled user_data">
                                 
                                  <!-- Job Title and Department -->
-                                <li> <i class="fa fa-briefcase user-profile-icon"></i> {{ $user->jobTitle->title }}, <i>{{ $user->department->department}}</i> </li>
+                                <li> <i class="fa fa-briefcase user-profile-icon"></i> {{ $user->jobTitle->title }}, <i>{{ ($user->department != null) ? $user->department->department : "N/A"}}</i> </li>
                             </ul> 
                             
                             <!-- Edit Profile Button -->

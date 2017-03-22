@@ -179,12 +179,13 @@
 
             $('#confirmDelete').on('click',function(){
                 var token = $(this).data("token");
+                console.log($('#showDepartDel').attr('data-id'));
                 $.ajax({
                     url: '/departments/' + $('#showDepartDel').attr('data-id') + '/delete/',
                     type: 'DELETE',  // user.destroy
-                    // headers: {
-                    //    'X-CSRF-TOKEN': token
-                    // },
+                    headers: {
+                       'X-CSRF-TOKEN': token
+                    },
                     success: function(result) {
                         //table.row($(this).closest('tr')).remove().draw();
                         location.reload();
