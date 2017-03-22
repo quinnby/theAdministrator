@@ -21,7 +21,8 @@ class DepartmentsController extends Controller
     public function index()
     {
     	$departments = Department::All()->sortByDesc("department");
-        return view('departments.index', compact('departments'));
+        $tests = Department::withCount('users')->get();
+        return view('departments.index', compact('departments','tests'));
     }
     
     public function add(Request $request)

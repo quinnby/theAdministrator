@@ -30,11 +30,12 @@
                                 </thead>
                                 <tbody>
                                     @foreach($departments as $department)
+                                        
                                         <tr class="even pointer">
                                             <td>{{ $department->department }}</td>
                                             <td>{{ $department->userId }} </td>
                                             <td>{{ $department->description }} </td>
-                                            <td class=" last"></td>
+                                            <td class="last"></td>
                                         </tr>
                                     @endforeach
                                 </tbody>
