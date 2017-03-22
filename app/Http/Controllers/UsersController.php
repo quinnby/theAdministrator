@@ -77,17 +77,22 @@ class UsersController extends Controller
         return view ('user.edit_profile',compact('user', 'departments', 'jobTitles'));
     }
     
-    public function destroy($id)
-    {
+    public function destroy($id, Request $request)
+    {   
+        $user = User::find($id);
+        $msg = "You have successfully deleted " . $user->name . " " . $user->lastName;
+        $request->session()->flash('success', $msg);
         User::destroy($id);
         return response(['msg' => 'Member deleted', 'status' => 'Success']);
     }
     
-    public function toggleActivation($id)
+    public function toggleActivation($id, Request $request)
     {
         $user = User::find($id);
         $user->active = !$user->active;
         $user->save();
+        $msg = "You have successfully changed activation for " . $user->name . " " . $user->lastName;
+        $request->session()->flash('success', $msg);
         return response(['msg' => 'Member activation toggled', 'status' => 'Success']);
     }
 }
