@@ -18,7 +18,7 @@ class CreateDepartment extends Migration
             $table->integer('userId')->nullable();
             $table->foreign('userId')->references('id')->on('users')->onDelete('cascade');
 
-            $table->string('department');
+            $table->string('department'); 
             $table->string('description')->nullable();
             $table->timestamps();
         });

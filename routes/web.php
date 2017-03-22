@@ -39,6 +39,7 @@ Route::get('/departments','DepartmentsController@index');
 Route::get('/departments/create','DepartmentsController@create');
 Route::post('/departments/create', 'DepartmentsController@add');
 Route::patch('/departments/{id}/edit', 'DepartmentsController@edit');
+Route::delete('/departments/{id}/delete', 'DepartmentsController@destroy');
 
 Route::get('/jobtitles','JobTitlesController@index');
 Route::get('/jobtitles/create','JobTitlesController@create');

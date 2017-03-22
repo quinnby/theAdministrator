@@ -47,4 +47,10 @@ class DepartmentsController extends Controller
         $department->save();
         return response(['msg' => 'department changed', 'status' => 'Success']);
     }
+
+    public function destroy($id)
+    {
+        Department::destroy(2);
+        return response(['msg' => 'department deleted', 'status' => 'Success']);
+    }
 }
