@@ -24,6 +24,13 @@
                     </div>
                @endif
 
+                               <!-- If passed validation --> 
+                @if (\Session::has('success'))
+                    <div class="alert alert-success">
+                        {!! \Session::get('success') !!}  
+                    </div>
+                @endif    
+
                 <div class="x_panel">
                     <div class="x_content">
                         <br />

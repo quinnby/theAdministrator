@@ -28,6 +28,8 @@ class JobTitlesController extends Controller
             ]);
         
         $jobTitle->save();
-        return redirect('jobtitles');
+        $msg = "You have successfully added " . $jobTitle->title . "  job title";
+        $request->session()->flash('success', $msg);
+        return back();
     } 
 }
