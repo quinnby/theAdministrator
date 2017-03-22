@@ -32,4 +32,24 @@ class JobTitlesController extends Controller
         $request->session()->flash('success', $msg);
         return back();
     } 
+
+    public function edit($id, Request $request)
+    {
+        $job = JobTitle::find($id);
+        $job->title = $request['title'];
+        $job->save();
+        $msg = "You have successfully changed " . $job->title . " title";
+        $request->session()->flash('success', $msg);
+        return response(['msg' => 'Job title changed', 'status' => 'Success']);
+    }
+
+    public function destroy($id)
+    {
+        JobTitle::destroy($id);
+        $msg = "You have successfully deleted " . $job->title . " title";
+        $request->session()->flash('success', $msg);
+        return response(['msg' => 'job title deleted', 'status' => 'Success']);
+    }
+
+
 }

@@ -44,6 +44,8 @@ Route::delete('/departments/{id}/delete', 'DepartmentsController@destroy');
 Route::get('/jobtitles','JobTitlesController@index');
 Route::get('/jobtitles/create','JobTitlesController@create');
 Route::post('/jobtitles/create', 'JobTitlesController@add');
+Route::patch('/jobtitles/{id}/edit', 'JobTitlesController@edit');
+Route::delete('/jobtitles/{id}/delete', 'JobTitlesController@destroy');
 
 Route::get('/tasks', 'TasksController@index');
 Route::get('/tasks/create', 'TasksController@create');
