@@ -15,4 +15,9 @@ class Department extends Model
     {
         return $this->hasMany('App\User', 'departmentId');
     }
+    
+     public function Owner()
+    {
+        return $this->belongsTo('App\Models\User', 'userOwner', 'id');
+    }
 }
