@@ -23,12 +23,14 @@
                                 <thead>
                                     <tr class="headings">
                                         <th class="column-title">Job Title </th>
+                                        <th class="column-title">Number of Employees</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($jobTitles as $jobTitle)
                                         <tr class="even pointer">
                                             <td>{{ $jobTitle->title }}</td>
+                                            <td>{!!\App\Models\User::Where('titleId',$jobTitle->id)->count() !!} Employee(s)</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

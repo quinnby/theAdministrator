@@ -21,7 +21,6 @@ class JobTitlesController extends Controller
     public function add(Request $request)
     {
         $jobTitle = new JobTitle($request->all());
-        //dd($department);
         $jobTitleRequests = JobTitle::All();
             
         $this->validate($request, [

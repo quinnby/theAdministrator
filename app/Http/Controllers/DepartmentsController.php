@@ -28,7 +28,6 @@ class DepartmentsController extends Controller
     public function add(Request $request)
     {
         $department = new Department($request->all());
-        //dd($department);
         $departmentRequests = Department::All();
             
         $this->validate($request, [
@@ -37,7 +36,9 @@ class DepartmentsController extends Controller
             ]);
         
         $department->save();
-        return redirect('departments');
+        $msg = "You have successfully added " . $department->department . " department";
+        $request->session()->flash('success', $msg);
+        return back();
     } 
 
     public function edit($id, Request $request)
