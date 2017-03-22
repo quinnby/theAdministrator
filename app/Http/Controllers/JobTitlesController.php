@@ -25,7 +25,7 @@ class JobTitlesController extends Controller
         $jobTitleRequests = JobTitle::All();
             
         $this->validate($request, [
-            'title' => 'required',
+            'title' => 'required|min:5|max:30',
             ]);
         
         $jobTitle->save();

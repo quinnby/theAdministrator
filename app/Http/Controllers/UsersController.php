@@ -64,7 +64,9 @@ class UsersController extends Controller
         ]);
         
         $user->save();
-        return $user;
+        $msg = "You have successfully created " . $user->name . " " . $user->lastName;
+        $request->session()->flash('success', $msg);
+        return back();
 
         //Todo: Redirect user to an actual page 
     }
