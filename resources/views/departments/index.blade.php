@@ -22,31 +22,24 @@
                             <table id="datatable" class="table table-striped jambo_table bulk_action">
                                 <thead>
                                     <tr class="headings">
-                                        <th class="column-title">Department Name </th>
-                                        <th class="column-title">Department Head </th>
-                                        <th class="column-title">Description </th>
+                                        <th class="column-title">Department Name</th>
+                                        <th class="column-title">Department Description</th>
                                         <th class="column-title">Number of Employees </th>
                                         <th class="column-title no-link last"><span class="nobr">Action </span></th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($departments as $department)
-                                        
                                         <tr class="even pointer">
                                             <td>{{ $department->department }}</td>
-                                            <td>{{ $department->userId }} </td>
-                                            <td>{{ $department->description }} </td>
-
-                                            <td class="last"></td>
-
-                                            <td>Not sure how to get this working</td>
-                                            <td id={{ $department['department'] }}>
+                                            <td>{{ $department->description }}</td>
+                                            <td class="last">{!!\App\Models\User::Where('departmentId',$department->id)->count() !!} Employee(s)</td>
+                                            <td id={{ $department['id'] }}>
                                                  @if (!auth()->guest() && auth()->user()->isOfType(1))   
                                                     <button class="btn btn-primary btn-xs editDepartment" data-toggle="modal" data-target="#myModal">Edit</button>
                                                     <button class="btn btn-danger btn-xs delete" data-toggle="modal" data-target="#deleteModal">Delete</button>
                                                 @endif
                                             </td>
-
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -73,7 +66,7 @@
         </div>
         <div class="modal-header">
             <h4 class="modal-title">
-                <input type="text" id="showDepartmentName" class="form-control">
+                <input type="text" id="showDepartmentName" class="form-control" data-id="">
             </h4>
         </div>
         <div class="modal-body">
@@ -111,26 +104,43 @@
     </div>
   </div> 
 <script>
+
+    var table = $('#datatable').DataTable({
+        "lengthMenu": [ 5, 10, 25, 50, 75, 100 ],
+        "pageLength": 5
+       });
+
      $(document).ready(function($){
 
         $.ajaxSetup({
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
         });
 
+            $("#datatable").on("click",'.editDepartment', function(){
+
+                var $name = $( this ).parent().prev().prev().prev().text();
+                var $description = $( this ).parent().prev().prev().text();
+                var $id = $(this).parent().prop("id");
+                console.log($id);
+
+                $('#showDepartmentName').val($name);
+                $('#showDepartmentName').attr('data-id', $id);
+                $('#showDepartmentDesc').val($description);
+            });
+
          $('#updateDepartment').on('click', function(){
 
-            if($('#showDepartment').val().length >= 5 && $('#showDepartment').val().length <= 30)
+            if($('#showDepartmentName').val().length >= 5 && $('#showDepartmentName').val().length <= 30)
             {
                 if($('#showDepartmentDesc').val().length >= 10 && $('#showDepartmentDesc').val().length <= 100)
                 {
                     var token = $(this).data("token");
                     $.ajax({
-                        url: '/departments/edit',
+                        url: '/departments/' + $('#showDepartmentName').attr("data-id") +'/edit/',
                         type: 'PATCH',
                         data: {
-                            'id': $id,
-                            'departmentDescrition': $('#showDepartment').val(),
-                            'departmentDescription': $('#showDepartmentDesc').val()
+                            'department': $('#showDepartmentName').val(),
+                            'description': $('#showDepartmentDesc').val()
                         },
 
                         success: function(result){
@@ -138,7 +148,6 @@
                             console.log('successfully edited department');
                         }
                     });
-
                 }
 
                 else

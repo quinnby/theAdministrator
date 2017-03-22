@@ -21,8 +21,7 @@ class DepartmentsController extends Controller
     public function index()
     {
     	$departments = Department::All()->sortByDesc("department");
-        $tests = Department::withCount('users')->get();
-        return view('departments.index', compact('departments','tests'));
+        return view('departments.index', compact('departments'));
     }
     
     public function add(Request $request)
@@ -32,11 +31,20 @@ class DepartmentsController extends Controller
         $departmentRequests = Department::All();
             
         $this->validate($request, [
-            'department' => 'required',
-            'description' => 'required',
+            'department' => 'required|min:5|max:30',
+            'description' => 'required|min:10|max:100',
             ]);
         
         $department->save();
         return redirect('departments');
     } 
+
+    public function edit($id, Request $request)
+    {
+        $department = Department::find($id);
+        $department->department = $request['department'];
+        $department->description = $request['description'];
+        $department->save();
+        return response(['msg' => 'department changed', 'status' => 'Success']);
+    }
 }

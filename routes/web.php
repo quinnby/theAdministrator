@@ -38,6 +38,7 @@ Route::post('/schedule/create', 'ScheduleController@add');
 Route::get('/departments','DepartmentsController@index');
 Route::get('/departments/create','DepartmentsController@create');
 Route::post('/departments/create', 'DepartmentsController@add');
+Route::patch('/departments/{id}/edit', 'DepartmentsController@edit');
 
 Route::get('/jobtitles','JobTitlesController@index');
 Route::get('/jobtitles/create','JobTitlesController@create');
