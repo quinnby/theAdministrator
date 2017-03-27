@@ -34,6 +34,7 @@
                             @if (!auth()->guest() && auth()->user()->isOfType(1))  
                                 <a class="btn btn-success" href="{{ url('/user/profile') }}/{{ $user->id }}/edit">
                                 <i class="fa fa-edit m-right-xs"></i>Edit Profile</a>
+                                <div id="editTotalSick" class="btn btn-success" data-toggle="modal" data-target="#myModal"><i class="fa fa-edit m-right-xs"></i>Edit Total Sick Days</div>
                                 <br />
                             @endif
                             
@@ -90,6 +91,10 @@
                                                     <td><strong>Email Address</strong></td>
                                                     <td>{{ $user->email}}</td>
                                                 </tr>
+                                                <tr>
+                                                    <td><strong>Allowed Sick Days</strong></td>
+                                                    <td>{{ ($user->totalSickDays == null)? "Not Set" : $user->totalSickDays }}</td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                         <!-- end personal info -->
@@ -102,8 +107,79 @@
                 </div>
             </div>
         </div>
+        <!-- Modal -->
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Set Total Sick Days</h4>
+                </div>
+                <div class="alert alert-danger err" style="display:none">
+                    <strong>Whoops! </strong> <span id='errMsg'></span>
+                </div>
+                <div class="modal-body">
+                    <form role="form" method="PATCH" >
+                        <div class="form-group">
+                            <label><strong>Total Allowed</strong></label><input class="form-control" id="totalSickDays" value="{{ ($user->totalSickDays == null)? "0" : $user->totalSickDays }}"></input>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button id="updateSick" type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
     </div>
 </div>
+<script>
+     $(document).ready(function(){
+
+        $.ajaxSetup({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+        });
+            
+            $('#updateSick').on('click', function(){
+
+                if($('#totalSickDays').val().length >= 0)
+                {
+                    if(Math.floor($('#totalSickDays').val()) == $('#totalSickDays').val() && $.isNumeric($('#totalSickDays').val()))
+                    {
+                        var token = $(this).data("token");
+                        $.ajax({
+                            url: '/users/' + {{ $user->id }} +'/setSickDays/',
+                            type: 'PATCH',
+                            data: {
+                                'totalSickDays': $('#totalSickDays').val()
+                            },
+
+                            success: function(result){
+                                location.reload();
+                                console.log('successfully edited department');
+                            }
+                        });
+                    }
+
+                    else
+                    {
+                        $('#errMsg').text("Total sick days must be a positive whole number.");
+                        $(".err").show('slow');
+                    }
+                }
+                else
+                {
+                    $('#errMsg').text("You must enter in a sick day.")
+                    $(".err").show('slow');
+                }
+            });
+        });
+     
+    
+</script>
+    
 <!-- /page content -->
 <!-- footer content -->
 <footer> @include('includes.footer') </footer>

@@ -58,6 +58,7 @@ Route::delete('/tasks/{id}/delete','TasksController@destroy');
 Route::get('/security','SecurityController@index');
 
 Route::get('/users','UsersController@index');
+Route::patch('/users/{id}/setSickDays','UsersController@setSickDays');
 Route::post('/users/add', 'UsersController@add');
 Route::get('/users/create','UsersController@create');
 Route::get('/user/profile/{id}', 'UsersController@view');

@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddFieldsToUsersTable' => $baseDir . '/database/migrations/2018_17_31_162117_add_fields_to_users_table.php',
-    'AddSickDaysToUsersTable' => $baseDir . '/database/migrations/2017_03_27_223111_add_sick_days_to_users_table.php',
+    'AddSickDaysToUsersTable' => $baseDir . '/database/migrations/2018_18_27_223111_add_sick_days_to_users_table.php',
     'CreateAbsencesTable' => $baseDir . '/database/migrations/2018_18_28_152801_create_absences_table.php',
     'CreateBookOff' => $baseDir . '/database/migrations/2018_16_31_164045_create_book_off.php',
     'CreateDepartment' => $baseDir . '/database/migrations/2018_12_31_161503_create_department.php',
@@ -16,6 +16,7 @@ return array(
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2018_10_12_100000_create_password_resets_table.php',
     'CreatePerformanceNote' => $baseDir . '/database/migrations/2018_11_31_162110_create_performance_note.php',
     'CreateSchedule' => $baseDir . '/database/migrations/2018_15_31_164451_create_schedule.php',
+    'CreateSickDayTable' => $baseDir . '/database/migrations/2017_03_27_223839_create_sick_day_table.php',
     'CreateTaskTable' => $baseDir . '/database/migrations/2018_13_01_174721_create_task_table.php',
     'CreateUserType' => $baseDir . '/database/migrations/2017_01_31_160711_create_user_type.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2017_10_12_000000_create_users_table.php',

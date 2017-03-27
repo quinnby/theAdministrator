@@ -292,7 +292,7 @@ class ComposerStaticInit3641ab4b2c1e20e2ae40a377b7186713
 
     public static $classMap = array (
         'AddFieldsToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2018_17_31_162117_add_fields_to_users_table.php',
-        'AddSickDaysToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_27_223111_add_sick_days_to_users_table.php',
+        'AddSickDaysToUsersTable' => __DIR__ . '/../..' . '/database/migrations/2018_18_27_223111_add_sick_days_to_users_table.php',
         'CreateAbsencesTable' => __DIR__ . '/../..' . '/database/migrations/2018_18_28_152801_create_absences_table.php',
         'CreateBookOff' => __DIR__ . '/../..' . '/database/migrations/2018_16_31_164045_create_book_off.php',
         'CreateDepartment' => __DIR__ . '/../..' . '/database/migrations/2018_12_31_161503_create_department.php',
@@ -301,6 +301,7 @@ class ComposerStaticInit3641ab4b2c1e20e2ae40a377b7186713
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2018_10_12_100000_create_password_resets_table.php',
         'CreatePerformanceNote' => __DIR__ . '/../..' . '/database/migrations/2018_11_31_162110_create_performance_note.php',
         'CreateSchedule' => __DIR__ . '/../..' . '/database/migrations/2018_15_31_164451_create_schedule.php',
+        'CreateSickDayTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_27_223839_create_sick_day_table.php',
         'CreateTaskTable' => __DIR__ . '/../..' . '/database/migrations/2018_13_01_174721_create_task_table.php',
         'CreateUserType' => __DIR__ . '/../..' . '/database/migrations/2017_01_31_160711_create_user_type.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2017_10_12_000000_create_users_table.php',

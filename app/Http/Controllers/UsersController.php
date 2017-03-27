@@ -131,5 +131,14 @@ class UsersController extends Controller
         $request->session()->flash('success', $msg);
         return response(['msg' => 'Member activation toggled', 'status' => 'Success']);
     }
+    
+    public function setSickDays($id, Request $request)
+    {
+        $user = User::find($id);
+        $user->totalSickDays = $request->totalSickDays;
+        $user->save();
+        //$request->session()->flash('success', $msg);
+        return response(['msg' => 'Sick days set.', 'status' => 'Success']);
+    }
 }
 ?>
