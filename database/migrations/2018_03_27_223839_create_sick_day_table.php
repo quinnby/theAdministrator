@@ -13,7 +13,7 @@ class CreateSickDayTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('sick_days', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->date('dateSick');

@@ -33,6 +33,7 @@ class AddFieldsToUsersTable extends Migration
             $table->foreign('userTypeId')->references('id')->on('user_types');
             $table->boolean('active')->default(true);
             $table->date('endDate')->nullable();
+            //$table->integer('totalSickDays')->unsigned()->nullable();
         });
 
         DB::table('users')->insert([
