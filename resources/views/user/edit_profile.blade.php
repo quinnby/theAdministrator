@@ -8,6 +8,9 @@
             <div class="title_left">
                 <h3>Edit Profile</h3> </div>
         </div>
+                      
+                  <div class="x_panel">
+                      
                   <!-- If Errors are detected in validation -->  
                     @if (count($errors) > 0)
             						<div class="alert alert-danger">
@@ -26,8 +29,6 @@
                         {!! \Session::get('success') !!}  
                     </div>
                 @endif   
-                      
-                  <div class="x_panel">
                       <div class="x_content">
                           <br />
                    
